@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solid State Physics by Ankit  — Complete Exam Notes</title>
-  <title>by Ankit </title>
+<title>Solid State Physics — Complete Exam Notes</title>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -34,8 +32,6 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Outfit', sans-serif;
@@ -120,7 +116,7 @@
   .content { padding: 0 60px 80px; }
 
   /* UNIT SECTION */
-  .unit-section { padding-top: 60px; padding-bottom: 20px; }
+  .unit-section { padding-top: 60px; }
   .unit-section + .unit-section { border-top: 1px solid var(--border); }
 
   .unit-header {
@@ -259,30 +255,38 @@
   </div>
   <div class="nav-section">
     <div class="nav-label">Units</div>
-    <a class="nav-item active" href="#u1" id="nav-u1">
+    <a class="nav-item active" href="#u1">
       <span class="nav-dot" style="background:#7eb8f7"></span>
       Crystal Structure
       <span class="nav-hours">10 hrs</span>
     </a>
-    <a class="nav-item" href="#u2" id="nav-u2">
+    <a class="nav-item" href="#u2">
       <span class="nav-dot" style="background:#7de8c0"></span>
       Lattice Dynamics
       <span class="nav-hours">6 hrs</span>
     </a>
-    <a class="nav-item" href="#u3" id="nav-u3">
+    <a class="nav-item" href="#u3">
       <span class="nav-dot" style="background:#c4a6f7"></span>
       Band Theory
       <span class="nav-hours">5 hrs</span>
     </a>
-    <a class="nav-item" href="#u4" id="nav-u4">
+    <a class="nav-item" href="#u4">
       <span class="nav-dot" style="background:#f7a07e"></span>
       Magnetic Properties
       <span class="nav-hours">6 hrs</span>
     </a>
-    <a class="nav-item" href="#u5" id="nav-u5">
+    <a class="nav-item" href="#u5">
       <span class="nav-dot" style="background:#f7d97e"></span>
       Dielectric Properties
       <span class="nav-hours">3 hrs</span>
+    </a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Past Year Paper</div>
+    <a class="nav-item" href="#pyq">
+      <span class="nav-dot" style="background:#f97eb8"></span>
+      Solved Q1–Q5
+      <span class="nav-hours">PYQ</span>
     </a>
   </div>
   <div class="nav-section" style="margin-top:auto; padding-bottom:20px;">
@@ -298,8 +302,6 @@
   <div class="hero">
     <div class="hero-eyebrow">Complete Exam Preparation</div>
     <div class="hero-title">Solid State <em>Physics</em></div>
-    <div class="hero-title">by <em>Ankit</em></div>
-
     <div class="hero-sub">Topic-wise notes with exam writing format, key formulas, and comparison tables — everything you need to write on your answer sheet.</div>
     <div class="hero-pills">
       <span class="pill">5 Units</span>
@@ -325,7 +327,7 @@
       <div class="topic-grid">
 
         <!-- T1 -->
-        <div class="topic-card open">
+        <div class="topic-card open" id="t-amorphous">
           <div class="topic-card-header" onclick="toggle(this)">
             <span class="topic-name">1. Amorphous vs Crystalline Solids</span>
             <div style="display:flex;gap:8px;align-items:center">
@@ -360,7 +362,7 @@
         </div>
 
         <!-- T2 -->
-        <div class="topic-card">
+        <div class="topic-card" id="t-lattice">
           <div class="topic-card-header" onclick="toggle(this)">
             <span class="topic-name">2. Lattice, Basis & Unit Cell</span>
             <div style="display:flex;gap:8px;align-items:center">
@@ -400,7 +402,7 @@
         </div>
 
         <!-- T3 -->
-        <div class="topic-card">
+        <div class="topic-card" id="t-miller">
           <div class="topic-card-header" onclick="toggle(this)">
             <span class="topic-name">3. Miller Indices</span>
             <div style="display:flex;gap:8px;align-items:center">
@@ -430,7 +432,8 @@
 
             <div class="formula-block">
               <div class="f-label">Interplanar Spacing (Cubic System)</div>
-              d_hkl = a / √(h² + k² + l²)<br>
+              d_hkl = a / √(h² + k² + l²)
+              <br>
               where a = lattice parameter, (h, k, l) = Miller indices
             </div>
 
@@ -439,7 +442,7 @@
         </div>
 
         <!-- T4 -->
-        <div class="topic-card">
+        <div class="topic-card" id="t-reciprocal">
           <div class="topic-card-header" onclick="toggle(this)">
             <span class="topic-name">4. Reciprocal Lattice</span>
             <div style="display:flex;gap:8px;align-items:center">
@@ -457,8 +460,10 @@
               <div class="f-label">Reciprocal Lattice Vectors</div>
               a* = 2π(b × c) / V<br>
               b* = 2π(c × a) / V<br>
-              c* = 2π(a × b) / V<br><br>
-              where V = a·(b × c) = volume of unit cell<br><br>
+              c* = 2π(a × b) / V<br>
+              <br>
+              where V = a·(b × c) = volume of unit cell<br>
+              <br>
               Orthogonality: a·a* = 2π,  a·b* = 0,  a·c* = 0
             </div>
 
@@ -470,7 +475,7 @@
         </div>
 
         <!-- T5 -->
-        <div class="topic-card">
+        <div class="topic-card" id="t-brillouin">
           <div class="topic-card-header" onclick="toggle(this)">
             <span class="topic-name">5. Brillouin Zones & Ewald Construction</span>
             <div style="display:flex;gap:8px;align-items:center">
@@ -480,19 +485,73 @@
           </div>
           <div class="topic-body">
             <div class="section-sub">Brillouin Zones</div>
-            <div class="point">A <strong>Brillouin zone</strong> is defined as a primitive Wigner-Seitz cell developed inside the reciprocal lattice space.</div>
-            <div class="point">The boundaries of these zones reflect the locations where moving waves meet conditions for Bragg reflection.</div>
-            <div class="point"><strong>First Brillouin Zone</strong>: The smallest enclosed volume around the reciprocal lattice origin boundary lines. It marks the fundamental region for calculating electronic bands.</div>
+            <div class="point">A Brillouin zone is the <strong>Wigner-Seitz cell of the reciprocal lattice</strong>.</div>
+            <div class="point"><strong>First Brillouin zone</strong>: region in k-space closer to the origin (k=0) than to any other reciprocal lattice point.</div>
+            <div class="point">Constructed by drawing perpendicular bisector planes to lines connecting origin to nearest reciprocal lattice points.</div>
+            <div class="point">At Brillouin zone boundaries: Bragg reflection occurs → standing waves form → energy gaps open.</div>
+            <div class="point">All allowed electron states (k values) can be mapped into the first BZ (reduced zone scheme).</div>
 
-            <div class="section-sub">Ewald Sphere Construction</div>
-            <div class="point">A geometric framework used to determine which reciprocal lattice points will yield visible diffraction for a given X-ray wavelength.</div>
-            <div class="point"><strong>Method</strong>: Draw a vector of length 1/λ matching the incoming beam direction to end exactly at the reciprocal origin. Trace a sphere of radius 1/λ from the start of that vector. Everywhere the sphere surface intersects a reciprocal lattice point, a valid diffraction beam is produced.</div>
+            <div class="section-sub">Ewald's Construction (Geometrical Approach)</div>
+            <div class="point">A geometrical method to find which crystal planes satisfy the diffraction condition.</div>
+            <div class="write-format">
+              <div class="wf-label">Steps of Ewald Construction</div>
+              <div class="wf-step">Draw the reciprocal lattice of the crystal.</div>
+              <div class="wf-step">Draw the incident wave vector k₀ ending at a reciprocal lattice point (the origin O).</div>
+              <div class="wf-step">Draw a sphere (Ewald sphere) of radius |k₀| = 1/λ centered at the tail of k₀.</div>
+              <div class="wf-step">Wherever this sphere passes through another reciprocal lattice point G, diffraction occurs in the direction k = k₀ + G.</div>
+            </div>
+            <div class="point">Condition for diffraction: |k₀| = |k| (elastic scattering), so the diffracted beam vector must also terminate on the Ewald sphere.</div>
+
+            <div class="exam-tip">Draw the Ewald sphere diagram clearly with k₀, k, and G labeled. Show the reciprocal lattice points. This is a guaranteed diagram question.</div>
+          </div>
+        </div>
+
+        <!-- T6 -->
+        <div class="topic-card" id="t-bragg">
+          <div class="topic-card-header" onclick="toggle(this)">
+            <span class="topic-name">6. X-ray Diffraction & Bragg's Law</span>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span class="topic-badge badge-imp">Exam Favourite</span>
+              <span class="toggle-icon">⌄</span>
+            </div>
+          </div>
+          <div class="topic-body">
+            <div class="section-sub">Why X-rays?</div>
+            <div class="point">X-ray wavelength (0.1–10 Å) is comparable to interatomic distances in crystals → diffraction occurs.</div>
+            <div class="point">Visible light (thousands of Å) passes through without diffracting on crystal planes.</div>
+
+            <div class="section-sub">Bragg's Law Derivation (brief)</div>
+            <div class="point">Consider two parallel crystal planes separated by distance d. X-rays strike at glancing angle θ.</div>
+            <div class="point">Ray reflected from second plane travels extra path = 2d sinθ.</div>
+            <div class="point">Constructive interference when: extra path = nλ.</div>
 
             <div class="formula-block">
-              <div class="f-label">Bragg's Law of Diffraction</div>
-              2d sin(θ) = nλ<br><br>
-              where d = interplanar spacing, θ = Bragg angle, λ = incident wave wavelength, n = order of reflection
+              <div class="f-label">Bragg's Law</div>
+              2d sinθ = nλ<br>
+              <br>
+              n = order of diffraction (1, 2, 3...)<br>
+              d = interplanar spacing (Å)<br>
+              θ = glancing angle (angle between beam and plane surface)<br>
+              λ = wavelength of X-rays<br>
+              <br>
+              Note: θ in Bragg's law is glancing angle, NOT angle of incidence from normal.
             </div>
+
+            <div class="section-sub">Applications of X-ray Diffraction</div>
+            <div class="point">Determination of crystal structure and lattice parameters.</div>
+            <div class="point">Identification of unknown crystalline materials (fingerprinting).</div>
+            <div class="point">Measurement of interplanar spacings.</div>
+            <div class="point">Study of protein and DNA structures (Rosalind Franklin's DNA X-ray images).</div>
+
+            <div class="write-format">
+              <div class="wf-label">How to Solve Bragg's Law Numericals</div>
+              <div class="wf-step">Identify given quantities: wavelength λ, glancing angle θ or d.</div>
+              <div class="wf-step">Note the order n (usually n=1 if not stated).</div>
+              <div class="wf-step">Apply: 2d sinθ = nλ and solve for the unknown.</div>
+              <div class="wf-step">For d: use d = a/√(h²+k²+l²) if Miller indices are given.</div>
+            </div>
+
+            <div class="exam-tip">Bragg's law numericals are very common. Common mistakes: (1) using angle from normal instead of glancing angle — always check. (2) Forgetting the factor of 2 in 2d sinθ.</div>
           </div>
         </div>
 
@@ -504,64 +563,166 @@
       <div class="unit-header">
         <div class="unit-number" style="background:var(--u2d); color:var(--u2)">UNIT II</div>
         <div class="unit-title-block">
-          <div class="unit-label" style="color:var(--u2)">Lattice Dynamics</div>
-          <h2>Vibrations & Thermal Properties</h2>
-          <div class="unit-topics">Monoatomic lattice · Diatomic lattice · Acoustic & optical branches · Phonons · Einstein model · Debye model of specific heat</div>
+          <div class="unit-label" style="color:var(--u2)">Elementary Lattice Dynamics</div>
+          <h2>Phonons & Heat Capacity</h2>
+          <div class="unit-topics">Lattice vibrations · Phonons · Monoatomic chain · Diatomic chain · Acoustic & optical branches · Dulong-Petit · Einstein & Debye theories</div>
         </div>
       </div>
 
       <div class="topic-grid">
-        <div class="topic-card">
+
+        <div class="topic-card" id="t-phonon">
           <div class="topic-card-header" onclick="toggle(this)">
-            <span class="topic-name">1. Monoatomic vs Diatomic Linear Lattice</span>
+            <span class="topic-name">1. Lattice Vibrations & Phonons</span>
             <div style="display:flex;gap:8px;align-items:center">
-              <span class="topic-badge badge-core">Core</span>
+              <span class="topic-badge badge-concept">Concept</span>
               <span class="toggle-icon">⌄</span>
             </div>
           </div>
           <div class="topic-body">
-            <div class="section-sub">Monoatomic Lattice Dynamics</div>
-            <div class="point">Models a 1D line of identical atoms of mass M separated by uniform spacing a, bound together by spring constant C.</div>
-            <div class="point">Yields exactly one <strong>Acoustic branch</strong>. At tiny wavevectors (k → 0), frequency scales linearly with wavevector (ω ∝ k), matching normal sound waves.</div>
+            <div class="section-sub">Lattice Vibrations</div>
+            <div class="point">Atoms in a crystal are not static — they continuously <strong>vibrate about their equilibrium positions</strong>.</div>
+            <div class="point">These vibrations are <strong>coupled</strong>: motion of one atom affects neighbors. This creates collective wave-like modes called <strong>normal modes</strong>.</div>
+            <div class="point">For a crystal with N unit cells and p atoms per cell: total <strong>3pN normal modes</strong> exist.</div>
 
-            <div class="section-sub">Diatomic Lattice Dynamics</div>
-            <div class="point">Models a alternating chain of two differing masses (M₁ and M₂) with equal spring connection parameters.</div>
-            <div class="point">Splits into two distinct movement paths: <strong>Acoustic Branch</strong> (atoms swing together in sync) and <strong>Optical Branch</strong> (atoms bounce in opposite paths against one another).</div>
-
+            <div class="section-sub">Phonons</div>
+            <div class="point">A <strong>phonon</strong> is a quantized unit of lattice vibrational energy, analogous to how photon is a quantum of electromagnetic energy.</div>
+            <div class="point">Phonons are <strong>bosons</strong> (integer spin); their number is not conserved.</div>
             <div class="formula-block">
-              <div class="f-label">Diatomic Dispersion Relations at Zone Boundaries</div>
-              Acoustic Max: ω² = 2C / M₁  (assuming M₁ > M₂)<br>
-              Optical Min: ω² = 2C / M₂<br>
-              Forbidden Band Gap Span: Δω = √(2C/M₂) - √(2C/M₁)
+              <div class="f-label">Phonon Properties</div>
+              Energy: E = ℏω = hν<br>
+              Momentum: p = ℏk  (crystal momentum)<br>
+              Velocity: v_g = dω/dk  (group velocity)
             </div>
-            
-            <div class="exam-tip">When asked to contrast branches, sketch the frequency ω vs wavevector k plot. Show the acoustic branch starting at origin, the optical branch plateauing higher up, and label the forbidden gap between them explicitly.</div>
+            <div class="point"><strong>Acoustic phonons</strong>: at long wavelengths, atoms move in-phase (like sound waves). ω → 0 as k → 0.</div>
+            <div class="point"><strong>Optical phonons</strong>: atoms of different types move out-of-phase. ω ≠ 0 at k = 0. Can interact with light (hence "optical").</div>
           </div>
         </div>
 
-        <div class="topic-card">
+        <div class="topic-card" id="t-monochain">
           <div class="topic-card-header" onclick="toggle(this)">
-            <span class="topic-name">2. Einstein vs Debye Models of Specific Heat</span>
+            <span class="topic-name">2. Linear Monoatomic Chain</span>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span class="topic-badge badge-formula">Key Formula</span>
+              <span class="toggle-icon">⌄</span>
+            </div>
+          </div>
+          <div class="topic-body">
+            <div class="section-sub">Model</div>
+            <div class="point">1D chain of <strong>N identical atoms</strong>, each of mass m, connected by springs of constant C, equilibrium spacing = a.</div>
+            <div class="point">Only nearest-neighbor interactions considered.</div>
+            <div class="point">Equation of motion: m(d²uₙ/dt²) = C(uₙ₊₁ + uₙ₋₁ − 2uₙ)</div>
+
+            <div class="section-sub">Dispersion Relation</div>
+            <div class="formula-block">
+              <div class="f-label">Dispersion Relation (Monoatomic Chain)</div>
+              ω² = (4C/m) sin²(ka/2)<br>
+              or: ω = 2√(C/m) |sin(ka/2)|<br>
+              <br>
+              Maximum frequency: ω_max = 2√(C/m)  at  k = ±π/a (zone boundary)<br>
+              First Brillouin zone: −π/a ≤ k ≤ +π/a
+            </div>
+
+            <div class="section-sub">Features</div>
+            <div class="point">At small k (long wavelength): ω ≈ a√(C/m)·k → <strong>linear dispersion</strong> → behaves like sound waves.</div>
+            <div class="point">Speed of sound: v = a√(C/m).</div>
+            <div class="point">Only one branch (acoustic) since one atom per unit cell.</div>
+            <div class="point">ω is periodic in k with period 2π/a — all distinct modes lie within first BZ.</div>
+          </div>
+        </div>
+
+        <div class="topic-card" id="t-dichain">
+          <div class="topic-card-header" onclick="toggle(this)">
+            <span class="topic-name">3. Linear Diatomic Chain</span>
             <div style="display:flex;gap:8px;align-items:center">
               <span class="topic-badge badge-imp">Exam Favourite</span>
               <span class="toggle-icon">⌄</span>
             </div>
           </div>
           <div class="topic-body">
-            <div class="section-sub">Background Rule</div>
-            <div class="point">Classical physics (Dulong-Petit law) states specific heat is constant at 3R. This works at high temperatures but completely fails near absolute zero, where experimental heat capacity drops towards 0.</div>
+            <div class="section-sub">Model</div>
+            <div class="point">1D chain with <strong>two alternating masses M and m</strong> (M > m), spring constant C, unit cell spacing = 2a (contains both atoms).</div>
 
-            <div class="section-sub">Model Interpretations</div>
-            <div class="point"><strong>Einstein Model</strong>: Assumes all lattice atoms bounce independently at a single fixed frequency ω_E. It correctly predicts specific heat falls at low temperatures, but it drops off too rapidly (exponentially) compared to reality.</div>
-            <div class="point"><strong>Debye Model</strong>: Treats lattice steps as continuous elastic sound waves instead. Assumes a range of frequencies up to a hard cut-off limit (Debye frequency ω_D). Matches experiments perfectly near absolute zero.</div>
-
+            <div class="section-sub">Two Branches</div>
             <div class="formula-block">
-              <div class="f-label">Debye T³ Law (Low Temperature Limit)</div>
-              C_v = (12π⁴ / 5) · R · (T / θ_D)³<br><br>
-              where θ_D = Debye Temperature parameter
+              <div class="f-label">Dispersion Relation (Diatomic Chain)</div>
+              ω² = C(1/M + 1/m) ± C√[(1/M + 1/m)² − (4sin²ka)/(Mm)]<br>
+              <br>
+              (+) sign → Optical branch (upper)<br>
+              (−) sign → Acoustic branch (lower)
             </div>
+
+            <div class="section-sub">Key Values</div>
+            <table class="compare-table">
+              <tr><th>Branch</th><th>At k=0</th><th>At k=π/2a (zone boundary)</th></tr>
+              <tr><td>Acoustic</td><td>ω = 0</td><td>ω = √(2C/M)</td></tr>
+              <tr><td>Optical</td><td>ω = √(2C(M+m)/Mm)</td><td>ω = √(2C/m)</td></tr>
+            </table>
+
+            <div class="section-sub">Frequency Gap</div>
+            <div class="point">A <strong>frequency gap (forbidden band)</strong> exists between ω = √(2C/M) and ω = √(2C/m).</div>
+            <div class="point">Phonons with frequencies in this range cannot propagate through the crystal.</div>
+            <div class="point">In acoustic branch: both atoms move in the same direction. In optical branch: atoms move in opposite directions.</div>
+
+            <div class="exam-tip">Draw both ω-k curves (acoustic below, optical above), label all key frequencies at k=0 and k=π/2a, and clearly shade the forbidden gap. This diagram is frequently asked.</div>
           </div>
         </div>
+
+        <div class="topic-card" id="t-heatcap">
+          <div class="topic-card-header" onclick="toggle(this)">
+            <span class="topic-name">4. Heat Capacity — Dulong-Petit, Einstein & Debye</span>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span class="topic-badge badge-imp">Important</span>
+              <span class="toggle-icon">⌄</span>
+            </div>
+          </div>
+          <div class="topic-body">
+            <div class="section-sub">Dulong-Petit Law (Classical)</div>
+            <div class="point">Each atom treated as a 3D harmonic oscillator: 3 kinetic + 3 potential = 6 degrees of freedom.</div>
+            <div class="point">Energy per atom = 6 × (½k_BT) = 3k_BT. For one mole: E = 3Nk_BT = 3RT.</div>
+            <div class="formula-block">
+              <div class="f-label">Dulong-Petit Law</div>
+              Cv = 3Nk_B = 3R ≈ 24.9 J/mol·K  (temperature independent)
+            </div>
+            <div class="point"><strong>Failure</strong>: observed Cv decreases significantly at low temperatures → classical theory fails.</div>
+
+            <div class="section-sub">Einstein Model (1907)</div>
+            <div class="point">Einstein assumed all N atoms vibrate <strong>independently at the same frequency ωE</strong> (Einstein frequency).</div>
+            <div class="point">At high T: Cv → 3Nk_B (recovers Dulong-Petit). At low T: Cv → 0 exponentially.</div>
+            <div class="formula-block">
+              <div class="f-label">Einstein Heat Capacity</div>
+              Cv = 3Nk_B (θE/T)² · e^(θE/T) / [e^(θE/T) − 1]²<br>
+              <br>
+              Einstein temperature: θE = ℏωE / k_B<br>
+              At high T: Cv → 3Nk_B ✓<br>
+              At low T: Cv → 3Nk_B(θE/T)²e^(−θE/T)  (drops too fast — limitation)
+            </div>
+            <div class="point"><strong>Limitation</strong>: drops too steeply at low T; observed Cv follows T³, not exponential decay.</div>
+
+            <div class="section-sub">Debye Model (1912)</div>
+            <div class="point">Debye treated the crystal as an <strong>elastic continuum</strong> with a spectrum of frequencies from 0 to a maximum ωD (Debye cutoff frequency).</div>
+            <div class="point">Density of states: g(ω) ∝ ω² (parabolic). Total number of modes = 3N.</div>
+            <div class="formula-block">
+              <div class="f-label">Debye Heat Capacity</div>
+              At high T: Cv → 3Nk_B  (Dulong-Petit recovered)<br>
+              <br>
+              At low T (T &lt;&lt; θD): Cv = (12π⁴/5) Nk_B (T/θD)³  ← Debye T³ law<br>
+              <br>
+              Debye temperature: θD = ℏωD / k_B<br>
+              Example values: θD(Pb) = 105K, θD(Fe) = 470K, θD(diamond) = 2230K
+            </div>
+
+            <table class="compare-table">
+              <tr><th>Model</th><th>Assumption</th><th>Low-T behavior</th><th>Accuracy</th></tr>
+              <tr><td>Dulong-Petit</td><td>Classical; 6 DOF per atom</td><td>Constant (wrong)</td><td>Only high T</td></tr>
+              <tr><td>Einstein</td><td>Single frequency ωE</td><td>Exponential decay</td><td>Qualitative only</td></tr>
+              <tr><td>Debye</td><td>Spectrum 0 to ωD</td><td>T³ law (correct!)</td><td>Best overall</td></tr>
+            </table>
+
+            <div class="exam-tip">Always explain why Dulong-Petit fails, why Einstein is better but not perfect, and why Debye's T³ law matches experiments. This comparison is a full question by itself.</div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -570,62 +731,160 @@
       <div class="unit-header">
         <div class="unit-number" style="background:var(--u3d); color:var(--u3)">UNIT III</div>
         <div class="unit-title-block">
-          <div class="unit-label" style="color:var(--u3)">Band Theory</div>
-          <h2>Electronic Properties of Solids</h2>
-          <div class="unit-topics">Free electron theory · Bloch theorem · Kronig-Penney model · Effective mass · Metals, semiconductors & insulators</div>
+          <div class="unit-label" style="color:var(--u3)">Elementary Band Theory</div>
+          <h2>Electronic Structure of Solids</h2>
+          <div class="unit-topics">Kronig-Penney model · Energy bands · Effective mass · Hall effect · Superconductivity</div>
         </div>
       </div>
 
       <div class="topic-grid">
-        <div class="topic-card">
+
+        <div class="topic-card" id="t-kronig">
           <div class="topic-card-header" onclick="toggle(this)">
             <span class="topic-name">1. Kronig-Penney Model & Band Formation</span>
             <div style="display:flex;gap:8px;align-items:center">
-              <span class="topic-badge badge-core">Core</span>
+              <span class="topic-badge badge-imp">Important</span>
               <span class="toggle-icon">⌄</span>
             </div>
           </div>
           <div class="topic-body">
-            <div class="section-sub">Concept Definition</div>
-            <div class="point">Solves the Schrödinger equation for an electron traveling through a <strong>periodic square potential well path</strong> to simulate the lattice ion cores.</div>
-            <div class="point">Demonstrates that electron energy states break up into <strong>allowed energy bands</strong> and <strong>forbidden energy gaps</strong> due to wave reflection conditions.</div>
+            <div class="section-sub">The Model</div>
+            <div class="point">The Kronig-Penney model is a <strong>simplified 1D model</strong> of a crystal where the periodic potential is approximated as a series of <strong>rectangular potential wells and barriers</strong> (square wells).</div>
+            <div class="point">An electron experiences a periodic potential: V(x) = V(x + a), where a is the lattice constant.</div>
+            <div class="point">The Schrödinger equation is solved in two regions: (1) well region (potential = 0), (2) barrier region (potential = V₀).</div>
+
+            <div class="section-sub">Key Result (Qualitative)</div>
+            <div class="point">The solution allows electron propagation only for <strong>certain ranges of energy (allowed bands)</strong>.</div>
+            <div class="point">Other energy ranges are <strong>forbidden (band gaps / energy gaps)</strong>.</div>
+            <div class="point">At zone boundaries (k = nπ/a), Bragg reflection creates standing waves → energy gaps open.</div>
+            <div class="point">The parameter P = mV₀ba/ℏ² (where b = barrier width) controls gap width: larger P → wider gaps.</div>
+
+            <div class="section-sub">Limiting Cases</div>
+            <div class="point">P → 0 (no barriers): free electrons, no gaps, continuous E-k curve (parabola).</div>
+            <div class="point">P → ∞ (infinite barriers): isolated atoms, sharp energy levels only.</div>
+            <div class="point">Real crystals: intermediate P → alternating allowed bands and forbidden gaps.</div>
+
+            <div class="section-sub">Classification of Solids</div>
+            <table class="compare-table">
+              <tr><th>Type</th><th>Band structure</th><th>Band gap</th><th>Example</th></tr>
+              <tr><td>Conductor</td><td>Partially filled band OR overlapping bands</td><td>Zero</td><td>Cu, Al, Fe</td></tr>
+              <tr><td>Semiconductor</td><td>Filled valence + empty conduction</td><td>~0.1–3 eV</td><td>Si (1.1 eV), Ge</td></tr>
+              <tr><td>Insulator</td><td>Filled valence + empty conduction</td><td>&gt;3 eV</td><td>Diamond (5.5 eV)</td></tr>
+            </table>
+
+            <div class="exam-tip">You are not required to derive Kronig-Penney but must explain qualitatively how it leads to band gaps. Draw the E-k diagram showing allowed bands, gaps, and the free-electron parabola.</div>
+          </div>
+        </div>
+
+        <div class="topic-card" id="t-effmass">
+          <div class="topic-card-header" onclick="toggle(this)">
+            <span class="topic-name">2. Effective Mass</span>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span class="topic-badge badge-concept">Concept</span>
+              <span class="toggle-icon">⌄</span>
+            </div>
+          </div>
+          <div class="topic-body">
+            <div class="section-sub">Why Effective Mass?</div>
+            <div class="point">In a crystal, an electron is subject to both the <strong>external applied force</strong> AND the <strong>periodic potential</strong> of the lattice.</div>
+            <div class="point">We absorb the lattice effect into a modified mass — the <strong>effective mass m*</strong> — so the equation of motion looks like Newton's law for a free particle.</div>
 
             <div class="formula-block">
-              <div class="f-label">Kronig-Penney Condition Equation</div>
-              P · (sin(αa) / αa) + cos(αa) = cos(ka)<br><br>
-              where P = scattering power barrier strength, α = term related to energy E, a = lattice period span
+              <div class="f-label">Effective Mass Definition</div>
+              m* = ℏ² / (d²E/dk²)<br>
+              <br>
+              F_external = m* × a  (equation of motion)<br>
+              <br>
+              Near band minimum (bottom): d²E/dk² &gt; 0  →  m* &gt; 0  (electron-like)<br>
+              Near band maximum (top): d²E/dk² &lt; 0  →  m* &lt; 0  (hole-like)
             </div>
+
+            <div class="section-sub">Physical Meaning</div>
+            <div class="point">m* can be much smaller than free electron mass (high curvature) → fast electron response.</div>
+            <div class="point">m* can be negative at band top → "holes" in the valence band behave as positive charge carriers.</div>
+            <div class="point">For a free electron: E = ℏ²k²/2m → d²E/dk² = ℏ²/m → m* = m (recovers free electron result).</div>
+          </div>
+        </div>
+
+        <div class="topic-card" id="t-hall">
+          <div class="topic-card-header" onclick="toggle(this)">
+            <span class="topic-name">3. Hall Effect</span>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span class="topic-badge badge-imp">Exam Favourite</span>
+              <span class="toggle-icon">⌄</span>
+            </div>
+          </div>
+          <div class="topic-body">
+            <div class="section-sub">Phenomenon</div>
+            <div class="point">When a current-carrying conductor/semiconductor is placed in a <strong>magnetic field perpendicular to the current</strong>, a voltage develops in the <strong>third perpendicular direction</strong>. This is the Hall effect (1879, E.H. Hall).</div>
+
+            <div class="section-sub">Setup</div>
+            <div class="point">Current I flows in +x direction. Magnetic field B is applied in +z direction.</div>
+            <div class="point">Lorentz force on charge carriers: F = qv × B acts in −y direction for electrons (for holes, +y).</div>
+            <div class="point">Carriers accumulate on one face → buildup of transverse electric field E_H (Hall field).</div>
+            <div class="point">Equilibrium: Hall force qE_H balances Lorentz force qv_xB → steady state Hall voltage.</div>
+
+            <div class="formula-block">
+              <div class="f-label">Hall Effect Formulas</div>
+              Hall voltage:   V_H = IB / (ned)<br>
+              Hall field:     E_H = V_H / w = R_H × J × B<br>
+              Hall coefficient (electrons): R_H = −1/(ne)  &lt; 0<br>
+              Hall coefficient (holes):    R_H = +1/(pe)  &gt; 0<br>
+              <br>
+              Carrier mobility: μ = |R_H| × σ = |R_H| / ρ<br>
+              <br>
+              where n = electron density, p = hole density, e = 1.6×10⁻¹⁹ C
+            </div>
+
+            <div class="section-sub">Applications of Hall Effect</div>
+            <div class="point">1. <strong>Type of carrier</strong>: sign of V_H tells whether electrons (n-type) or holes (p-type) carry current.</div>
+            <div class="point">2. <strong>Carrier concentration</strong>: n or p can be calculated from R_H.</div>
+            <div class="point">3. <strong>Carrier mobility</strong>: μ = R_H × σ.</div>
+            <div class="point">4. <strong>Magnetic field measurement</strong>: Hall probes measure magnetic field strength.</div>
+            <div class="point">5. <strong>Current sensors</strong>: contactless current measurement using Hall sensors.</div>
 
             <div class="write-format">
-              <div class="wf-label">Exam Execution Checklist</div>
-              <div class="wf-step">State that Bloch's function ψ(x) = u(x)e^{ikx} is applied because the potential is periodic.</div>
-              <div class="wf-step">Write the condition equation shown above.</div>
-              <div class="wf-step">Explain that since the right side cos(ka) must fall between -1 and +1, any energy value forcing the left side outside those boundaries becomes a forbidden gap.</div>
+              <div class="wf-label">How to write Hall Effect answer</div>
+              <div class="wf-step">State the phenomenon in 2 lines with setup (current, field, voltage directions).</div>
+              <div class="wf-step">Draw the diagram showing current direction, B field, and Hall voltage polarity for both n-type and p-type.</div>
+              <div class="wf-step">Write the force balance equation leading to Hall field.</div>
+              <div class="wf-step">State the formula for V_H and R_H.</div>
+              <div class="wf-step">List 4–5 applications in bullet points.</div>
             </div>
           </div>
         </div>
 
-        <div class="topic-card">
+        <div class="topic-card" id="t-super">
           <div class="topic-card-header" onclick="toggle(this)">
-            <span class="topic-name">2. Concept of Effective Mass</span>
+            <span class="topic-name">4. Introduction to Superconductivity</span>
             <div style="display:flex;gap:8px;align-items:center">
-              <span class="topic-badge badge-formula">Formula</span>
+              <span class="topic-badge badge-concept">Concept</span>
               <span class="toggle-icon">⌄</span>
             </div>
           </div>
           <div class="topic-body">
-            <div class="section-sub">Definition and Origin</div>
-            <div class="point">An electron inside a crystal moves under the influence of both an external applied field and internal periodic crystal forces. </div>
-            <div class="point">Instead of accounting for complex internal forces directly, we treat the electron as a free particle with an adjusted mass called the <strong>effective mass (m*)</strong>.</div>
-            <div class="point">Effective mass depends directly on the curvature of the Energy-momentum (E-k) band diagram. At the base of a band, it is positive; near the top of a band, curvature flips negative, representing a <strong>hole</strong>.</div>
+            <div class="section-sub">Definition</div>
+            <div class="point">Below a critical temperature Tc, certain materials exhibit <strong>zero electrical resistance</strong> → this is superconductivity (discovered by Kamerlingh Onnes, 1911 in mercury at 4.2 K).</div>
 
-            <div class="formula-block">
-              <div class="f-label">Effective Mass Formula</div>
-              m* = ħ² / (d²E / dk²)<br><br>
-              where ħ = reduced Planck constant, d²E/dk² = band curvature parameter
-            </div>
+            <div class="section-sub">Properties</div>
+            <div class="point"><strong>Zero resistance</strong>: resistivity drops sharply to zero below Tc. Persistent currents flow without decay.</div>
+            <div class="point"><strong>Meissner effect</strong>: a superconductor completely expels magnetic field from its interior (perfect diamagnetism, B = 0 inside). This distinguishes superconductors from merely perfect conductors.</div>
+            <div class="point"><strong>Critical field Hc</strong>: superconductivity is destroyed when applied field exceeds Hc.</div>
+
+            <div class="section-sub">Types</div>
+            <div class="point"><strong>Type I</strong>: complete Meissner effect up to Hc, then sudden transition to normal. Example: Pb, Hg, Al.</div>
+            <div class="point"><strong>Type II</strong>: two critical fields Hc1 and Hc2. Below Hc1: Meissner. Hc1 to Hc2: mixed state (vortex state). Above Hc2: normal. Example: Nb, YBCO.</div>
+
+            <div class="section-sub">BCS Theory (Qualitative)</div>
+            <div class="point">Proposed by Bardeen, Cooper, Schrieffer in 1957 (Nobel Prize 1972).</div>
+            <div class="point">Electrons form <strong>Cooper pairs</strong> via phonon-mediated attractive interaction (one electron distorts lattice → attracts another electron).</div>
+            <div class="point">Cooper pairs condense into a single quantum ground state → no scattering → zero resistance.</div>
+
+            <div class="section-sub">Applications</div>
+            <div class="point">MRI (Magnetic Resonance Imaging) machines, particle accelerator magnets (LHC), SQUID magnetometers, Maglev trains, fault current limiters, quantum computers.</div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -634,58 +893,165 @@
       <div class="unit-header">
         <div class="unit-number" style="background:var(--u4d); color:var(--u4)">UNIT IV</div>
         <div class="unit-title-block">
-          <div class="unit-label" style="color:var(--u4)">Magnetic Properties</div>
-          <h2>Classification & Domain Theory</h2>
-          <div class="unit-topics">Diamagnetism · Paramagnetism · Ferromagnetism · Langevin's theory · Weiss molecular field · Hysteresis curve</div>
+          <div class="unit-label" style="color:var(--u4)">Magnetic Properties of Matter</div>
+          <h2>Magnetism in Materials</h2>
+          <div class="unit-topics">Dia / Para / Ferromagnetism · Langevin theory · Weiss theory · Domains · B-H curve · Hysteresis</div>
         </div>
       </div>
 
       <div class="topic-grid">
-        <div class="topic-card">
+
+        <div class="topic-card" id="t-magtypes">
           <div class="topic-card-header" onclick="toggle(this)">
-            <span class="topic-name">1. Classification of Magnetic Materials</span>
+            <span class="topic-name">1. Types of Magnetic Materials</span>
             <div style="display:flex;gap:8px;align-items:center">
               <span class="topic-badge badge-concept">Concept</span>
               <span class="toggle-icon">⌄</span>
             </div>
           </div>
           <div class="topic-body">
-            <div class="section-sub">Comparison Matrix</div>
             <table class="compare-table">
-              <tr><th>Property</th><th>Diamagnetism</th><th>Paramagnetism</th><th>Ferromagnetism</th></tr>
-              <tr><td>Origin</td><td>Orbital motion changes</td><td>Permanent atomic dipoles</td><td>Spontaneous domain alignment</td></tr>
-              <tr><td>Susceptibility (χ)</td><td>Small & Negative (-10⁻⁵)</td><td>Small & Positive (+10⁻³)</td><td>Very Large & Positive (+10⁵)</td></tr>
-              <tr><td>Temp. Behavior</td><td>Independent of Temp</td><td>Inversely proportional (1/T)</td><td>Follows Curie-Weiss law</td></tr>
-              <tr><td>Field Behavior</td><td>Repelled from strong fields</td><td>Weakly pulled to strong fields</td><td>Strongly pulled into fields</td></tr>
+              <tr><th>Property</th><th>Diamagnetic</th><th>Paramagnetic</th><th>Ferromagnetic</th></tr>
+              <tr><td>Behavior in field</td><td>Weakly repelled</td><td>Weakly attracted</td><td>Strongly attracted</td></tr>
+              <tr><td>Susceptibility χ</td><td>Small, negative (−10⁻⁵)</td><td>Small, positive (10⁻³)</td><td>Large, positive (10²–10⁶)</td></tr>
+              <tr><td>Permeability μr</td><td>Slightly &lt; 1</td><td>Slightly &gt; 1</td><td>&gt;&gt; 1</td></tr>
+              <tr><td>Permanent moment</td><td>None (induced only)</td><td>Yes (random)</td><td>Yes (aligned in domains)</td></tr>
+              <tr><td>T dependence</td><td>Independent</td><td>χ ∝ 1/T (Curie's law)</td><td>χ = C/(T−Tc) above Tc</td></tr>
+              <tr><td>Above Tc</td><td>—</td><td>—</td><td>Becomes paramagnetic</td></tr>
+              <tr><td>Example</td><td>Cu, Bi, water, Au</td><td>Al, O₂, Pt, Na</td><td>Fe, Ni, Co, Gd</td></tr>
             </table>
-
-            <div class="formula-block">
-              <div class="f-label">Curie-Weiss Law (For Ferromagnets above Curie Temp)</div>
-              χ = C / (T - θ)<br><br>
-              where C = Curie constant, θ = Curie Temperature point
-            </div>
           </div>
         </div>
 
-        <div class="topic-card">
+        <div class="topic-card" id="t-langevin">
           <div class="topic-card-header" onclick="toggle(this)">
-            <span class="topic-name">2. Weiss Theory & Hysteresis Loop</span>
+            <span class="topic-name">2. Langevin Theory of Dia & Paramagnetism</span>
             <div style="display:flex;gap:8px;align-items:center">
               <span class="topic-badge badge-imp">Important</span>
               <span class="toggle-icon">⌄</span>
             </div>
           </div>
           <div class="topic-body">
-            <div class="section-sub">Domain Framework</div>
-            <div class="point">Weiss proposed that ferromagnets are divided into tiny regions called <strong>domains</strong>. Inside each domain, individual atomic spins are perfectly aligned spontaneously due to internal exchange forces.</div>
-            <div class="point">When an external magnetic field is applied, these domains respond by growing larger or rotating their alignment vector to point along the external field line.</div>
+            <div class="section-sub">Langevin Theory of Diamagnetism</div>
+            <div class="point">Mechanism: an applied magnetic field causes a change in <strong>orbital velocity of electrons</strong> → induced magnetic moment opposes the applied field (Lenz's law applied to electron orbits).</div>
+            <div class="point">This effect is present in ALL materials, but in para/ferromagnetics it is overwhelmed.</div>
+            <div class="point">Diamagnetic susceptibility is <strong>temperature-independent</strong> (no thermal randomization involved).</div>
+            <div class="formula-block">
+              <div class="f-label">Langevin Diamagnetic Susceptibility</div>
+              χ_dia = −Ne²⟨r²⟩ / (6m_ec²)   [Gaussian]<br>
+              χ_dia = −μ₀Ne²⟨r²⟩ / (6m_e)   [SI]<br>
+              <br>
+              Always negative (opposes field), temperature independent.
+            </div>
 
-            <div class="section-sub">Hysteresis Curve Terms</div>
-            <div class="point"><strong>Retentivity (Residual Magnetism)</strong>: The amount of magnetic induction remaining inside the material when the external driving field drops back to zero.</div>
-            <div class="point"><strong>Coercivity</strong>: The reverse magnetic field strength needed to strip away the remaining internal magnetization completely.</div>
-            <div class="exam-tip">When sketching the Hysteresis loop (B vs H curve), label the saturation point, retentivity on the vertical axis, and coercivity on the horizontal axis. The area enclosed by the loop directly matches the thermal energy lost per cycle.</div>
+            <div class="section-sub">Langevin Theory of Paramagnetism</div>
+            <div class="point">Atoms have <strong>permanent magnetic dipole moments</strong> (due to unpaired electron spins).</div>
+            <div class="point">Without field: thermal agitation randomizes directions → net M = 0.</div>
+            <div class="point">With field: moments partially align along field. Alignment vs thermal randomization → equilibrium.</div>
+            <div class="point">Langevin used classical statistics: M = Nμ·L(x), where L(x) = coth(x) − 1/x is the Langevin function, x = μB/k_BT.</div>
+            <div class="formula-block">
+              <div class="f-label">Paramagnetic Susceptibility — Curie's Law</div>
+              For small x (high T, weak B): M ≈ Nμ²B / (3k_BT)<br>
+              <br>
+              χ = M/H = μ₀Nμ² / (3k_BT) = C/T  ← Curie's Law<br>
+              <br>
+              Curie constant: C = μ₀Nμ² / (3k_B)<br>
+              <br>
+              χ decreases with T — agrees with experiments!
+            </div>
+
+            <div class="exam-tip">For the exam: State the classical assumption, write M = Nμ L(x), explain the high-T limit to get Curie's law. Always state that Curie's Law χ = C/T means susceptibility decreases as temperature rises.</div>
           </div>
         </div>
+
+        <div class="topic-card" id="t-weiss">
+          <div class="topic-card-header" onclick="toggle(this)">
+            <span class="topic-name">3. Weiss Theory of Ferromagnetism & Domains</span>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span class="topic-badge badge-imp">Important</span>
+              <span class="toggle-icon">⌄</span>
+            </div>
+          </div>
+          <div class="topic-body">
+            <div class="section-sub">Weiss Molecular Field Theory</div>
+            <div class="point">Weiss (1907) proposed that in ferromagnets, each magnetic dipole experiences an enormous <strong>"molecular field" (Weiss field)</strong> due to its neighbors, in addition to the external field.</div>
+            <div class="point">Weiss field: B_w = λM, where λ is the Weiss molecular field constant (very large ≈ 10³ T).</div>
+            <div class="point">Total effective field: B_eff = B_applied + λM.</div>
+            <div class="point">This strong internal field aligns all moments → spontaneous magnetization even without external field.</div>
+
+            <div class="formula-block">
+              <div class="f-label">Curie-Weiss Law (above Tc)</div>
+              χ = C / (T − θ)   where θ = λC = Tc (Curie temperature)<br>
+              <br>
+              At T = Tc: susceptibility → ∞ (transition to ferromagnetic state)<br>
+              Below Tc: ferromagnetic (spontaneous order)<br>
+              Above Tc: paramagnetic (thermal disorder wins)<br>
+              <br>
+              Tc(Fe) = 1043 K, Tc(Ni) = 631 K, Tc(Co) = 1388 K
+            </div>
+
+            <div class="section-sub">Ferromagnetic Domains</div>
+            <div class="point">A ferromagnetic crystal is divided into small regions called <strong>domains</strong>, each having all dipoles aligned in one direction.</div>
+            <div class="point">Different domains point in different directions → total magnetization of unmagnetized material = 0.</div>
+            <div class="point">Domain boundaries are called <strong>Bloch walls</strong> (gradual rotation of moments).</div>
+            <div class="point">In an external field: domains aligned with field grow (domain wall motion) → material magnetizes.</div>
+            <div class="point">Domains minimize total energy (magnetostatic energy + exchange energy + anisotropy energy).</div>
+
+            <div class="exam-tip">Draw a diagram showing a ferromagnet with multiple domains pointing in different directions. Then show how applying a field causes favorable domains to grow. This diagram scores well.</div>
+          </div>
+        </div>
+
+        <div class="topic-card" id="t-hysteresis">
+          <div class="topic-card-header" onclick="toggle(this)">
+            <span class="topic-name">4. B-H Curve, Hysteresis & Energy Loss</span>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span class="topic-badge badge-imp">Exam Favourite</span>
+              <span class="toggle-icon">⌄</span>
+            </div>
+          </div>
+          <div class="topic-body">
+            <div class="section-sub">Magnetization Curve (B-H Curve)</div>
+            <div class="point">Start with demagnetized material (B = 0, H = 0).</div>
+            <div class="point">As H increases: B rises along initial magnetization curve (OA), reaching <strong>saturation Bs</strong>.</div>
+            <div class="point">When H is reduced back to 0: B does not fall to 0 → residual flux density = <strong>retentivity Br</strong>.</div>
+            <div class="point">H must be reversed (coercive force <strong>−Hc</strong>) to bring B to 0.</div>
+            <div class="point">Further increasing H in negative direction → reverse saturation.</div>
+            <div class="point">Completing the cycle traces a closed loop — the <strong>hysteresis loop</strong>.</div>
+
+            <div class="section-sub">Key Points on the Loop</div>
+            <table class="compare-table">
+              <tr><th>Point</th><th>Name</th><th>Meaning</th></tr>
+              <tr><td>Bs</td><td>Saturation flux density</td><td>Max B, all domains aligned</td></tr>
+              <tr><td>Br</td><td>Retentivity / Remanence</td><td>B remaining when H = 0</td></tr>
+              <tr><td>Hc</td><td>Coercive force</td><td>Reverse H needed to demagnetize</td></tr>
+            </table>
+
+            <div class="section-sub">Energy Loss</div>
+            <div class="point"><strong>Energy dissipated per cycle</strong> = area enclosed by the hysteresis loop (converted to heat).</div>
+            <div class="point">Power loss = (area of loop) × (volume) × (frequency).</div>
+
+            <div class="section-sub">Hard vs Soft Magnetic Materials</div>
+            <table class="compare-table">
+              <tr><th>Property</th><th>Soft (narrow loop)</th><th>Hard (wide loop)</th></tr>
+              <tr><td>Coercive force Hc</td><td>Small</td><td>Large</td></tr>
+              <tr><td>Retentivity Br</td><td>Moderate</td><td>High</td></tr>
+              <tr><td>Hysteresis loss</td><td>Low</td><td>High</td></tr>
+              <tr><td>Applications</td><td>Transformer cores, electromagnets</td><td>Permanent magnets, storage media</td></tr>
+              <tr><td>Example</td><td>Soft iron, silicon steel</td><td>Steel, Alnico, neodymium</td></tr>
+            </table>
+
+            <div class="write-format">
+              <div class="wf-label">How to draw B-H hysteresis curve in exam</div>
+              <div class="wf-step">Draw x-axis as H, y-axis as B. Mark origin O.</div>
+              <div class="wf-step">Draw initial magnetization curve from O to saturation point S (top right).</div>
+              <div class="wf-step">As H→0, curve drops to Br on y-axis (above origin).</div>
+              <div class="wf-step">Curve continues to −Hc on x-axis (left of origin).</div>
+              <div class="wf-step">Goes to −Bs (bottom left), then Br on negative y-axis, then +Hc, then back to +Bs.</div>
+              <div class="wf-step">Label ALL 5 key points: Bs, Br, Hc, −Br, −Hc. Shade the area = energy loss.</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -695,56 +1061,139 @@
         <div class="unit-number" style="background:var(--u5d); color:var(--u5)">UNIT V</div>
         <div class="unit-title-block">
           <div class="unit-label" style="color:var(--u5)">Dielectric Properties</div>
-          <h2>Polarization & Local Fields</h2>
-          <div class="unit-topics">Dielectric constant · Polarization mechanisms · Local internal field · Clausius-Mossotti relation · Ferroelectricity</div>
+          <h2>Dielectric Materials</h2>
+          <div class="unit-topics">Polarization · Susceptibility · Polarizability · Clausius-Mossotti · Ferroelectricity · P-E hysteresis</div>
         </div>
       </div>
 
       <div class="topic-grid">
-        <div class="topic-card">
-          <div class="topic-card-header" onclick="toggle(this)">
-            <span class="topic-name">1. Polarization Mechanisms</span>
-            <div style="display:flex;gap:8px;align-items:center">
-              <span class="topic-badge badge-core">Core</span>
-              <span class="toggle-icon">⌄</span>
-            </div>
-          </div>
-          <div class="topic-body">
-            <div class="section-sub">The Four Basic Processes</div>
-            <div class="point"><strong>Electronic Polarization</strong>: The external field displaces the negatively charged electron cloud relative to the positive nucleus. Occurs in all materials and is independent of temperature.</div>
-            <div class="point"><strong>Ionic Polarization</strong>: The field physically shifts positive and negative ions in opposite directions within an ionic crystal grid (like NaCl). Temperature independent.</div>
-            <div class="point"><strong>Orientational (Dipolar) Polarization</strong>: Pre-existing permanent molecular dipoles rotate to line up with the applied field direction. Heavily dependent on temperature, dropping as thermal agitation increases (∝ 1/T).</div>
-            <div class="point"><strong>Space Charge Polarization</strong>: Mobile charge carriers trap themselves at structural crystal defect borders or grain boundaries. Occurs only at low frequencies.</div>
-          </div>
-        </div>
 
-        <div class="topic-card">
+        <div class="topic-card" id="t-polar">
           <div class="topic-card-header" onclick="toggle(this)">
-            <span class="topic-name">2. Lorentz Local Field & Clausius-Mossotti Equation</span>
+            <span class="topic-name">1. Polarization, Susceptibility & Polarizability</span>
             <div style="display:flex;gap:8px;align-items:center">
-              <span class="topic-badge badge-formula">Formula</span>
+              <span class="topic-badge badge-formula">Key Formulas</span>
               <span class="toggle-icon">⌄</span>
             </div>
           </div>
           <div class="topic-body">
-            <div class="section-sub">Lorentz Internal Field</div>
-            <div class="point">The actual electric field seen by an individual atom inside a dielectric material is not just the external applied field. It includes fields generated by surrounding polarized dipoles.</div>
-            <div class="point"><strong>Lorentz Calculation</strong>: E_local = E + P / (3ε₀), where E is macroscopic field, P is polarization density, and ε₀ is vacuum permittivity.</div>
+            <div class="section-sub">Key Quantities</div>
+            <div class="point"><strong>Polarization P</strong>: electric dipole moment per unit volume. Units: C/m². P = Np (N = number density, p = individual dipole moment).</div>
+            <div class="point"><strong>Electric susceptibility χe</strong>: measures how easily a dielectric is polarized. P = ε₀χeE.</div>
+            <div class="point"><strong>Relative permittivity (dielectric constant) εr</strong>: εr = 1 + χe. Always ≥ 1.</div>
+            <div class="point"><strong>Polarizability α</strong>: microscopic quantity; p = αE_local (dipole moment of individual atom/molecule in local field).</div>
 
             <div class="formula-block">
-              <div class="f-label">Clausius-Mossotti Relation</div>
-              (ε_r - 1) / (ε_r + 2) = (N · α) / (3ε₀)<br><br>
-              where ε_r = relative dielectric constant, N = number of atoms per volume unit, α = total atomic polarizability
+              <div class="f-label">Fundamental Dielectric Relations</div>
+              D = ε₀E + P = ε₀εrE<br>
+              P = ε₀(εr − 1)E = ε₀χeE<br>
+              εr = 1 + χe<br>
+              p = αE_local   (per atom)
             </div>
-            <div class="exam-tip">The Clausius-Mossotti relation links a macroscopic property (dielectric constant ε_r) to a microscopic property (atomic polarizability α). Expect proofs or simple numerical substitutions for this relation on exam papers.</div>
+
+            <div class="section-sub">Types of Polarization</div>
+            <div class="point"><strong>Electronic polarization</strong>: displacement of electron cloud relative to nucleus. Present in ALL materials. Very fast (optical frequencies).</div>
+            <div class="point"><strong>Ionic polarization</strong>: displacement of positive and negative ions in ionic crystals (NaCl). Present in ionic materials.</div>
+            <div class="point"><strong>Orientational (dipolar) polarization</strong>: rotation of permanent dipoles in polar molecules (H₂O, HCl). Frequency-dependent; slows at high frequency.</div>
+            <div class="point"><strong>Space charge polarization</strong>: accumulation of charges at interfaces in inhomogeneous materials. Only at very low frequencies.</div>
+
+            <div class="exam-tip">Know the frequency dependence: at high frequency, only electronic polarization contributes (εr(optical) < εr(static)). This distinction often appears in exams.</div>
           </div>
         </div>
+
+        <div class="topic-card" id="t-clausius">
+          <div class="topic-card-header" onclick="toggle(this)">
+            <span class="topic-name">2. Local Electric Field & Clausius-Mossotti Equation</span>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span class="topic-badge badge-imp">Exam Favourite</span>
+              <span class="toggle-icon">⌄</span>
+            </div>
+          </div>
+          <div class="topic-body">
+            <div class="section-sub">Local Electric Field</div>
+            <div class="point">The <strong>local field E_local</strong> experienced by an individual atom in a solid ≠ the macroscopic applied field E. The surrounding dipoles create an additional field.</div>
+            <div class="point">Lorentz local field calculation: Consider a spherical cavity around the atom; contributions from (1) external field, (2) depolarization, (3) Lorentz cavity, (4) atoms inside cavity.</div>
+            <div class="point">For a cubic crystal: <strong>E_local = E + P/(3ε₀)</strong>  (Lorentz relation)</div>
+
+            <div class="section-sub">Clausius-Mossotti Equation</div>
+            <div class="point">Relates the macroscopic measurable quantity εr to the microscopic quantity α (polarizability).</div>
+            <div class="point">Derivation uses P = Nα·E_local with Lorentz field E_local = E + P/(3ε₀) and P = ε₀(εr−1)E.</div>
+
+            <div class="formula-block">
+              <div class="f-label">Clausius-Mossotti Equation</div>
+              (εr − 1) / (εr + 2) = Nα / (3ε₀)<br>
+              <br>
+              For optical frequencies (n = refractive index, εr = n²):<br>
+              (n² − 1) / (n² + 2) = Nα / (3ε₀)   ← Lorentz-Lorenz equation<br>
+              <br>
+              Rearranged to find εr:<br>
+              εr = (1 + 2Nα/3ε₀) / (1 − Nα/3ε₀)
+            </div>
+
+            <div class="section-sub">Significance</div>
+            <div class="point">Bridges microscopic (atomic polarizability α) and macroscopic (dielectric constant εr) descriptions.</div>
+            <div class="point"><strong>Catastophe</strong>: if Nα = 3ε₀, then εr → ∞ — this corresponds to a ferroelectric transition!</div>
+            <div class="point">Useful for predicting dielectric constants from atomic data and vice versa.</div>
+
+            <div class="write-format">
+              <div class="wf-label">Exam writing strategy</div>
+              <div class="wf-step">State why local field ≠ applied field (surrounding dipoles contribute).</div>
+              <div class="wf-step">Write the Lorentz local field expression: E_local = E + P/3ε₀.</div>
+              <div class="wf-step">Write P = Nα·E_local, substitute E_local, and use P = ε₀(εr−1)E.</div>
+              <div class="wf-step">After algebra, arrive at the Clausius-Mossotti equation and state what it relates (εr to α).</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-card" id="t-ferro">
+          <div class="topic-card-header" onclick="toggle(this)">
+            <span class="topic-name">3. Ferroelectricity & P-E Hysteresis Loop</span>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span class="topic-badge badge-imp">Important</span>
+              <span class="toggle-icon">⌄</span>
+            </div>
+          </div>
+          <div class="topic-body">
+            <div class="section-sub">Ferroelectricity</div>
+            <div class="point"><strong>Ferroelectric materials</strong> exhibit <strong>spontaneous electric polarization</strong> that can be reversed by an external electric field.</div>
+            <div class="point">Examples: BaTiO₃ (barium titanate), Rochelle salt (NaKC₄H₄O₆·4H₂O), PZT, KH₂PO₄ (KDP).</div>
+            <div class="point">Below Curie temperature Tc: ferroelectric phase (spontaneous polarization exists).</div>
+            <div class="point">Above Tc: paraelectric phase (no spontaneous polarization). χ = C/(T − Tc) (Curie-Weiss law).</div>
+
+            <div class="section-sub">Ferroelectric Domains</div>
+            <div class="point">Like ferromagnets, ferroelectrics have <strong>domains</strong> of uniform spontaneous polarization.</div>
+            <div class="point">Domain walls are thin regions where polarization rotates from one domain direction to another.</div>
+
+            <div class="section-sub">P-E Hysteresis Loop</div>
+            <div class="point">Applying an electric field E and measuring polarization P gives a hysteresis loop (analogous to B-H loop).</div>
+            <div class="point"><strong>Saturation polarization Ps</strong>: maximum P when all domains are aligned.</div>
+            <div class="point"><strong>Remnant polarization Pr</strong>: P remaining when E is reduced to zero.</div>
+            <div class="point"><strong>Coercive field Ec</strong>: reverse E needed to bring P to zero.</div>
+
+            <div class="section-sub">Comparison: Ferroelectric vs Ferromagnetic</div>
+            <table class="compare-table">
+              <tr><th>Feature</th><th>Ferroelectric</th><th>Ferromagnetic</th></tr>
+              <tr><td>Spontaneous order</td><td>Electric polarization P</td><td>Magnetization M</td></tr>
+              <tr><td>Domains</td><td>Electric domains</td><td>Magnetic domains</td></tr>
+              <tr><td>Hysteresis loop</td><td>P vs E</td><td>B vs H (or M vs H)</td></tr>
+              <tr><td>Curie temperature</td><td>Tc (paraelectric above)</td><td>Tc (paramagnetic above)</td></tr>
+              <tr><td>Example</td><td>BaTiO₃, Tc = 120°C</td><td>Fe, Tc = 770°C</td></tr>
+            </table>
+
+            <div class="section-sub">Applications</div>
+            <div class="point">High-capacitance capacitors (εr up to 10,000), FeRAM (ferroelectric non-volatile memory), piezoelectric actuators/sensors, infrared detectors, sonar transducers.</div>
+
+            <div class="exam-tip">The analogy between ferroelectrics and ferromagnetics is very commonly tested. Draw the P-E loop and label Ps, Pr, Ec clearly. State the applications in a list.</div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-  </div>
+  </div><!-- /content -->
 </main>
-</div>
+
+</div><!-- /layout -->
 
 <script>
 function toggle(header) {
@@ -753,34 +1202,987 @@ function toggle(header) {
 }
 
 function expandAll() {
-  document.querySelectorAll('.topic-card').forEach(card => card.classList.add('open'));
+  document.querySelectorAll('.topic-card').forEach(c => c.classList.add('open'));
 }
-
 function collapseAll() {
-  document.querySelectorAll('.topic-card').forEach(card => card.classList.remove('open'));
+  document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('open'));
 }
 
-// Simple Intersection Observer to highlight current active navigation tab on scroll
-const sections = document.querySelectorAll('.unit-section');
-const navItems = document.querySelectorAll('.nav-item[href^="#"]');
+// Smooth scroll & active nav
+document.querySelectorAll('a.nav-item').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('a.nav-item').forEach(l => l.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
 
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    if (pageYOffset >= sectionTop - 120) {
-      current = section.getAttribute('id');
+// Intersection observer for nav highlight
+const units = ['u1','u2','u3','u4','u5','pyq'];
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      document.querySelectorAll('a.nav-item').forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+      });
     }
   });
+}, { threshold: 0.15 });
+units.forEach(id => {
+  const el = document.getElementById(id);
+  if (el) observer.observe(el);
+});
+</script>
 
-  navItems.forEach(item => {
-    item.classList.remove('active');
-    if (item.getAttribute('href') === '#' + current) {
-      item.classList.add('active');
-    }
-  });
+<!-- ═══════════ PYQ STYLES ═══════════ -->
+<style>
+  :root {
+    --pyq: #f97eb8;
+    --pyq-d: #3d0e24;
+  }
+  .pyq-section { padding-top: 60px; border-top: 1px solid var(--border); }
+  .pyq-qblock { background: var(--card); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 20px; overflow: hidden; }
+  .pyq-qblock-header {
+    padding: 16px 22px 14px; display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; gap: 12px; user-select: none;
+  }
+  .pyq-qblock-header:hover { background: rgba(255,255,255,0.025); }
+  .pyq-qnum { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; background: var(--pyq-d); color: var(--pyq); padding: 4px 10px; border-radius: 5px; flex-shrink: 0; }
+  .pyq-qtitle { font-size: 15px; font-weight: 500; color: var(--text); }
+  .pyq-marks { font-size: 11px; font-weight: 600; color: var(--pyq); background: rgba(249,126,184,0.1); padding: 3px 9px; border-radius: 12px; flex-shrink: 0; }
+  .pyq-qblock-body { display: none; border-top: 1px solid var(--border); }
+  .pyq-qblock.open .pyq-qblock-body { display: block; }
+  .pyq-qblock.open .toggle-icon { transform: rotate(180deg); }
+
+  .pyq-part { padding: 20px 22px; }
+  .pyq-part + .pyq-part { border-top: 1px solid var(--border); }
+  .pyq-part-label { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .pyq-part-tag { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; background: rgba(249,126,184,0.12); color: var(--pyq); padding: 4px 10px; border-radius: 5px; }
+  .pyq-part-q { font-size: 13px; color: var(--text2); font-style: italic; flex: 1; }
+  .pyq-marks-small { font-size: 10px; font-weight: 600; color: var(--text3); background: var(--bg3); padding: 2px 7px; border-radius: 10px; flex-shrink: 0; }
+
+  .ans-heading { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin: 14px 0 8px; padding-bottom: 5px; border-bottom: 1px solid var(--border); }
+  .ans-point { font-size: 14px; color: var(--text); line-height: 1.75; margin-bottom: 7px; padding-left: 16px; position: relative; }
+  .ans-point::before { content: '›'; position: absolute; left: 0; color: var(--pyq); font-size: 16px; line-height: 1.6; }
+  .ans-point strong { font-weight: 500; color: var(--u1); }
+
+  .ans-formula { background: var(--formula-bg); border: 1px solid var(--formula-border); border-radius: 8px; padding: 14px 16px; margin: 12px 0; font-family: 'DM Mono', monospace; font-size: 13px; color: #a8d4ff; line-height: 2; }
+  .ans-formula .fl { font-family: 'Outfit', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #4a7aaa; margin-bottom: 6px; }
+
+  .ans-tip { background: rgba(247,217,126,0.06); border: 1px solid rgba(247,217,126,0.2); border-radius: 8px; padding: 11px 14px; margin: 12px 0; font-size: 13px; color: #d4ba60; }
+  .ans-tip::before { content: '★ MARKS TIP: '; font-weight: 600; font-size: 10px; letter-spacing: 0.1em; }
+
+  .ans-box { background: rgba(249,126,184,0.04); border: 1px solid rgba(249,126,184,0.15); border-radius: 8px; padding: 14px 16px; margin: 12px 0; font-size: 13.5px; color: var(--text); line-height: 1.8; }
+  .ans-box .ab-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #b05a80; margin-bottom: 8px; }
+
+  .ans-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+  .ans-table th { background: var(--bg3); color: var(--text2); font-weight: 500; padding: 8px 12px; text-align: left; font-size: 11px; letter-spacing: 0.05em; border: 1px solid var(--border); }
+  .ans-table td { padding: 8px 12px; border: 1px solid var(--border); color: var(--text); vertical-align: top; line-height: 1.55; font-size: 13px; }
+  .ans-table tr:nth-child(even) td { background: rgba(255,255,255,0.018); }
+
+  /* SVG diagram areas */
+  .diagram-area { background: var(--bg3); border: 1px solid var(--border2); border-radius: 10px; padding: 16px; margin: 14px 0; text-align: center; }
+  .diagram-area svg { max-width: 100%; }
+  .diagram-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin-bottom: 10px; }
+</style>
+
+<!-- ═══════════ PYQ HTML ═══════════ -->
+<div class="main" style="margin-left:0; padding-left:260px;">
+<div class="content">
+<section class="pyq-section" id="pyq">
+
+  <div class="unit-header">
+    <div class="unit-number" style="background:var(--pyq-d); color:var(--pyq)">PYQ</div>
+    <div class="unit-title-block">
+      <div class="unit-label" style="color:var(--pyq)">Past Year Paper — 5870</div>
+      <h2>Solved Questions Q1 – Q5</h2>
+      <div class="unit-topics">Complete exam-standard answers · All parts solved · Diagrams included · Marks-optimized</div>
+    </div>
+  </div>
+
+  <!-- ─── Q1 ─── -->
+  <div class="pyq-qblock open">
+    <div class="pyq-qblock-header" onclick="this.parentElement.classList.toggle('open')">
+      <span class="pyq-qnum">Q1</span>
+      <span class="pyq-qtitle">Answer any Five (Short Answer Type)</span>
+      <span class="pyq-marks">[5 × 3 = 15]</span>
+      <span class="toggle-icon" style="color:var(--text3);font-size:18px;transition:transform .2s">⌄</span>
+    </div>
+    <div class="pyq-qblock-body">
+
+      <!-- Q1(i) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(i)</span>
+          <span class="pyq-part-q">Primitive translation vectors of hexagonal lattice; show volume V = 3<sup>1/2</sup>a²c</span>
+          <span class="pyq-marks-small">[3 marks]</span>
+        </div>
+        <div class="ans-heading">Answer</div>
+        <div class="ans-point">The primitive translation vectors of the hexagonal space lattice are given as:</div>
+        <div class="ans-formula">
+          <div class="fl">Given Vectors</div>
+          a₁ = (3<sup>1/2</sup>a/2)x̂ − (a/2)ŷ<br>
+          a₂ = (3<sup>1/2</sup>a/2)x̂ + (a/2)ŷ<br>
+          a₃ = cẑ
+        </div>
+        <div class="ans-heading">Volume of Primitive Cell</div>
+        <div class="ans-point">Volume of primitive cell = |a₁ · (a₂ × a₃)|</div>
+        <div class="ans-point"><strong>Step 1:</strong> Compute a₂ × a₃:</div>
+        <div class="ans-formula">
+          a₂ × a₃ = |(3<sup>1/2</sup>a/2)x̂ + (a/2)ŷ| × cẑ<br>
+          = (3<sup>1/2</sup>a/2)c (x̂ × ẑ) + (a/2)c (ŷ × ẑ)<br>
+          = (3<sup>1/2</sup>a/2)c (−ŷ) + (a/2)c (x̂)<br>
+          = (ac/2)x̂ − (3<sup>1/2</sup>ac/2)ŷ
+        </div>
+        <div class="ans-point"><strong>Step 2:</strong> Dot with a₁:</div>
+        <div class="ans-formula">
+          a₁ · (a₂ × a₃) = (3<sup>1/2</sup>a/2)(ac/2) + (−a/2)(−3<sup>1/2</sup>ac/2)<br>
+          = (3<sup>1/2</sup>a²c/4) + (3<sup>1/2</sup>a²c/4)<br>
+          = 3<sup>1/2</sup>a²c/2 + 3<sup>1/2</sup>a²c/2<br>
+          <br>
+          ∴ V = 3<sup>1/2</sup>a²c / 2 × 2 = <strong>3<sup>1/2</sup>a²c</strong>  ✓ (Proved)
+        </div>
+        <div class="ans-tip">Write each step clearly. Show the cross product expansion and dot product separately for full marks.</div>
+      </div>
+
+      <!-- Q1(ii) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(ii)</span>
+          <span class="pyq-part-q">Define primitive and non-primitive unit cell of a 2D oblique lattice</span>
+          <span class="pyq-marks-small">[3 marks]</span>
+        </div>
+        <div class="ans-heading">Primitive Unit Cell</div>
+        <div class="ans-point">A <strong>primitive unit cell</strong> is the smallest possible unit cell that contains exactly <strong>one lattice point</strong> and generates the entire lattice by repetitive translation alone.</div>
+        <div class="ans-point">It has the minimum volume (or area in 2D). The primitive cell of a 2D oblique lattice is a parallelogram formed by the two primitive vectors a and b.</div>
+        <div class="ans-point"><strong>Area of 2D primitive cell</strong> = |a × b| = ab sin φ, where φ is the angle between a and b.</div>
+
+        <div class="ans-heading">Non-Primitive Unit Cell</div>
+        <div class="ans-point">A <strong>non-primitive unit cell</strong> contains <strong>more than one lattice point</strong> (2, 4, etc.) and has a volume that is an integer multiple of the primitive cell volume.</div>
+        <div class="ans-point">It is chosen for convenience when it better reflects the symmetry of the crystal (e.g., the conventional unit cells of BCC and FCC).</div>
+
+        <div class="diagram-area">
+          <div class="diagram-label">2D Oblique Lattice — Primitive vs Non-Primitive</div>
+          <svg viewBox="0 0 420 180" xmlns="http://www.w3.org/2000/svg" style="max-width:420px">
+            <defs>
+              <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0 0, 7 3.5, 0 7" fill="#7eb8f7"/>
+              </marker>
+            </defs>
+            <!-- Lattice points -->
+            <g fill="#9e9bb8">
+              <!-- row 0 -->
+              <circle cx="50" cy="140" r="4"/><circle cx="120" cy="140" r="4"/><circle cx="190" cy="140" r="4"/><circle cx="260" cy="140" r="4"/>
+              <!-- row 1 (shifted) -->
+              <circle cx="80" cy="100" r="4"/><circle cx="150" cy="100" r="4"/><circle cx="220" cy="100" r="4"/><circle cx="290" cy="100" r="4"/>
+              <!-- row 2 -->
+              <circle cx="110" cy="60" r="4"/><circle cx="180" cy="60" r="4"/><circle cx="250" cy="60" r="4"/><circle cx="320" cy="60" r="4"/>
+            </g>
+            <!-- Primitive cell shaded -->
+            <polygon points="50,140 120,140 150,100 80,100" fill="rgba(126,184,247,0.15)" stroke="#7eb8f7" stroke-width="1.5"/>
+            <!-- Non-primitive cell -->
+            <polygon points="50,140 190,140 250,60 110,60" fill="rgba(125,232,192,0.08)" stroke="#7de8c0" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <!-- Labels -->
+            <text x="88" y="130" fill="#7eb8f7" font-size="10" font-family="monospace">Primitive</text>
+            <text x="140" y="95" fill="#7de8c0" font-size="10" font-family="monospace">Non-Primitive</text>
+            <!-- vectors -->
+            <line x1="50" y1="140" x2="117" y2="140" stroke="#f7d97e" stroke-width="1.5" marker-end="url(#arr)"/>
+            <line x1="50" y1="140" x2="77" y2="103" stroke="#f7a07e" stroke-width="1.5" marker-end="url(#arr)"/>
+            <text x="80" y="155" fill="#f7d97e" font-size="10">a</text>
+            <text x="48" y="115" fill="#f7a07e" font-size="10">b</text>
+            <text x="340" y="60" fill="#9e9bb8" font-size="11">•  Lattice points</text>
+            <text x="340" y="80" fill="#7eb8f7" font-size="10">—  Primitive</text>
+            <text x="340" y="98" fill="#7de8c0" font-size="10">- -  Non-primitive</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Q1(iii) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(iii)</span>
+          <span class="pyq-part-q">Explain the concept of local electric field in a dielectric material</span>
+          <span class="pyq-marks-small">[3 marks]</span>
+        </div>
+        <div class="ans-heading">What is Local Electric Field?</div>
+        <div class="ans-point">The <strong>local electric field (E_local)</strong> is the actual electric field experienced by an individual atom or molecule inside a dielectric, at its own site.</div>
+        <div class="ans-point">It is <strong>not equal</strong> to the macroscopic (average) applied field E because the atom is surrounded by other polarized atoms that create their own fields.</div>
+
+        <div class="ans-heading">Lorentz Method for Local Field</div>
+        <div class="ans-point">Lorentz imagined cutting a small spherical cavity around the atom in question. The local field has contributions from:</div>
+        <div class="ans-point">1. <strong>External applied field E₀</strong></div>
+        <div class="ans-point">2. <strong>Depolarization field E₁</strong>: due to charges on outer surface of the specimen (−P/3ε₀ for sphere).</div>
+        <div class="ans-point">3. <strong>Lorentz cavity field E₂</strong>: due to surface charges on the imaginary spherical cavity (+P/3ε₀).</div>
+        <div class="ans-point">4. <strong>Field E₃</strong>: due to atoms inside the cavity (= 0 for cubic symmetry).</div>
+        <div class="ans-formula">
+          <div class="fl">Lorentz Local Field</div>
+          E_local = E + P/(3ε₀)<br>
+          where E = macroscopic field, P = polarization
+        </div>
+        <div class="ans-point">Since P/(3ε₀) > 0, the local field is always <strong>greater than</strong> the macroscopic field, meaning atoms are polarized more than the average field suggests.</div>
+      </div>
+
+      <!-- Q1(iv) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(iv)</span>
+          <span class="pyq-part-q">Hexagonal plane lattice: T = 2a + 3b, |a| = |b| = 3 Å, angle 120°. Find magnitude and direction of T.</span>
+          <span class="pyq-marks-small">[3 marks]</span>
+        </div>
+        <div class="ans-heading">Given</div>
+        <div class="ans-formula">
+          T = 2a + 3b,  |a| = |b| = 3 Å,  angle between a and b = 120°
+        </div>
+        <div class="ans-heading">Magnitude of T</div>
+        <div class="ans-formula">
+          <div class="fl">Using |T|² = |2a + 3b|²</div>
+          |T|² = 4|a|² + 12(a·b) + 9|b|²<br><br>
+          a·b = |a||b|cos120° = (3)(3)(−1/2) = −4.5 Å²<br><br>
+          |T|² = 4(9) + 12(−4.5) + 9(9)<br>
+               = 36 − 54 + 81<br>
+               = 63<br><br>
+          ∴ |T| = √63 = 3√7 ≈ <strong>7.94 Å</strong>
+        </div>
+        <div class="ans-heading">Direction of T</div>
+        <div class="ans-point">Let θ be the angle T makes with a:</div>
+        <div class="ans-formula">
+          T·a = |T||a|cosθ<br>
+          T·a = (2a + 3b)·a = 2|a|² + 3(a·b) = 2(9) + 3(−4.5) = 18 − 13.5 = 4.5<br><br>
+          cosθ = (T·a)/(|T||a|) = 4.5 / (7.94 × 3) = 4.5 / 23.82 = 0.1889<br><br>
+          ∴ θ = cos⁻¹(0.1889) ≈ <strong>79.1°</strong> from the a-axis
+        </div>
+        <div class="ans-tip">Always show |T|² expansion clearly, compute a·b = ab cos120° explicitly, then take √. Write final answer with units (Å).</div>
+      </div>
+
+      <!-- Q1(v) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(v)</span>
+          <span class="pyq-part-q">How can Hall effect identify n-type and p-type semiconductors?</span>
+          <span class="pyq-marks-small">[3 marks]</span>
+        </div>
+        <div class="ans-heading">Principle</div>
+        <div class="ans-point">When a semiconductor carrying current I (in +x direction) is placed in magnetic field B (in +z direction), a transverse Hall voltage V_H develops (in y direction). The <strong>sign of V_H</strong> identifies the carrier type.</div>
+
+        <div class="ans-heading">For n-type (electrons are majority carriers)</div>
+        <div class="ans-point">Electrons flow in −x direction (current is +x). Lorentz force F = −e(v × B) deflects electrons towards −y face.</div>
+        <div class="ans-point">Negative charge accumulates on the −y face → Hall voltage is <strong>negative (V_H < 0)</strong>.</div>
+        <div class="ans-point">Hall coefficient: <strong>R_H = −1/ne < 0</strong> (negative for n-type).</div>
+
+        <div class="ans-heading">For p-type (holes are majority carriers)</div>
+        <div class="ans-point">Holes flow in +x direction. Lorentz force deflects holes towards −y face.</div>
+        <div class="ans-point">Positive charge accumulates on −y face → Hall voltage is <strong>positive (V_H > 0)</strong>.</div>
+        <div class="ans-point">Hall coefficient: <strong>R_H = +1/pe > 0</strong> (positive for p-type).</div>
+
+        <div class="ans-formula">
+          <div class="fl">Hall Coefficient</div>
+          R_H = E_y / (J_x · B) = −1/(ne) for n-type<br>
+          R_H = +1/(pe) for p-type<br><br>
+          Carrier density: n or p = 1/(|R_H|·e)
+        </div>
+        <div class="ans-tip">Draw a neat diagram showing the semiconductor slab, directions of I, B, and V_H for both n-type and p-type. This diagram alone earns 1–2 marks.</div>
+      </div>
+
+      <!-- Q1(vi) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(vi)</span>
+          <span class="pyq-part-q">What are ferromagnetic domains? Give examples of ferromagnetic materials.</span>
+          <span class="pyq-marks-small">[3 marks]</span>
+        </div>
+        <div class="ans-heading">Ferromagnetic Domains</div>
+        <div class="ans-point">A <strong>ferromagnetic domain</strong> is a small microscopic region within a ferromagnetic material in which all the atomic magnetic moments are aligned <strong>parallel to one another</strong> in the same direction.</div>
+        <div class="ans-point">Each domain has a net magnetic moment, but different domains point in different directions, so the material as a whole may appear <strong>unmagnetized</strong> (net M = 0).</div>
+        <div class="ans-point">Domain boundaries are called <strong>Bloch walls</strong> — thin transition regions (100–1000 atoms thick) where the magnetic moment gradually rotates from one domain direction to the next.</div>
+        <div class="ans-point">When an external magnetic field is applied, domains aligned with the field <strong>grow</strong> at the expense of others (domain wall motion) → the material magnetizes.</div>
+        <div class="ans-point">Above the <strong>Curie temperature</strong> (Tc), thermal energy destroys domain order → material becomes paramagnetic.</div>
+
+        <div class="diagram-area">
+          <div class="diagram-label">Ferromagnetic Domains (Unmagnetized → Magnetized)</div>
+          <svg viewBox="0 0 420 130" xmlns="http://www.w3.org/2000/svg" style="max-width:420px">
+            <!-- Unmagnetized -->
+            <rect x="10" y="20" width="160" height="90" rx="6" fill="none" stroke="#4a4760" stroke-width="1.5"/>
+            <!-- domain 1 -->
+            <polygon points="10,20 90,20 90,110 10,110" fill="rgba(247,160,126,0.12)" stroke="rgba(247,160,126,0.4)" stroke-width="1"/>
+            <text x="35" y="70" fill="#f7a07e" font-size="20">↑</text><text x="55" y="70" fill="#f7a07e" font-size="20">↑</text><text x="75" y="70" fill="#f7a07e" font-size="20">↑</text>
+            <!-- domain 2 -->
+            <polygon points="90,20 170,20 170,110 90,110" fill="rgba(126,184,247,0.1)" stroke="rgba(126,184,247,0.4)" stroke-width="1"/>
+            <text x="105" y="70" fill="#7eb8f7" font-size="20">→</text><text x="125" y="70" fill="#7eb8f7" font-size="20">→</text><text x="145" y="70" fill="#7eb8f7" font-size="20">→</text>
+            <text x="50" y="12" fill="#9e9bb8" font-size="11" text-anchor="middle">Unmagnetized</text>
+            <text x="85" y="125" fill="#9e9bb8" font-size="10" text-anchor="middle">(Net M = 0)</text>
+
+            <!-- Arrow -->
+            <text x="196" y="70" fill="#7de8c0" font-size="22">→</text>
+            <text x="188" y="58" fill="#7de8c0" font-size="9">Apply B</text>
+
+            <!-- Magnetized -->
+            <rect x="230" y="20" width="170" height="90" rx="6" fill="none" stroke="#4a4760" stroke-width="1.5"/>
+            <polygon points="230,20 400,20 400,110 230,110" fill="rgba(247,160,126,0.18)" stroke="rgba(247,160,126,0.5)" stroke-width="1"/>
+            <text x="245" y="70" fill="#f7a07e" font-size="20">↑</text>
+            <text x="270" y="70" fill="#f7a07e" font-size="20">↑</text>
+            <text x="295" y="70" fill="#f7a07e" font-size="20">↑</text>
+            <text x="320" y="70" fill="#f7a07e" font-size="20">↑</text>
+            <text x="345" y="70" fill="#f7a07e" font-size="20">↑</text>
+            <text x="370" y="70" fill="#f7a07e" font-size="20">↑</text>
+            <text x="315" y="12" fill="#9e9bb8" font-size="11" text-anchor="middle">Magnetized</text>
+            <text x="315" y="125" fill="#9e9bb8" font-size="10" text-anchor="middle">(Net M ≠ 0)</text>
+          </svg>
+        </div>
+
+        <div class="ans-heading">Examples of Ferromagnetic Materials</div>
+        <div class="ans-point"><strong>Iron (Fe)</strong> — Tc = 1043 K, most common ferromagnet.</div>
+        <div class="ans-point"><strong>Nickel (Ni)</strong> — Tc = 631 K, used in magnets and coins.</div>
+        <div class="ans-point"><strong>Cobalt (Co)</strong> — Tc = 1388 K (highest among common ferromagnets).</div>
+        <div class="ans-point"><strong>Gadolinium (Gd)</strong> — ferromagnetic near room temperature (Tc ≈ 292 K).</div>
+        <div class="ans-point"><strong>Alnico, neodymium magnets (Nd₂Fe₁₄B)</strong> — alloy/compound ferromagnets used in industry.</div>
+      </div>
+
+    </div><!-- /Q1 body -->
+  </div><!-- /Q1 -->
+
+
+  <!-- ─── Q2 ─── -->
+  <div class="pyq-qblock">
+    <div class="pyq-qblock-header" onclick="this.parentElement.classList.toggle('open')">
+      <span class="pyq-qnum">Q2</span>
+      <span class="pyq-qtitle">Reciprocal Lattice, Ewald Construction & Density of Cu</span>
+      <span class="pyq-marks">[6, 6, 3]</span>
+      <span class="toggle-icon" style="color:var(--text3);font-size:18px;transition:transform .2s">⌄</span>
+    </div>
+    <div class="pyq-qblock-body">
+
+      <!-- Q2(a) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(a)</span>
+          <span class="pyq-part-q">Show that the reciprocal of BCC lattice is a FCC lattice in real space</span>
+          <span class="pyq-marks-small">[6 marks]</span>
+        </div>
+        <div class="ans-heading">BCC Primitive Vectors</div>
+        <div class="ans-point">The primitive vectors of the BCC lattice (with conventional cell side a) are:</div>
+        <div class="ans-formula">
+          <div class="fl">BCC Primitive Vectors</div>
+          a₁ = (a/2)(−x̂ + ŷ + ẑ)<br>
+          a₂ = (a/2)(x̂ − ŷ + ẑ)<br>
+          a₃ = (a/2)(x̂ + ŷ − ẑ)
+        </div>
+        <div class="ans-heading">Volume of BCC Primitive Cell</div>
+        <div class="ans-formula">
+          V = a₁ · (a₂ × a₃)<br><br>
+          First, a₂ × a₃ = (a/2)²[(x̂−ŷ+ẑ) × (x̂+ŷ−ẑ)]<br>
+          = (a²/4)[−x̂(−1−1) − ŷ(−1−1) + ẑ(1+1)] ... (expanding)<br>
+          = (a²/4)[2x̂ + 2ŷ + 2ẑ] = (a²/2)(x̂+ŷ+ẑ)<br><br>
+          V = (a/2)(−1+1+1) × (a²/2) = a³/2
+        </div>
+        <div class="ans-heading">Reciprocal Lattice Vectors of BCC</div>
+        <div class="ans-formula">
+          <div class="fl">Using b* = 2π(aⱼ × aₖ)/V</div>
+          b₁ = 2π(a₂ × a₃)/V = 2π·(a²/2)(x̂+ŷ+ẑ) / (a³/2)<br>
+             = (2π/a)(x̂ + ŷ + ẑ) ... (1)<br><br>
+          b₂ = 2π(a₃ × a₁)/V = (2π/a)(x̂ + ŷ − ẑ) ... (2)  [similar calculation]<br><br>
+          b₃ = 2π(a₁ × a₂)/V = (2π/a)(−x̂ + ŷ + ẑ) ... (3)
+        </div>
+        <div class="ans-heading">Identifying the Reciprocal Lattice</div>
+        <div class="ans-point">These three vectors b₁, b₂, b₃ are <strong>identical in form</strong> to the primitive vectors of an FCC lattice with lattice parameter a' = 4π/a (i.e., a conventional FCC with side 4π/a).</div>
+        <div class="ans-point">The primitive vectors of FCC are of the form: (a'/2)(ŷ+ẑ), (a'/2)(x̂+ẑ), (a'/2)(x̂+ŷ) — same structure as b₁, b₂, b₃ above.</div>
+        <div class="ans-box">
+          <div class="ab-label">Conclusion</div>
+          <strong>∴ The reciprocal lattice of BCC is FCC</strong> (with lattice parameter 4π/a).<br>
+          Similarly, the reciprocal of FCC is BCC. These two lattices are reciprocals of each other.
+        </div>
+      </div>
+
+      <!-- Q2(b) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(b)</span>
+          <span class="pyq-part-q">Write Bragg's condition for crystal diffraction using Ewald's construction</span>
+          <span class="pyq-marks-small">[6 marks]</span>
+        </div>
+        <div class="ans-heading">Bragg's Condition in Reciprocal Space (Laue Condition)</div>
+        <div class="ans-point">If <strong>k</strong> is the incident wave vector and <strong>k'</strong> is the scattered wave vector, then for elastic scattering: |k| = |k'| = 2π/λ.</div>
+        <div class="ans-point">Diffraction occurs when the change in wave vector equals a reciprocal lattice vector <strong>G</strong>:</div>
+        <div class="ans-formula">
+          <div class="fl">Laue / Bragg Diffraction Condition</div>
+          k' − k = G  (Laue condition)<br>
+          or equivalently: Δk = G<br><br>
+          where G = hb₁ + kb₂ + lb₃ is a reciprocal lattice vector (hkl = Miller indices)
+        </div>
+
+        <div class="ans-heading">Ewald's Construction — Steps</div>
+        <div class="ans-point">1. Plot the <strong>reciprocal lattice</strong> of the crystal on paper.</div>
+        <div class="ans-point">2. Choose a reciprocal lattice point as the <strong>origin O</strong>. Draw the incident wave vector <strong>k</strong> ending at O (so k starts at point C).</div>
+        <div class="ans-point">3. Draw a sphere of radius <strong>|k| = 2π/λ</strong> centered at C. This is the <strong>Ewald sphere</strong>.</div>
+        <div class="ans-point">4. Wherever the Ewald sphere passes through <strong>another reciprocal lattice point G</strong>, the vector from C to G is the diffracted wave vector k' = k + G.</div>
+        <div class="ans-point">5. The diffraction condition k' − k = G is satisfied, and a diffracted beam exits in the direction of k'.</div>
+
+        <div class="diagram-area">
+          <div class="diagram-label">Ewald's Construction</div>
+          <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" style="max-width:400px">
+            <!-- Ewald sphere -->
+            <circle cx="160" cy="130" r="100" fill="none" stroke="#7eb8f7" stroke-width="1.5" stroke-dasharray="6,3"/>
+            <!-- Reciprocal lattice points -->
+            <g fill="#9e9bb8">
+              <circle cx="260" cy="130" r="5"/><text x="265" y="128" fill="#9e9bb8" font-size="10">O (origin)</text>
+              <circle cx="220" cy="50" r="5"/><text x="225" y="48" fill="#7de8c0" font-size="10">G (hkl)</text>
+              <circle cx="180" cy="165" r="3"/><circle cx="300" cy="80" r="3"/>
+              <circle cx="140" cy="200" r="3"/><circle cx="320" cy="170" r="3"/>
+            </g>
+            <!-- Center of Ewald sphere -->
+            <circle cx="160" cy="130" r="4" fill="#f7d97e"/>
+            <text x="140" y="148" fill="#f7d97e" font-size="10">C</text>
+            <!-- k vector: C → O -->
+            <line x1="160" y1="130" x2="256" y2="130" stroke="#7eb8f7" stroke-width="2" marker-end="url(#arr2)"/>
+            <text x="198" y="148" fill="#7eb8f7" font-size="11" font-weight="600">k</text>
+            <!-- k' vector: C → G -->
+            <line x1="160" y1="130" x2="216" y2="54" stroke="#f7a07e" stroke-width="2" marker-end="url(#arr2)"/>
+            <text x="170" y="88" fill="#f7a07e" font-size="11" font-weight="600">k'</text>
+            <!-- G vector: O → G -->
+            <line x1="260" y1="130" x2="224" y2="54" stroke="#7de8c0" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arr2)"/>
+            <text x="248" y="90" fill="#7de8c0" font-size="11" font-weight="600">G</text>
+            <!-- Arrow defs -->
+            <defs>
+              <marker id="arr2" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0 0, 7 3.5, 0 7" fill="#aaa"/>
+              </marker>
+            </defs>
+            <!-- Radius label -->
+            <line x1="160" y1="130" x2="130" y2="44" stroke="rgba(126,184,247,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="120" y="82" fill="rgba(126,184,247,0.6)" font-size="9">radius = 2π/λ</text>
+            <!-- Condition box -->
+            <rect x="0" y="225" width="400" height="30" rx="4" fill="rgba(126,184,247,0.08)"/>
+            <text x="200" y="245" fill="#7eb8f7" font-size="12" text-anchor="middle" font-family="monospace">k' − k = G  ⟹  Diffraction occurs</text>
+          </svg>
+        </div>
+
+        <div class="ans-heading">Connection to Bragg's Law</div>
+        <div class="ans-point">The Laue condition k' − k = G, combined with |k| = |k'|, is completely equivalent to Bragg's law 2d sinθ = nλ. Both describe the same physical condition from different perspectives (real space vs. reciprocal space).</div>
+      </div>
+
+      <!-- Q2(c) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(c)</span>
+          <span class="pyq-part-q">Density of Copper: FCC, r = 1.278 Å, M = 63.54, N_A = 6.023×10²³</span>
+          <span class="pyq-marks-small">[3 marks]</span>
+        </div>
+        <div class="ans-heading">Solution</div>
+        <div class="ans-point">For FCC: atoms/cell = <strong>4</strong>. Relation between atomic radius r and lattice parameter a:</div>
+        <div class="ans-formula">
+          <div class="fl">Step 1: Find lattice parameter a</div>
+          For FCC: 4r = a√2  →  a = 4r/√2 = 2√2 · r<br>
+          a = 2√2 × 1.278 Å = 2 × 1.4142 × 1.278 = 3.615 Å = 3.615 × 10⁻¹⁰ m
+        </div>
+        <div class="ans-formula">
+          <div class="fl">Step 2: Calculate Density</div>
+          ρ = (Z · M) / (N_A · a³)<br><br>
+          where Z = 4 (atoms per FCC cell), M = 63.54 g/mol<br><br>
+          a³ = (3.615 × 10⁻⁸ cm)³ = 47.24 × 10⁻²⁴ cm³<br><br>
+          ρ = (4 × 63.54) / (6.023 × 10²³ × 47.24 × 10⁻²⁴)<br>
+            = 254.16 / (28.45)<br>
+            = <strong>8.93 g/cm³</strong>
+        </div>
+        <div class="ans-box">
+          <div class="ab-label">Result</div>
+          Density of Copper = <strong>8.93 g/cm³</strong><br>
+          (Experimental value = 8.96 g/cm³ — excellent agreement ✓)
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /Q2 -->
+
+
+  <!-- ─── Q3 ─── -->
+  <div class="pyq-qblock">
+    <div class="pyq-qblock-header" onclick="this.parentElement.classList.toggle('open')">
+      <span class="pyq-qnum">Q3</span>
+      <span class="pyq-qtitle">Kronig-Penney Model, Effective Mass & Superconductivity</span>
+      <span class="pyq-marks">[6, 6, 3]</span>
+      <span class="toggle-icon" style="color:var(--text3);font-size:18px;transition:transform .2s">⌄</span>
+    </div>
+    <div class="pyq-qblock-body">
+
+      <!-- Q3(a) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(a)</span>
+          <span class="pyq-part-q">Kronig-Penney model; explain conductors, semiconductors and insulators based on energy bands</span>
+          <span class="pyq-marks-small">[6 marks]</span>
+        </div>
+        <div class="ans-heading">The Kronig-Penney Model</div>
+        <div class="ans-point">The Kronig-Penney model is a simplified <strong>one-dimensional model of an electron in a periodic crystal potential</strong>.</div>
+        <div class="ans-point">The periodic potential is approximated as a series of <strong>rectangular potential wells</strong> (representing atom cores) separated by <strong>rectangular barriers</strong> (potential V₀, width b). The period is a+b.</div>
+
+        <div class="diagram-area">
+          <div class="diagram-label">Kronig-Penney Periodic Potential</div>
+          <svg viewBox="0 0 420 140" xmlns="http://www.w3.org/2000/svg" style="max-width:420px">
+            <line x1="20" y1="110" x2="400" y2="110" stroke="#4a4760" stroke-width="1"/>
+            <line x1="20" y1="20" x2="20" y2="115" stroke="#4a4760" stroke-width="1"/>
+            <text x="5" y="24" fill="#7eb8f7" font-size="10">V₀</text>
+            <!-- Potential profile -->
+            <polyline points="20,110 60,110 60,30 85,30 85,110 125,110 125,30 150,30 150,110 190,110 190,30 215,30 215,110 255,110 255,30 280,30 280,110 320,110 320,30 345,30 345,110 385,110"
+              fill="none" stroke="#7eb8f7" stroke-width="2"/>
+            <!-- Shading barriers -->
+            <rect x="60" y="30" width="25" height="80" fill="rgba(126,184,247,0.12)"/>
+            <rect x="125" y="30" width="25" height="80" fill="rgba(126,184,247,0.12)"/>
+            <rect x="190" y="30" width="25" height="80" fill="rgba(126,184,247,0.12)"/>
+            <rect x="255" y="30" width="25" height="80" fill="rgba(126,184,247,0.12)"/>
+            <rect x="320" y="30" width="25" height="80" fill="rgba(126,184,247,0.12)"/>
+            <!-- Labels -->
+            <text x="32" y="130" fill="#9e9bb8" font-size="9">well(a)</text>
+            <text x="62" y="25" fill="#7eb8f7" font-size="9">barrier(b)</text>
+            <line x1="20" y1="110" x2="60" y2="110" stroke="#f7d97e" stroke-width="2"/>
+            <text x="35" y="107" fill="#f7d97e" font-size="9">a</text>
+            <line x1="60" y1="20" x2="85" y2="20" stroke="#f7a07e" stroke-width="2"/>
+            <text x="68" y="18" fill="#f7a07e" font-size="9">b</text>
+            <text x="370" y="123" fill="#9e9bb8" font-size="9">x →</text>
+          </svg>
+        </div>
+
+        <div class="ans-heading">Salient Features / Key Results</div>
+        <div class="ans-point">1. The solutions to Schrödinger's equation give a <strong>condition on allowed energies</strong>. Only certain ranges of energy (bands) are permitted; others are forbidden (gaps).</div>
+        <div class="ans-point">2. The bandwidth depends on parameter <strong>P = mV₀ba/ℏ²</strong>: larger P → narrower bands, wider gaps.</div>
+        <div class="ans-point">3. At zone boundaries (k = ±nπ/a), <strong>energy gaps</strong> open due to Bragg reflection of electron waves.</div>
+        <div class="ans-point">4. Limiting case P→0: free electrons (parabolic E-k, no gaps). P→∞: isolated atoms (discrete levels).</div>
+
+        <div class="diagram-area">
+          <div class="diagram-label">E-k Diagram: Allowed Bands (white) and Band Gaps (shaded)</div>
+          <svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg" style="max-width:420px">
+            <!-- axes -->
+            <line x1="210" y1="10" x2="210" y2="195" stroke="#4a4760" stroke-width="1"/>
+            <line x1="20" y1="190" x2="400" y2="190" stroke="#4a4760" stroke-width="1"/>
+            <text x="205" y="8" fill="#9e9bb8" font-size="10">E</text>
+            <text x="390" y="202" fill="#9e9bb8" font-size="10">k</text>
+            <!-- zone boundaries -->
+            <line x1="110" y1="10" x2="110" y2="190" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="310" y1="10" x2="310" y2="190" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+            <text x="103" y="200" fill="#9e9bb8" font-size="9">−π/a</text>
+            <text x="305" y="200" fill="#9e9bb8" font-size="9">+π/a</text>
+            <!-- Band gaps (forbidden) -->
+            <rect x="20" y="140" width="390" height="18" fill="rgba(247,160,126,0.15)"/>
+            <rect x="20" y="75" width="390" height="18" fill="rgba(247,160,126,0.15)"/>
+            <text x="25" y="153" fill="#f7a07e" font-size="9">Band gap</text>
+            <text x="25" y="88" fill="#f7a07e" font-size="9">Band gap</text>
+            <!-- Bands (cosine-like curves) -->
+            <!-- Band 1 bottom -->
+            <path d="M110,158 Q160,172 210,178 Q260,172 310,158" fill="none" stroke="#7eb8f7" stroke-width="2"/>
+            <!-- Band 1 top edge -->
+            <path d="M20,158 Q65,152 110,140" fill="none" stroke="#7eb8f7" stroke-width="2"/>
+            <path d="M310,140 Q355,152 400,158" fill="none" stroke="#7eb8f7" stroke-width="2"/>
+            <!-- Band 2 bottom -->
+            <path d="M20,93 Q65,87 110,75" fill="none" stroke="#7de8c0" stroke-width="2"/>
+            <path d="M310,75 Q355,87 400,93" fill="none" stroke="#7de8c0" stroke-width="2"/>
+            <path d="M110,93 Q160,105 210,110 Q260,105 310,93" fill="none" stroke="#7de8c0" stroke-width="2"/>
+            <!-- Band 3 (partial) -->
+            <path d="M110,40 Q160,55 210,60 Q260,55 310,40" fill="none" stroke="#c4a6f7" stroke-width="2"/>
+            <!-- labels -->
+            <text x="215" y="180" fill="#7eb8f7" font-size="9">Band 1</text>
+            <text x="215" y="112" fill="#7de8c0" font-size="9">Band 2</text>
+            <text x="215" y="58" fill="#c4a6f7" font-size="9">Band 3</text>
+          </svg>
+        </div>
+
+        <div class="ans-heading">Classification of Solids Based on Energy Bands</div>
+        <table class="ans-table">
+          <tr><th>Material</th><th>Band Structure</th><th>Band Gap</th><th>Example</th></tr>
+          <tr><td>Conductor</td><td>Conduction band partially filled OR valence and conduction bands overlap</td><td>No gap (E_g = 0)</td><td>Cu, Al, Na</td></tr>
+          <tr><td>Semiconductor</td><td>Full valence band, empty conduction band; small gap; thermal excitation at room T</td><td>Small (~1 eV)</td><td>Si (1.1 eV), Ge (0.67 eV)</td></tr>
+          <tr><td>Insulator</td><td>Full valence band, empty conduction band; very large gap</td><td>Large (>3 eV)</td><td>Diamond (5.5 eV), SiO₂</td></tr>
+        </table>
+      </div>
+
+      <!-- Q3(b) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(b)</span>
+          <span class="pyq-part-q">Obtain the mathematical relation for effective mass of electron in solids</span>
+          <span class="pyq-marks-small">[6 marks]</span>
+        </div>
+        <div class="ans-heading">Concept of Effective Mass</div>
+        <div class="ans-point">In a crystal, an electron is subject to the periodic potential of the lattice in addition to any external force. The effect of the lattice is absorbed into a modified mass — the <strong>effective mass m*</strong>.</div>
+        <div class="ans-heading">Derivation</div>
+        <div class="ans-point"><strong>Step 1:</strong> Consider an electron in a band with energy E(k). The group velocity of the electron wave packet is:</div>
+        <div class="ans-formula">v_g = (1/ℏ)(dE/dk)  — group velocity</div>
+        <div class="ans-point"><strong>Step 2:</strong> Apply external force F. From Newton's second law: F = dp/dt = ℏ(dk/dt).</div>
+        <div class="ans-point"><strong>Step 3:</strong> Differentiate v_g with respect to time:</div>
+        <div class="ans-formula">
+          dv_g/dt = (1/ℏ)(d²E/dk²)(dk/dt)<br>
+                 = (1/ℏ)(d²E/dk²)(F/ℏ)<br>
+                 = F · (1/ℏ²)(d²E/dk²)
+        </div>
+        <div class="ans-point"><strong>Step 4:</strong> Compare with Newton's law: F = m*(dv_g/dt):</div>
+        <div class="ans-formula">
+          <div class="fl">Effective Mass Formula</div>
+          m* = F / (dv_g/dt) = ℏ² / (d²E/dk²)<br><br>
+          ∴ <strong>m* = ℏ² / (d²E/dk²)</strong>
+        </div>
+        <div class="ans-heading">Physical Interpretation</div>
+        <div class="ans-point">m* depends on the <strong>curvature of the E-k band</strong>. High curvature (rapidly curving band) → small m* → electron responds quickly to forces.</div>
+        <div class="ans-point">Near band <strong>minimum</strong>: d²E/dk² > 0 → m* > 0 (electron-like behavior).</div>
+        <div class="ans-point">Near band <strong>maximum</strong>: d²E/dk² < 0 → m* < 0 (hole-like behavior — positive charge carrier).</div>
+        <div class="ans-point">For free electrons: E = ℏ²k²/2m → d²E/dk² = ℏ²/m → m* = m (reduces to free electron mass ✓).</div>
+      </div>
+
+      <!-- Q3(c) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(c)</span>
+          <span class="pyq-part-q">What is superconductivity? Give an example of a superconductor.</span>
+          <span class="pyq-marks-small">[3 marks]</span>
+        </div>
+        <div class="ans-heading">Superconductivity</div>
+        <div class="ans-point"><strong>Superconductivity</strong> is the phenomenon in which the electrical resistivity of certain materials drops <strong>abruptly to zero</strong> when cooled below a critical temperature T_c (the transition/Curie temperature).</div>
+        <div class="ans-point">Discovered by <strong>H. Kamerlingh Onnes</strong> (1911) in mercury at T_c = 4.2 K.</div>
+        <div class="ans-heading">Key Characteristics</div>
+        <div class="ans-point">1. <strong>Zero resistance</strong>: below T_c, resistivity ρ = 0. Currents flow indefinitely without decay.</div>
+        <div class="ans-point">2. <strong>Meissner effect</strong>: superconductor expels all magnetic flux from its interior (perfect diamagnetic, B = 0 inside).</div>
+        <div class="ans-point">3. <strong>BCS Theory</strong>: electrons form "Cooper pairs" via phonon-mediated attraction; these pairs condense into one quantum state with no scattering.</div>
+        <div class="ans-heading">Example</div>
+        <div class="ans-point"><strong>Mercury (Hg)</strong>: T_c = 4.2 K (first discovered). <strong>Niobium (Nb)</strong>: T_c = 9.2 K. <strong>YBCO (YBa₂Cu₃O₇)</strong>: T_c = 92 K (high-temperature superconductor, used in MRI machines).</div>
+      </div>
+
+    </div>
+  </div><!-- /Q3 -->
+
+
+  <!-- ─── Q4 ─── -->
+  <div class="pyq-qblock">
+    <div class="pyq-qblock-header" onclick="this.parentElement.classList.toggle('open')">
+      <span class="pyq-qnum">Q4</span>
+      <span class="pyq-qtitle">Diatomic Chain, Dulong-Petit, Einstein & Debye</span>
+      <span class="pyq-marks">[8, 7]</span>
+      <span class="toggle-icon" style="color:var(--text3);font-size:18px;transition:transform .2s">⌄</span>
+    </div>
+    <div class="pyq-qblock-body">
+
+      <!-- Q4(a) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(a)</span>
+          <span class="pyq-part-q">Lattice vibrations for linear diatomic chain; derive dispersion relation; draw optical and acoustic branches</span>
+          <span class="pyq-marks-small">[8 marks]</span>
+        </div>
+        <div class="ans-heading">Model</div>
+        <div class="ans-point">Consider a 1D chain with alternating masses <strong>M and m</strong> (M > m), coupled by springs of spring constant C. Unit cell length = 2a (contains one M and one m).</div>
+        <div class="ans-point">Let u_n = displacement of mass M in nth cell; v_n = displacement of mass m in nth cell.</div>
+
+        <div class="ans-heading">Equations of Motion</div>
+        <div class="ans-formula">
+          M·ü_n = C(v_n + v_{n−1} − 2u_n)  ... (1)<br>
+          m·v̈_n = C(u_{n+1} + u_n − 2v_n)  ... (2)
+        </div>
+
+        <div class="ans-heading">Trial Solution (Bloch wave)</div>
+        <div class="ans-formula">
+          u_n = U·e^{i(2nka − ωt)}<br>
+          v_n = V·e^{i((2n+1)ka − ωt)}
+        </div>
+
+        <div class="ans-heading">Substituting and Simplifying</div>
+        <div class="ans-formula">
+          −Mω²U = C·V(1 + e^{−2ika}) − 2C·U  → (2C − Mω²)U = C(1 + e^{−2ika})V  ... (3)<br>
+          −mω²V = C·U(e^{2ika} + 1) − 2C·V   → (2C − mω²)V = C(1 + e^{2ika})U   ... (4)
+        </div>
+
+        <div class="ans-heading">Dispersion Relation</div>
+        <div class="ans-point">For non-trivial solution, determinant of coefficients = 0:</div>
+        <div class="ans-formula">
+          <div class="fl">Dispersion Relation — Diatomic Chain</div>
+          ω² = C(1/M + 1/m) ± C√[(1/M + 1/m)² − (4sin²ka)/(Mm)]<br><br>
+          (+) → Optical branch (upper)<br>
+          (−) → Acoustic branch (lower)
+        </div>
+
+        <div class="ans-heading">Limiting Values</div>
+        <table class="ans-table">
+          <tr><th>Branch</th><th>At k = 0</th><th>At k = π/2a (zone edge)</th></tr>
+          <tr><td>Acoustic (−)</td><td>ω = 0</td><td>ω = √(2C/M)</td></tr>
+          <tr><td>Optical (+)</td><td>ω = √(2C(M+m)/Mm) = √(2C/μ)</td><td>ω = √(2C/m)</td></tr>
+        </table>
+        <div class="ans-point">Where μ = Mm/(M+m) is the reduced mass. A <strong>forbidden gap</strong> exists between √(2C/M) and √(2C/m).</div>
+
+        <div class="diagram-area">
+          <div class="diagram-label">ω-k Diagram: Acoustic & Optical Branches</div>
+          <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="max-width:400px">
+            <!-- Axes -->
+            <line x1="50" y1="10" x2="50" y2="200" stroke="#4a4760" stroke-width="1.5"/>
+            <line x1="40" y1="200" x2="380" y2="200" stroke="#4a4760" stroke-width="1.5"/>
+            <text x="44" y="8" fill="#9e9bb8" font-size="11">ω</text>
+            <text x="365" y="215" fill="#9e9bb8" font-size="11">k</text>
+            <!-- Zone boundary -->
+            <line x1="310" y1="10" x2="310" y2="200" stroke="#4a4760" stroke-width="1" stroke-dasharray="5,3"/>
+            <text x="295" y="215" fill="#9e9bb8" font-size="9">π/2a</text>
+            <!-- Optical branch (top) -->
+            <path d="M50,55 Q180,60 310,75" fill="none" stroke="#f7a07e" stroke-width="2.5"/>
+            <!-- Optical bottom at zone edge -->
+            <line x1="50" y1="55" x2="50" y2="55"/>
+            <!-- Optical branch label right -->
+            <text x="318" y="72" fill="#f7a07e" font-size="10">√(2C/m)</text>
+            <line x1="310" y1="75" x2="375" y2="75" stroke="#f7a07e" stroke-width="1" stroke-dasharray="3,2"/>
+            <!-- Acoustic branch -->
+            <path d="M50,200 Q120,165 310,120" fill="none" stroke="#7de8c0" stroke-width="2.5"/>
+            <text x="318" y="118" fill="#7de8c0" font-size="10">√(2C/M)</text>
+            <line x1="310" y1="120" x2="375" y2="120" stroke="#7de8c0" stroke-width="1" stroke-dasharray="3,2"/>
+            <!-- Forbidden gap shading -->
+            <rect x="50" y="75" width="260" height="45" fill="rgba(247,217,126,0.07)"/>
+            <text x="155" y="103" fill="#f7d97e" font-size="9" text-anchor="middle">Forbidden gap</text>
+            <!-- ω values on y-axis -->
+            <text x="5" y="78" fill="#f7a07e" font-size="9">√2C/m</text>
+            <text x="5" y="124" fill="#7de8c0" font-size="9">√2C/M</text>
+            <!-- Branch labels left -->
+            <text x="55" y="50" fill="#f7a07e" font-size="10" font-weight="600">Optical branch</text>
+            <text x="55" y="185" fill="#7de8c0" font-size="10" font-weight="600">Acoustic branch</text>
+            <!-- Optical at k=0 label -->
+            <circle cx="50" cy="55" r="4" fill="#f7a07e"/>
+            <circle cx="50" cy="200" r="4" fill="#7de8c0"/>
+          </svg>
+        </div>
+
+        <div class="ans-heading">Physical Interpretation</div>
+        <div class="ans-point"><strong>Acoustic branch</strong>: both M and m oscillate in the <strong>same direction</strong> (like sound waves). At k→0, entire lattice translates rigidly → ω→0.</div>
+        <div class="ans-point"><strong>Optical branch</strong>: M and m oscillate in <strong>opposite directions</strong>. Centre of mass stays fixed. At k=0, ω ≠ 0. In ionic crystals, this oscillation can interact with electromagnetic radiation → "optical" branch.</div>
+      </div>
+
+      <!-- Q4(b) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(b)</span>
+          <span class="pyq-part-q">Derive Dulong and Petit's law; explain Einstein and Debye improvements</span>
+          <span class="pyq-marks-small">[7 marks]</span>
+        </div>
+        <div class="ans-heading">Dulong-Petit Law (Classical Derivation)</div>
+        <div class="ans-point">Consider N atoms in a crystal. Each atom vibrates in 3D → modeled as 3D harmonic oscillator.</div>
+        <div class="ans-point">Each harmonic oscillator has 2 degrees of freedom per dimension (kinetic + potential), so <strong>6 DOF per atom</strong>.</div>
+        <div class="ans-point">By the <strong>Equipartition Theorem</strong>: energy per DOF = ½k_BT.</div>
+        <div class="ans-formula">
+          <div class="fl">Dulong-Petit Derivation</div>
+          Energy per atom = 6 × ½k_BT = 3k_BT<br>
+          Total energy of N atoms: U = 3Nk_BT<br>
+          Specific heat: Cv = dU/dT = 3Nk_B<br><br>
+          For 1 mole (N = N_A): Cv = 3N_Ak_B = 3R ≈ 24.9 J/mol·K<br><br>
+          This is the <strong>Dulong-Petit law</strong> — Cv is constant, independent of temperature.
+        </div>
+        <div class="ans-point"><strong>Experimental failure:</strong> At low temperatures, Cv decreases drastically and approaches 0 as T→0 K. Classical theory cannot explain this.</div>
+
+        <div class="ans-heading">Einstein's Theory (1907)</div>
+        <div class="ans-point">Einstein applied quantum mechanics: each atom is a quantum harmonic oscillator vibrating at a single frequency ωE (Einstein frequency).</div>
+        <div class="ans-point">Average energy per oscillator: ⟨E⟩ = ℏωE/(e^{ℏωE/k_BT} − 1) + ½ℏωE.</div>
+        <div class="ans-formula">
+          <div class="fl">Einstein Heat Capacity</div>
+          Cv = 3Nk_B(θE/T)² · e^{θE/T}/(e^{θE/T} − 1)²<br>
+          Einstein temperature: θE = ℏωE/k_B<br><br>
+          High T limit: Cv → 3Nk_B  ✓ (Dulong-Petit recovered)<br>
+          Low T limit: Cv ∝ e^{−θE/T} (drops exponentially — but real Cv drops as T³)
+        </div>
+        <div class="ans-point"><strong>Limitation:</strong> Einstein model drops too steeply at low T; real solids follow T³ not exponential at low T.</div>
+
+        <div class="ans-heading">Debye's Theory (1912)</div>
+        <div class="ans-point">Debye treated the crystal as an <strong>elastic continuum</strong>. Phonon frequencies range from 0 to a maximum Debye frequency ωD, with density of states g(ω) ∝ ω².</div>
+        <div class="ans-point">Debye cutoff: ∫g(ω)dω = 3N (total modes).</div>
+        <div class="ans-formula">
+          <div class="fl">Debye Result</div>
+          High T: Cv → 3Nk_B  ✓<br>
+          Low T (T &lt;&lt; θD): <strong>Cv = (12π⁴/5)Nk_B(T/θD)³</strong>  ← Debye T³ law<br><br>
+          Debye temperature: θD = ℏωD/k_B<br>
+          θD(Fe) = 470 K, θD(Al) = 428 K, θD(Pb) = 105 K
+        </div>
+        <div class="ans-point"><strong>Superiority:</strong> Debye's T³ law matches experiments at low temperatures. Debye model is the most accurate classical-quantum theory of lattice heat capacity.</div>
+
+        <table class="ans-table">
+          <tr><th>Theory</th><th>Key Assumption</th><th>Low-T Behavior</th><th>Accuracy</th></tr>
+          <tr><td>Dulong-Petit</td><td>Classical equipartition</td><td>Constant Cv (wrong)</td><td>High T only</td></tr>
+          <tr><td>Einstein</td><td>Single frequency ωE</td><td>Exponential decay</td><td>Qualitative</td></tr>
+          <tr><td>Debye</td><td>Spectrum 0 to ωD; g(ω) ∝ ω²</td><td>T³ law (correct)</td><td>Best overall</td></tr>
+        </table>
+      </div>
+
+    </div>
+  </div><!-- /Q4 -->
+
+
+  <!-- ─── Q5 ─── -->
+  <div class="pyq-qblock">
+    <div class="pyq-qblock-header" onclick="this.parentElement.classList.toggle('open')">
+      <span class="pyq-qnum">Q5</span>
+      <span class="pyq-qtitle">Langevin Diamagnetism, B-H Loop with Domains & Polarizability Types</span>
+      <span class="pyq-marks">[6, 6, 3]</span>
+      <span class="toggle-icon" style="color:var(--text3);font-size:18px;transition:transform .2s">⌄</span>
+    </div>
+    <div class="pyq-qblock-body">
+
+      <!-- Q5(a) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(a)</span>
+          <span class="pyq-part-q">Derive Langevin's theory of diamagnetism; show susceptibility is negative and temperature-independent</span>
+          <span class="pyq-marks-small">[6 marks]</span>
+        </div>
+        <div class="ans-heading">Basic Idea</div>
+        <div class="ans-point">Diamagnetism arises from the <strong>change in orbital velocity of electrons</strong> when an external magnetic field is applied. By Lenz's law, the induced current opposes the applied field → susceptibility is negative.</div>
+
+        <div class="ans-heading">Derivation</div>
+        <div class="ans-point"><strong>Step 1:</strong> Consider an electron of charge −e, mass m, moving in a circular orbit of radius r with angular velocity ω₀. The centripetal force is provided by the Coulomb attraction:</div>
+        <div class="ans-formula">mω₀²r = e²/(4πε₀r²)  → mω₀²r = F₀  ... (1)</div>
+
+        <div class="ans-point"><strong>Step 2:</strong> Apply magnetic field B perpendicular to the orbital plane. An additional Lorentz force acts on the electron: F_L = evB = e(ω'r)B.</div>
+
+        <div class="ans-point"><strong>Step 3:</strong> New equation of motion (new angular velocity ω'):</div>
+        <div class="ans-formula">
+          mω'²r = F₀ ± eω'rB  (+ for one sense, − for opposite)<br><br>
+          m(ω'² − ω₀²)r = ∓eω'rB<br>
+          m(ω' + ω₀)(ω' − ω₀) ≈ ∓eω'B  (since ω' ≈ ω₀)<br><br>
+          Change in angular velocity: Δω = ω' − ω₀ = ∓eB/(2m)
+        </div>
+
+        <div class="ans-point"><strong>Step 4:</strong> This Δω is the <strong>Larmor precession frequency</strong>. The change in magnetic moment per electron:</div>
+        <div class="ans-formula">
+          Δμ = −e(Δω)r²/2 = −e²r²B/(4m)  (per electron, per dimension)
+        </div>
+
+        <div class="ans-point"><strong>Step 5:</strong> For Z electrons per atom, using ⟨r²⟩ = ⟨x²+y²⟩ = (2/3)⟨ρ²⟩ (3D average):</div>
+        <div class="ans-formula">
+          <div class="fl">Diamagnetic Susceptibility</div>
+          Total Δμ per atom = −Ze²⟨r²⟩B/(6m)<br><br>
+          Magnetization: M = N·Δμ = −NZe²⟨r²⟩B/(6m)<br><br>
+          χ_dia = μ₀M/B = −μ₀NZe²⟨r²⟩/(6m)
+        </div>
+
+        <div class="ans-heading">Conclusions</div>
+        <div class="ans-point"><strong>1. χ is negative:</strong> The formula has a negative sign → magnetization opposes applied field → diamagnetic. ✓</div>
+        <div class="ans-point"><strong>2. χ is temperature-independent:</strong> The expression contains no temperature T. The orbital radius and Larmor precession are independent of thermal motion. ✓</div>
+        <div class="ans-point">This means diamagnetic susceptibility is the same at all temperatures — confirmed experimentally.</div>
+        <div class="ans-box">
+          <div class="ab-label">Final Result</div>
+          χ_dia = −μ₀NZe²⟨r²⟩/(6m) = constant (negative, T-independent) ✓
+        </div>
+      </div>
+
+      <!-- Q5(b) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(b)</span>
+          <span class="pyq-part-q">Draw B-H hysteresis loop for ferromagnet; explain with domain theory</span>
+          <span class="pyq-marks-small">[6 marks]</span>
+        </div>
+        <div class="ans-heading">B-H Hysteresis Loop</div>
+        <div class="diagram-area">
+          <div class="diagram-label">B-H Hysteresis Loop — Ferromagnetic Material</div>
+          <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" style="max-width:400px">
+            <!-- Axes -->
+            <line x1="200" y1="20" x2="200" y2="300" stroke="#6a677f" stroke-width="1.5"/>
+            <line x1="30" y1="160" x2="370" y2="160" stroke="#6a677f" stroke-width="1.5"/>
+            <text x="195" y="15" fill="#9e9bb8" font-size="12">B</text>
+            <text x="355" y="175" fill="#9e9bb8" font-size="12">H</text>
+            <!-- Hysteresis loop path (clockwise) -->
+            <!-- Initial curve O → Bs (top right) -->
+            <path d="M200,160 Q230,158 260,130 Q320,90 340,60" fill="none" stroke="#9e9bb8" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <!-- Main loop: top half (from Bs going left) -->
+            <path d="M340,60 Q300,55 200,75 Q130,95 100,160 Q85,220 130,240 Q160,255 200,255"
+                  fill="none" stroke="#f7a07e" stroke-width="2.5"/>
+            <!-- Bottom half (from −Bs going right) -->
+            <path d="M60,260 Q100,265 200,245 Q270,225 300,160 Q315,100 270,80 Q240,65 200,65"
+                  fill="none" stroke="#f7a07e" stroke-width="2.5"/>
+            <!-- Connect loop at right +Bs and left -Bs -->
+            <path d="M200,65 Q260,60 340,60" fill="none" stroke="#f7a07e" stroke-width="2.5"/>
+            <path d="M200,255 Q130,260 60,260" fill="none" stroke="#f7a07e" stroke-width="2.5"/>
+
+            <!-- Key Points -->
+            <!-- Bs: (340,60) -->
+            <circle cx="340" cy="60" r="4" fill="#f7d97e"/>
+            <text x="348" y="58" fill="#f7d97e" font-size="10">Bs (saturation)</text>
+            <!-- Br: (200, 75) = where loop crosses B-axis top -->
+            <circle cx="200" cy="75" r="4" fill="#7de8c0"/>
+            <text x="206" y="73" fill="#7de8c0" font-size="10">Br (retentivity)</text>
+            <!-- Hc: where loop crosses H-axis (approx 100,160) -->
+            <circle cx="100" cy="160" r="4" fill="#c4a6f7"/>
+            <text x="55" y="155" fill="#c4a6f7" font-size="10">−Hc</text>
+            <!-- −Bs -->
+            <circle cx="60" cy="260" r="4" fill="#f7d97e"/>
+            <text x="10" y="264" fill="#f7d97e" font-size="10">−Bs</text>
+            <!-- −Br -->
+            <circle cx="200" cy="245" r="4" fill="#7de8c0"/>
+            <text x="206" y="250" fill="#7de8c0" font-size="10">−Br</text>
+            <!-- +Hc right -->
+            <circle cx="300" cy="160" r="4" fill="#c4a6f7"/>
+            <text x="305" y="155" fill="#c4a6f7" font-size="10">+Hc</text>
+            <!-- Origin -->
+            <text x="204" y="170" fill="#9e9bb8" font-size="10">O</text>
+            <!-- Direction arrows on loop -->
+            <text x="320" y="95" fill="#f7a07e" font-size="14">↙</text>
+            <text x="80" y="215" fill="#f7a07e" font-size="14">↙</text>
+            <!-- Labels -->
+            <text x="155" y="310" fill="#9e9bb8" font-size="10" text-anchor="middle">Area = Energy loss per cycle</text>
+          </svg>
+        </div>
+
+        <div class="ans-heading">Explanation Using Domain Theory</div>
+        <div class="ans-point"><strong>Segment O → Bs (initial curve):</strong> Starting from demagnetized state, as H increases, domains aligned with H begin to <strong>grow by domain wall movement</strong>. Favorable domains expand, unfavorable domains shrink. At saturation Bs, all domains are aligned with H.</div>
+        <div class="ans-point"><strong>Bs → Br (H reduced to 0):</strong> When H is removed, domain walls do not return to original positions (pinned by defects/impurities). Some domains remain aligned → <strong>residual magnetism Br (retentivity)</strong>.</div>
+        <div class="ans-point"><strong>Br → −Hc (reverse field applied):</strong> A reverse field H is needed to demagnetize the material. At coercive force <strong>Hc</strong>, enough domains have switched → B = 0.</div>
+        <div class="ans-point"><strong>−Hc → −Bs:</strong> Further increasing reverse H aligns all domains in the reverse direction → negative saturation −Bs.</div>
+        <div class="ans-point"><strong>−Bs → −Br → +Hc → +Bs:</strong> Completing the cycle in the forward direction traces the bottom half of the loop symmetrically.</div>
+        <div class="ans-heading">Energy Loss</div>
+        <div class="ans-point">The <strong>area enclosed by the hysteresis loop</strong> represents the energy dissipated as heat per unit volume per cycle. This is called <strong>hysteresis loss</strong>.</div>
+        <div class="ans-formula">Energy loss/cycle = ∮H·dB × Volume</div>
+        <div class="ans-point"><strong>Soft ferromagnets</strong> (narrow loop): low Hc, small area → low energy loss → used in transformer cores and electromagnets.</div>
+        <div class="ans-point"><strong>Hard ferromagnets</strong> (wide loop): large Hc, large Br → high energy loss but retain magnetism → used as permanent magnets.</div>
+      </div>
+
+      <!-- Q5(c) -->
+      <div class="pyq-part">
+        <div class="pyq-part-label">
+          <span class="pyq-part-tag">(c)</span>
+          <span class="pyq-part-q">Define electronic, ionic and orientational dipolar polarizability for dielectric materials</span>
+          <span class="pyq-marks-small">[3 marks]</span>
+        </div>
+        <div class="ans-heading">1. Electronic Polarizability (α_e)</div>
+        <div class="ans-point">When an electric field is applied, the <strong>electron cloud of an atom is displaced</strong> relative to the positive nucleus, creating an induced dipole moment.</div>
+        <div class="ans-point">Present in <strong>all materials</strong> (atoms, ions, and molecules).</div>
+        <div class="ans-point">Very fast response — remains effective even at optical frequencies (~10¹⁵ Hz).</div>
+        <div class="ans-formula">p_e = α_e · E&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;α_e = 4πε₀R³  (for sphere of radius R)</div>
+
+        <div class="ans-heading">2. Ionic Polarizability (α_i)</div>
+        <div class="ans-point">In ionic crystals (e.g., NaCl), an applied field causes <strong>relative displacement of positive and negative ion sub-lattices</strong>, creating a net dipole moment per unit cell.</div>
+        <div class="ans-point">Slower than electronic polarization; effective up to infrared frequencies (~10¹² Hz).</div>
+        <div class="ans-point">Absent in covalent crystals (like diamond) where there are no separate ions.</div>
+        <div class="ans-formula">p_i = α_i · E&nbsp;&nbsp;&nbsp;where α_i depends on ionic masses and restoring force constants</div>
+
+        <div class="ans-heading">3. Orientational (Dipolar) Polarizability (α_o)</div>
+        <div class="ans-point">Polar molecules (e.g., H₂O, HCl) have a <strong>permanent electric dipole moment</strong>. Without a field, these are randomly oriented (net P = 0).</div>
+        <div class="ans-point">An applied field tends to align these permanent dipoles, contributing to polarization. Thermal agitation opposes perfect alignment.</div>
+        <div class="ans-point">Slowest response — only at low frequencies (below microwave, ~10⁹ Hz). Absent in non-polar materials.</div>
+        <div class="ans-formula">p_o = α_o · E&nbsp;&nbsp;&nbsp;where α_o = μ²/(3k_BT)  (Langevin result, T-dependent)</div>
+
+        <table class="ans-table">
+          <tr><th>Type</th><th>Mechanism</th><th>Frequency Range</th><th>T-dependence</th></tr>
+          <tr><td>Electronic (α_e)</td><td>Electron cloud shift</td><td>Up to UV (~10¹⁵ Hz)</td><td>Independent</td></tr>
+          <tr><td>Ionic (α_i)</td><td>Ion sub-lattice shift</td><td>Up to IR (~10¹² Hz)</td><td>Independent</td></tr>
+          <tr><td>Orientational (α_o)</td><td>Polar molecule rotation</td><td>Up to microwave (~10⁹ Hz)</td><td>α_o ∝ 1/T</td></tr>
+        </table>
+
+        <div class="ans-box">
+          <div class="ab-label">Total Polarizability</div>
+          α_total = α_e + α_i + α_o<br>
+          (At high frequencies, only α_e contributes; α_i and α_o drop out as frequency increases)
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /Q5 -->
+
+</section>
+</div>
+</div>
+
+<script>
+// Extend intersection observer to include pyq
+document.querySelectorAll('.pyq-qblock-header').forEach(h => {
+  // already handled by inline onclick
 });
 </script>
 </body>
 </html>
-HTMLEOF
