@@ -1102,5 +1102,336 @@ document.querySelectorAll('.topic-head').forEach(h => {
   h.querySelector('.chevron').classList.add('open');
 });
 </script>
+  
 </body>
+  <!DOCTYPE html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Methodology — Quick Revision Flashcards</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4ef;color:#1a1916;padding:16px;min-height:100vh}
+h1{font-size:18px;font-weight:600;margin-bottom:2px;color:#1a1916}
+.subtitle{font-size:12px;color:#666;margin-bottom:1rem}
+.unit-tabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+.utab{font-size:11px;font-weight:500;padding:5px 11px;border-radius:20px;border:1px solid #d1d5db;background:transparent;color:#6b7280;cursor:pointer;font-family:inherit}
+.utab.on{background:#dbeafe;color:#1d4ed8;border-color:transparent}
+.prog-row{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.prog-bg{flex:1;height:4px;background:#e5e7eb;border-radius:2px}
+.prog-fill{height:4px;background:#2563eb;border-radius:2px;transition:width 0.3s}
+.prog-lbl{font-size:12px;color:#6b7280;white-space:nowrap}
+.card-wrap{perspective:800px;height:210px;cursor:pointer;margin-bottom:12px}
+.card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 0.45s}
+.card-inner.flipped{transform:rotateY(180deg)}
+.card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid #e5e7eb;border-radius:12px;padding:1.25rem 1rem;display:flex;flex-direction:column;justify-content:center;background:#ffffff}
+.card-back{transform:rotateY(180deg);background:#f0fdf4;border-color:#bbf7d0}
+.card-hint{font-size:11px;color:#9ca3af;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.card-hint.ans{color:#16a34a}
+.card-q{font-size:15px;font-weight:600;color:#111827;line-height:1.5;flex:1}
+.card-a{font-size:13px;color:#1a1a1a;line-height:1.7;flex:1}
+.card-a b{font-weight:600}
+.formula{font-family:'Courier New',monospace;font-size:12px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:5px;padding:3px 8px;margin:3px 0;display:inline-block;color:#1e3a5f}
+.unit-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;margin-top:8px;align-self:flex-start}
+.nav-row{display:flex;gap:8px}
+.nav-row button{flex:1;padding:10px 6px;border:1px solid #d1d5db;border-radius:8px;background:#fff;font-size:13px;color:#1a1a1a;cursor:pointer;font-family:inherit}
+.nav-row button:hover{background:#f3f4f6}
+.nav-row button.primary{background:#2563eb;color:#fff;border-color:transparent}
+.nav-row button.primary:hover{background:#1d4ed8}
+.done-screen{display:none;text-align:center;padding:2.5rem 0}
+.done-num{font-size:52px;font-weight:700;color:#1a1a1a}
+.done-lbl{font-size:14px;color:#6b7280;margin-top:4px}
+.restart{margin-top:1.25rem;padding:10px 28px;border:1px solid #d1d5db;border-radius:8px;background:#fff;cursor:pointer;font-size:13px;font-family:inherit}
+.restart:hover{background:#f3f4f6}
+@media(prefers-color-scheme:dark){
+  body{background:#111827;color:#f9fafb}
+  h1{color:#f9fafb}
+  .subtitle{color:#9ca3af}
+  .utab{border-color:#374151;color:#9ca3af;background:transparent}
+  .utab.on{background:#1e3a5f;color:#93c5fd;border-color:transparent}
+  .prog-bg{background:#374151}
+  .card-face{background:#1f2937;border-color:#374151}
+  .card-back{background:#052e16;border-color:#166534}
+  .card-q{color:#f9fafb}
+  .card-a{color:#e5e7eb}
+  .formula{background:#1e293b;border-color:#334155;color:#bae6fd}
+  .nav-row button{background:#1f2937;border-color:#374151;color:#e5e7eb}
+  .nav-row button:hover{background:#374151}
+  .done-num{color:#f9fafb}
+  .restart{background:#1f2937;border-color:#374151;color:#e5e7eb}
+  .restart:hover{background:#374151}
+}
+</style>
+</head>
+<body>
+
+<h1>Research Methodology</h1>
+<p class="subtitle">Quick revision — 48 flashcards across all 6 units · Tap any card to flip</p>
+
+<div class="unit-tabs" id="utabs"></div>
+
+<div id="main">
+  <div class="prog-row">
+    <div class="prog-bg"><div class="prog-fill" id="pf"></div></div>
+    <span class="prog-lbl" id="plbl">1 / 48</span>
+  </div>
+  <div class="card-wrap" id="cwrap" onclick="flip()">
+    <div class="card-inner" id="cinner">
+      <div class="card-face">
+        <div class="card-hint">&#8635; tap to reveal answer</div>
+        <div class="card-q" id="cq"></div>
+        <span class="unit-badge" id="cbadge"></span>
+      </div>
+      <div class="card-face card-back">
+        <div class="card-hint ans">&#10003; model answer</div>
+        <div class="card-a" id="ca"></div>
+      </div>
+    </div>
+  </div>
+  <div class="nav-row">
+    <button onclick="prev()">&#8592; prev</button>
+    <button class="primary" onclick="next()" id="nbtn">next &#8594;</button>
+  </div>
+</div>
+
+<div class="done-screen" id="done">
+  <div class="done-num" id="dnum"></div>
+  <div class="done-lbl">cards revised — well done!</div>
+  <p style="font-size:13px;color:#6b7280;margin-top:10px;line-height:1.6">Use the unit tabs above to focus on a specific unit, or restart all cards.</p>
+  <button class="restart" onclick="restartAll()">&#8635; restart all cards</button>
+</div>
+
+<script>
+const ALL = [
+  // UNIT I
+  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
+   q:"What is the scientific method?",
+   a:"Systematic steps: <b>Observation → Hypothesis → Experiment → Analysis → Conclusion</b>. Self-correcting — knowledge is revised as new evidence appears. Formalised by Bacon (induction), Descartes (deduction), Galileo (experiment)."},
+  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
+   q:"Basic research vs applied research?",
+   a:"<b>Basic</b> = expands theory, no immediate use (e.g. dark matter study).<br><b>Applied</b> = solves real problems using existing knowledge (e.g. MRI design).<br>Key distinction: intent — 'why does this happen?' vs 'how do we fix this?'"},
+  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
+   q:"Name 4 types of bias in research.",
+   a:"<b>Selection bias</b> (non-random sample) · <b>Measurement bias</b> (faulty instrument) · <b>Observer bias</b> (expectations affect recording) · <b>Confirmation bias</b> (interpret data to fit beliefs).<br>Fix: random sampling, blind studies, calibration."},
+  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
+   q:"What is a research problem? Name its sources.",
+   a:"A specific gap or unanswered question in existing knowledge.<br>Sources: personal experience, contradictions in literature, social needs, expert suggestions, gaps in previous research."},
+  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
+   q:"What is a literature review? Types?",
+   a:"Critical, thematic synthesis of existing work. Identifies gaps, justifies methodology.<br><b>Systematic</b>: structured, pre-defined criteria, reproducible — gold standard.<br><b>Narrative</b>: author-driven, selective."},
+  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
+   q:"Name 4 open-source literature tools.",
+   a:"<b>Google Scholar, arXiv, PubMed, DOAJ</b> (also: Semantic Scholar, SSRN, Unpaywall).<br>Paid: Web of Science, Scopus, JSTOR, IEEE Xplore, ScienceDirect."},
+  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
+   q:"Name 4 reference management tools.",
+   a:"<b>Zotero</b> (free) · <b>Mendeley</b> (free) · <b>EndNote</b> (paid) · <b>JabRef</b> (free, LaTeX).<br>They store citations, auto-format bibliographies, and track reading status."},
+  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
+   q:"Primary source vs secondary source?",
+   a:"<b>Primary</b> = original research paper, raw data, thesis — first-hand knowledge.<br><b>Secondary</b> = review articles, textbooks, meta-analyses — summarise primary sources."},
+
+  // UNIT II
+  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
+   q:"5 methods of data collection — list them.",
+   a:"<b>1 Survey</b> (questionnaire, large sample) · <b>2 Interview</b> (structured/semi/unstructured) · <b>3 Observation</b> (participant/non-participant) · <b>4 Experimentation</b> (IV → DV) · <b>5 Case study</b> (single subject, in-depth)"},
+  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
+   q:"What is the Hawthorne effect?",
+   a:"People change behaviour when they know they are being observed — usually becoming more productive. Major limitation of observational research. Discovered at Hawthorne Works factory (1920s)."},
+  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
+   q:"Mean, median, mode — when to use each?",
+   a:"<b>Mean</b> = symmetric data, no outliers.<br><b>Median</b> = skewed data or outliers (robust to extreme values).<br><b>Mode</b> = categorical data.<br>If mean > median → right-skewed (e.g. income data)."},
+  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
+   q:"Standard deviation formula and meaning.",
+   a:"<span class='formula'>σ = √[ Σ(xᵢ − x̄)² / n ]</span><br>Low σ = data clustered near mean (precise). High σ = widely spread.<br><b>Precision ≠ Accuracy</b>. Accuracy = closeness to true value (improved by calibration)."},
+  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
+   q:"Z-test vs T-test — when to use each?",
+   a:"<b>Z-test</b>: n > 30, population σ known.<br><span class='formula'>Z = (x̄ − μ) / (σ/√n)</span><b>T-test</b>: n ≤ 30 or σ unknown. df = n−1.<br><span class='formula'>t = (x̄ − μ) / (s/√n)</span>3 types: one-sample, two-sample, paired."},
+  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
+   q:"Type I vs Type II error?",
+   a:"<b>Type I (α)</b>: reject true H₀ → false positive. Probability = α (0.05).<br><b>Type II (β)</b>: accept false H₀ → false negative. Probability = β.<br>Power = 1 − β.<br>Mnemonic: Type I = crying wolf; Type II = missing the wolf."},
+  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
+   q:"What is statistical power?",
+   a:"Power = <b>1 − β</b> = probability of correctly detecting a real effect when it exists.<br>Increased by: larger sample size, larger effect size, higher α.<br>Only way to reduce BOTH Type I and II errors: increase sample size n."},
+  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
+   q:"Linear regression equation and terms.",
+   a:"<span class='formula'>Y = β₀ + β₁X + ε</span>β₀ = intercept (value of Y when X = 0).<br>β₁ = slope (change in Y per 1-unit increase in X).<br>ε = residual error. R² = proportion of variance in Y explained by model."},
+  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
+   q:"Marquardt method — what is it?",
+   a:"Hybrid of <b>Gradient descent</b> (reliable, slow near minimum) + <b>Gauss-Newton</b> (fast near minimum, fails far from it).<br>Marquardt switches between them intelligently — gold standard for nonlinear least-squares curve fitting."},
+  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
+   q:"Error propagation formula.",
+   a:"For z = x + y with independent random errors:<br><span class='formula'>Δz = √(Δx² + Δy²)</span><b>Calibration</b> reduces systematic error. <b>Averaging</b> reduces random error. Accuracy ≠ Precision."},
+
+  // UNIT III
+  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
+   q:"Open access types — Gold vs Green OA.",
+   a:"<b>Gold OA</b>: author pays APC (Article Processing Charge); free for all readers. Example: PLOS ONE.<br><b>Green OA</b>: author self-archives in a repository (arXiv, PubMed Central) — free to read there."},
+  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
+   q:"4 warning signs of a predatory journal.",
+   a:"1. Unsolicited spam email invitations.<br>2. Acceptance in 24–48 hours.<br>3. Unverifiable editorial board.<br>4. Generic vague journal name.<br>Check: Beall's List, DOAJ, COPE/OASPA membership, Think-Check-Submit."},
+  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
+   q:"Web of Science vs Scopus — key differences.",
+   a:"<b>WoS (Clarivate)</b>: more selective; source of official Journal Impact Factor (JIF).<br><b>Scopus (Elsevier)</b>: broader coverage, more non-English journals; source of CiteScore, SNIP, SJR.<br>Both are citation databases."},
+  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
+   q:"SIMBAD vs NED — what's the difference?",
+   a:"<b>SIMBAD (CDS, Strasbourg)</b>: objects <b>inside/near Milky Way</b> — stars, nebulae, clusters.<br><b>NED (NASA/IPAC)</b>: objects <b>outside Milky Way</b> — galaxies, quasars, AGN.<br>VizieR = data tables. ADS = literature search."},
+  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
+   q:"Name all 7 physics databases in the syllabus.",
+   a:"<b>ADS</b> (astrophysics lit.) · <b>NED</b> (extragalactic) · <b>SIMBAD</b> (galactic) · <b>VizieR</b> (catalogues) · <b>PubMed</b> (biophysics) · <b>INSPIRE-HEP</b> (particle physics) · <b>ICDD</b> (X-ray / condensed matter)"},
+  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
+   q:"Impact Factor — formula and 3 limitations.",
+   a:"<span class='formula'>IF = Citations in Y to (Y-1, Y-2) / Articles in (Y-1, Y-2)</span>Limitations: (1) Not comparable across fields · (2) Review articles inflate it · (3) Disadvantages new journals · (4) Manipulable via self-citation."},
+  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
+   q:"h-index, g-index, i10-index — differences?",
+   a:"<b>h-index</b>: h papers each cited ≥ h times. Balances quantity and quality.<br><b>g-index</b>: top g papers together have ≥ g² citations. Rewards blockbusters.<br><b>i10-index</b>: papers with ≥ 10 citations. Used by Google Scholar. Crude."},
+  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
+   q:"What is SNIP and why is it better than IF across fields?",
+   a:"SNIP = <b>Source Normalized Impact per Paper</b>. Divides citations by the citation potential of the field — corrects for fact that biology papers cite more than physics papers. Makes cross-field journal comparisons fair."},
+
+  // UNIT IV
+  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
+   q:"Erratum vs Correction vs Retraction vs Expression of Concern.",
+   a:"<b>Erratum</b>: minor author error — no change to conclusions.<br><b>Correction</b>: substantial error — may affect interpretation.<br><b>Retraction</b>: full withdrawal — fraud, fatal flaws. Tracked by Retraction Watch.<br><b>Expression of Concern</b>: interim notice during investigation."},
+  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
+   q:"Name 5 types of plagiarism.",
+   a:"1. <b>Verbatim</b> (copy-paste)<br>2. <b>Paraphrasing</b> without citation<br>3. <b>Mosaic</b> (mixing sources without attribution)<br>4. <b>Self-plagiarism</b> (reusing own work without disclosure)<br>5. <b>Idea plagiarism</b> (taking concepts without attribution)"},
+  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
+   q:"iThenticate vs Turnitin — difference?",
+   a:"<b>iThenticate</b>: used by journals and publishers to check manuscripts before/after publication.<br><b>Turnitin</b>: used by universities to check student submissions.<br>Both generate a similarity report with highlighted matches and percentage."},
+  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
+   q:"What is salami slicing?",
+   a:"Artificially splitting one coherent study into the minimum number of separate papers ('least publishable units') to inflate publication count.<br>Harms literature: meta-analyses double-count the data. Considered research misconduct."},
+  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
+   q:"What is COPE and what does it do?",
+   a:"Committee on Publication Ethics (est. 1997). Provides guidelines, flowcharts, case studies for editors handling misconduct.<br>Covers: data integrity, authorship, peer review, conflicts of interest.<br><b>Does NOT investigate</b> — advises editors only."},
+  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
+   q:"What records must a researcher maintain?",
+   a:"Raw data · Lab notebooks / observation logs · Experimental protocols · Analysis code (version-controlled in Git) · Sample records (chain of custody).<br>Minimum retention: <b>5–10 years</b> post-publication."},
+  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
+   q:"What is selective reporting / publication bias?",
+   a:"Only publishing statistically significant (positive) results while suppressing negative or null results.<br>Distorts the scientific literature — makes ineffective treatments appear effective.<br>Fix: pre-registration of studies, registered reports."},
+  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
+   q:"Environmental clearances in research.",
+   a:"Research with hazardous chemicals, radioactive materials, or biological agents requires prior environmental clearance.<br>Waste must be: segregated → labelled → safely stored → disposed via licensed agencies per Environment Protection Act (India)."},
+
+  // UNIT V
+  {u:5,ul:"Unit V",uc:"#ede9fe",ut:"#6d28d9",
+   q:"IMRaD — what does it stand for?",
+   a:"<b>I</b>ntroduction (why?) · <b>M</b>ethods (how?) · <b>R</b>esults (what did you find? — data only, no interpretation) · <b>a</b>nd · <b>D</b>iscussion (what does it mean?).<br>Standard structure for all scientific research papers."},
+  {u:5,ul:"Unit V",uc:"#ede9fe",ut:"#6d28d9",
+   q:"What must an abstract contain?",
+   a:"150–250 words. Must include: background + objective + methods + key results + conclusion.<br>Rules: no citations, no undefined abbreviations, no figures. Past tense for methods/results; present tense for conclusions."},
+  {u:5,ul:"Unit V",uc:"#ede9fe",ut:"#6d28d9",
+   q:"Results vs Discussion — what goes where?",
+   a:"<b>Results</b>: objective data only — numbers, tables, figures. No interpretation or opinion.<br><b>Discussion</b>: interpretation, comparison with literature, limitations, implications.<br>Example: '40% reduction (p=0.003)' = Results. 'The drug worked' = Discussion."},
+  {u:5,ul:"Unit V",uc:"#ede9fe",ut:"#6d28d9",
+   q:"APA vs MLA vs Vancouver referencing.",
+   a:"<b>APA</b>: author-date (Author, Year) — social sciences.<br><b>MLA</b>: author-page (Author Page) — humanities.<br><b>Vancouver</b>: numbered [1][2] in order of appearance — physics, medicine."},
+  {u:5,ul:"Unit V",uc:"#ede9fe",ut:"#6d28d9",
+   q:"GnuPlot vs Origin — compare.",
+   a:"<b>GnuPlot</b>: free, open-source, command-line, script-driven — best for automation and reproducibility.<br><b>Origin</b>: paid, GUI, point-and-click — most used in physics labs, supports curve fitting.<br><b>MagicPlot</b>: free GUI, lightweight middle-ground."},
+  {u:5,ul:"Unit V",uc:"#ede9fe",ut:"#6d28d9",
+   q:"What is Beamer and why use it over PowerPoint?",
+   a:"LaTeX package for creating PDF presentation slides. Advantages: native equation rendering (crucial for physics), consistent layout, plain-text = Git version-controllable, platform-independent PDF output.<br>Structure: \\begin{frame}...\\end{frame} per slide."},
+
+  // UNIT VI
+  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
+   q:"Patent — 3 requirements and duration.",
+   a:"Must be: <b>Novel</b> (not previously disclosed) + <b>Non-obvious</b> (inventive step) + <b>Industrially applicable</b>.<br>Duration: <b>20 years</b> from filing date. Requires full disclosure.<br>Not patentable: scientific theories, maths, natural phenomena."},
+  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
+   q:"Copyright — automatic or registered? Duration?",
+   a:"<b>Automatic</b> — arises on creation, no registration needed. Protects expression (not ideas).<br>Duration: life of author + <b>60 years</b> (India).<br>Copyright on published papers is often transferred to the publisher."},
+  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
+   q:"Trademark vs Trade secret — key differences.",
+   a:"<b>Trademark</b>: must register, protects brand identity (name/logo/slogan), renewable indefinitely.<br><b>Trade secret</b>: no registration, no expiry — but no legal protection if independently discovered or leaked."},
+  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
+   q:"Indian Patents Act — what is Section 3?",
+   a:"Section 3 of the Indian Patents Act 1970 lists what is NOT patentable:<br>Scientific theories · Mathematical methods · Methods of agriculture · Discoveries of living organisms · Methods of medical treatment."},
+  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
+   q:"SERB — full form and key funding schemes.",
+   a:"Science and Engineering Research Board (under DST).<br>Schemes: <b>CRG</b> (established researchers) · <b>SRG</b> (new faculty ≤3 yrs) · <b>MATRICS</b> (maths) · <b>J C Bose Fellowship</b> (outstanding scientists) · <b>NPDF</b> (post-docs)"},
+  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
+   q:"UGC vs SERB — key difference.",
+   a:"<b>SERB</b>: funds research output and innovation — grants for experiments and publications.<br><b>UGC</b>: funds universities and students — MRP, Minor RP, JRF/SRF fellowships (via NET exam).<br>A professor may have a SERB grant while students are on UGC-JRF."},
+  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
+   q:"BRNS and DRDO — what do they fund?",
+   a:"<b>BRNS (Board of Research in Nuclear Sciences)</b>: under DAE — nuclear sciences, radiation physics, materials science.<br><b>DRDO (Defence R&D Organisation)</b>: research with strategic and defence applications."},
+  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
+   q:"Name 3 international research fellowships.",
+   a:"<b>Fulbright</b> (US-India) · <b>Newton-Bhabha</b> (UK-India) · <b>Marie Curie</b> (EU) · <b>DST-NSF</b> (Indo-US) · <b>DST-DFG</b> (Indo-German).<br>For cross-country research collaboration and researcher mobility."}
+];
+
+let cards = ALL.slice(), cur = 0, flipped = false, activeU = 0;
+
+// Build unit tabs
+const utabs = document.getElementById('utabs');
+[0,1,2,3,4,5,6].forEach(u => {
+  const b = document.createElement('button');
+  b.className = 'utab' + (u === 0 ? ' on' : '');
+  b.textContent = u === 0 ? 'All units' : 'Unit ' + ['I','II','III','IV','V','VI'][u-1];
+  b.onclick = () => setUnit(u, b);
+  utabs.appendChild(b);
+});
+
+function setUnit(u, btn) {
+  document.querySelectorAll('.utab').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  activeU = u;
+  cards = u === 0 ? ALL.slice() : ALL.filter(c => c.u === u);
+  cur = 0; flipped = false;
+  document.getElementById('done').style.display = 'none';
+  document.getElementById('main').style.display = 'block';
+  render();
+}
+
+function render() {
+  if (cur >= cards.length) { finish(); return; }
+  const c = cards[cur];
+  flipped = false;
+  document.getElementById('cinner').classList.remove('flipped');
+  document.getElementById('cq').textContent = c.q;
+  document.getElementById('ca').innerHTML = c.a;
+  const badge = document.getElementById('cbadge');
+  badge.textContent = c.ul;
+  badge.style.background = c.uc;
+  badge.style.color = c.ut;
+  const pct = Math.round((cur + 1) / cards.length * 100);
+  document.getElementById('pf').style.width = pct + '%';
+  document.getElementById('plbl').textContent = (cur + 1) + ' / ' + cards.length;
+  document.getElementById('nbtn').textContent = cur === cards.length - 1 ? 'finish' : 'next \u2192';
+}
+
+function flip() {
+  flipped = !flipped;
+  document.getElementById('cinner').classList.toggle('flipped', flipped);
+}
+
+function next() {
+  if (cur < cards.length - 1) { cur++; render(); }
+  else { finish(); }
+}
+
+function prev() {
+  if (cur > 0) { cur--; render(); }
+}
+
+function finish() {
+  document.getElementById('main').style.display = 'none';
+  const done = document.getElementById('done');
+  done.style.display = 'block';
+  document.getElementById('dnum').textContent = cards.length;
+}
+
+function restartAll() {
+  document.querySelectorAll('.utab').forEach((b, i) => b.classList.toggle('on', i === 0));
+  activeU = 0; cards = ALL.slice(); cur = 0; flipped = false;
+  document.getElementById('done').style.display = 'none';
+  document.getElementById('main').style.display = 'block';
+  render();
+}
+
+render();
+</script>
+</body>
+
 </html>
