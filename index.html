@@ -3,1435 +3,788 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Research Methodology — Complete Exam Notes</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Computer Networks — Complete Exam Notes</title>
 <style>
-:root {
-  --bg: #f7f6f1;
-  --surface: #ffffff;
-  --surface2: #f0ede4;
-  --border: #e2ddd4;
-  --text: #1a1916;
-  --muted: #6b6860;
-  --accent: #2b4c7e;
-  --accent2: #c4572a;
-  --accent3: #2a7e5f;
-  --tag-bg: #e8f0fb;
-  --tag-text: #2b4c7e;
-  --exam-bg: #fff8f0;
-  --exam-border: #c4572a;
-  --point-bg: #f0f7f4;
-  --point-border: #2a7e5f;
-  --ff-display: 'DM Serif Display', serif;
-  --ff-body: 'DM Sans', sans-serif;
-  --ff-mono: 'JetBrains Mono', monospace;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--ff-body); background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; }
+  :root {
+    --blue: #0C447C; --blue-bg: #E6F1FB;
+    --purple: #3C3489; --purple-bg: #EEEDFE;
+    --teal: #085041; --teal-bg: #E1F5EE;
+    --amber: #633806; --amber-bg: #FAEEDA;
+    --coral: #712B13; --coral-bg: #FAECE7;
+    --green: #27500A; --green-bg: #EAF3DE;
+    --pink: #72243E; --pink-bg: #FBEAF0;
+    --red: #791F1F; --red-bg: #FCEBEB;
+    --gray: #444441; --gray-bg: #F1EFE8;
+    --indigo: #2D3282; --indigo-bg: #EAECFE;
+    --border: #D8D5CC;
+    --bg: #FFFFFF;
+    --bg2: #F7F5F0;
+    --text: #1A1A18;
+    --text2: #6B6860;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #F0EDE6; color: var(--text); font-size: 13px; }
+  .page-wrap { max-width: 980px; margin: 0 auto; padding: 20px; }
 
-/* ── Header ── */
-.site-header { background: var(--accent); color: #fff; padding: 2.5rem 2rem 2rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,0.12); }
-.site-header h1 { font-family: var(--ff-display); font-size: 26px; font-weight: 400; letter-spacing: -0.02em; }
-.site-header p { font-size: 12px; opacity: 0.7; margin-top: 2px; }
-.unit-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-.unit-nav a { font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 20px; background: rgba(255,255,255,0.12); color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: background .15s; }
-.unit-nav a:hover { background: rgba(255,255,255,0.25); }
+  /* COVER */
+  .cover { background: linear-gradient(135deg, #0C447C 0%, #3C3489 50%, #085041 100%); border-radius: 12px; padding: 40px 32px; margin-bottom: 24px; color: white; text-align: center; }
+  .cover h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+  .cover .sub { font-size: 16px; opacity: 0.85; margin-bottom: 20px; }
+  .topic-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+  .topic-pill { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 4px 14px; font-size: 12px; }
 
-/* ── Layout ── */
-.container { max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  /* UNIT HEADERS */
+  .unit-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-radius: 10px; margin-bottom: 12px; margin-top: 24px; }
+  .unit-num { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; color: white; flex-shrink: 0; }
+  .unit-title { font-size: 20px; font-weight: 600; }
+  .unit-sub { font-size: 12px; opacity: 0.7; margin-top: 2px; }
 
-/* ── Unit block ── */
-.unit { margin-bottom: 3rem; }
-.unit-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 1.5rem; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
-.unit-num { font-family: var(--ff-mono); font-size: 11px; font-weight: 500; background: var(--accent); color: #fff; padding: 3px 10px; border-radius: 4px; white-space: nowrap; }
-.unit-title { font-family: var(--ff-display); font-size: 22px; font-weight: 400; color: var(--text); }
-.unit-hours { font-size: 11px; color: var(--muted); margin-left: auto; white-space: nowrap; }
+  /* SECTIONS */
+  .section { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 14px; overflow: hidden; }
+  .section-header { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+  .section-header h2 { font-size: 15px; font-weight: 600; color: var(--text); }
+  .badge { font-size: 11px; padding: 2px 9px; border-radius: 20px; font-weight: 600; white-space: nowrap; }
+  .section-body { padding: 14px 16px; }
 
-/* ── Topic card ── */
-.topic { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 1.25rem; overflow: hidden; }
-.topic-head { display: flex; align-items: center; gap: 10px; padding: 13px 16px; cursor: pointer; user-select: none; }
-.topic-head:hover { background: var(--surface2); }
-.topic-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
-.chevron { font-size: 11px; color: var(--muted); transition: transform .2s; }
-.chevron.open { transform: rotate(180deg); }
-.topic-body { display: none; border-top: 1px solid var(--border); }
-.topic-body.open { display: block; }
+  /* CONTENT ELEMENTS */
+  h3 { font-size: 13px; font-weight: 600; margin: 12px 0 5px; color: var(--text); border-left: 3px solid var(--border); padding-left: 8px; }
+  h4 { font-size: 12px; font-weight: 600; margin: 8px 0 4px; color: var(--text2); }
+  p { font-size: 12.5px; line-height: 1.6; margin-bottom: 4px; }
+  ul, ol { padding-left: 18px; margin: 4px 0; }
+  li { font-size: 12.5px; line-height: 1.6; margin-bottom: 2px; }
 
-/* ── Style tabs ── */
-.style-tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--surface2); }
-.style-tab { font-size: 11px; font-weight: 600; padding: 8px 14px; cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; text-transform: uppercase; letter-spacing: 0.05em; }
-.style-tab.active { color: var(--accent); border-bottom-color: var(--accent); background: var(--surface); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 8px 0; }
+  .grid4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; margin: 8px 0; }
 
-/* ── Panes ── */
-.pane { display: none; padding: 16px 18px; }
-.pane.active { display: block; }
+  .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; }
+  .card .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .04em; font-weight: 600; color: var(--text2); margin-bottom: 3px; }
+  .card .val { font-size: 12.5px; }
 
-/* ── Exam-ready style ── */
-.exam-block { background: var(--exam-bg); border-left: 3px solid var(--exam-border); border-radius: 0 8px 8px 0; padding: 14px 16px; margin-bottom: 10px; }
-.exam-block .eq-label { font-size: 10px; font-weight: 700; color: var(--exam-border); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; }
-.exam-block p { font-size: 13.5px; line-height: 1.75; color: var(--text); }
-.exam-block p b { font-weight: 600; }
-.formula-box { font-family: var(--ff-mono); font-size: 13px; background: #f1f5f9; border: 1px solid #d4dce8; border-radius: 6px; padding: 8px 12px; margin: 8px 0; color: #1e3a5f; display: block; }
+  .trick { background: #FAEEDA; border-left: 4px solid #EF9F27; padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; font-size: 12.5px; }
+  .trick b { color: var(--amber); }
+  .info-box { background: var(--blue-bg); border-left: 4px solid #378ADD; padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; font-size: 12.5px; }
+  .info-box b { color: var(--blue); }
+  .warn-box { background: var(--red-bg); border-left: 4px solid #E24B4A; padding: 7px 12px; margin: 6px 0; border-radius: 0 6px 6px 0; font-size: 12px; }
+  .warn-box b { color: var(--red); }
+  .ok-box { background: var(--green-bg); border-left: 4px solid #639922; padding: 7px 12px; margin: 6px 0; border-radius: 0 6px 6px 0; font-size: 12px; }
 
-/* ── Concept + example style ── */
-.concept-block { margin-bottom: 14px; }
-.concept-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); margin-bottom: 4px; }
-.concept-text { font-size: 13.5px; line-height: 1.75; color: var(--text); }
-.example-box { background: #fffbea; border: 1px solid #f0d060; border-radius: 8px; padding: 10px 14px; margin-top: 8px; font-size: 13px; color: #5a4200; line-height: 1.6; }
-.example-box::before { content: "Example → "; font-weight: 700; color: #9a7000; }
+  .formula { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; font-family: 'Courier New', monospace; font-size: 12px; margin: 5px 0; }
 
-/* ── Point-wise style ── */
-.points { list-style: none; }
-.points li { font-size: 13.5px; line-height: 1.65; padding: 5px 0 5px 20px; position: relative; color: var(--text); border-bottom: 1px solid var(--border); }
-.points li:last-child { border-bottom: none; }
-.points li::before { content: "▸"; position: absolute; left: 0; color: var(--accent3); font-size: 11px; top: 7px; }
-.points li b { font-weight: 600; }
-.tip-chip { display: inline-block; font-size: 11px; background: #fff0e8; color: #c4572a; border: 1px solid #f5c4a0; border-radius: 12px; padding: 2px 9px; margin-left: 6px; font-weight: 600; vertical-align: middle; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 8px 0; }
+  th { background: var(--bg2); font-weight: 600; padding: 6px 10px; text-align: left; border: 1px solid var(--border); color: var(--text2); font-size: 11px; }
+  td { padding: 5px 10px; border: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
 
-/* ── Compare table ── */
-.ctable { width: 100%; border-collapse: collapse; font-size: 13px; margin: 8px 0; }
-.ctable th { background: var(--accent); color: #fff; font-weight: 600; padding: 7px 10px; text-align: left; }
-.ctable td { padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; }
-.ctable tr:nth-child(even) td { background: var(--surface2); }
-.ctable tr:last-child td { border-bottom: none; }
+  .tag { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 20px; margin: 2px; font-weight: 500; }
+  .t-blue { background: var(--blue-bg); color: var(--blue); }
+  .t-green { background: var(--green-bg); color: var(--green); }
+  .t-red { background: var(--red-bg); color: var(--red); }
+  .t-amber { background: var(--amber-bg); color: var(--amber); }
+  .t-purple { background: var(--purple-bg); color: var(--purple); }
+  .t-teal { background: var(--teal-bg); color: var(--teal); }
+  .t-pink { background: var(--pink-bg); color: var(--pink); }
+  .t-coral { background: var(--coral-bg); color: var(--coral); }
 
-/* ── Print ── */
-@media print {
-  .site-header { position: static; box-shadow: none; }
-  .unit-nav { display: none; }
-  .topic-body { display: block !important; }
-  .pane { display: block !important; }
-  .style-tabs { display: none; }
-  body { font-size: 13px; }
-}
+  .pro { color: var(--green); font-size: 12px; }
+  .con { color: var(--red); font-size: 12px; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
+
+  /* PORT PILL */
+  .port-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+  .port { display: flex; align-items: center; gap: 6px; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; font-size: 12px; }
+  .port-num { font-family: 'Courier New', monospace; font-weight: 700; font-size: 13px; }
+
+  /* OSI LAYER ROWS */
+  .osi-row { display: flex; align-items: center; gap: 8px; margin: 3px 0; }
+  .osi-num { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+  .osi-label { flex: 1; font-size: 12px; padding: 5px 10px; border-radius: 6px; }
+  .osi-pdu { font-size: 11px; color: var(--text2); min-width: 65px; text-align: right; font-weight: 500; }
+
+  /* TCP/HANDSHAKE */
+  .handshake { display: flex; flex-direction: column; gap: 4px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin: 8px 0; }
+  .hs-step { font-size: 12px; display: flex; align-items: center; gap: 8px; }
+  .hs-arrow { color: var(--text2); font-size: 16px; }
+
+  /* QUICK REF BOX */
+  .ref-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 12.5px; line-height: 2.0; }
+
+  /* PAGE BREAK HINTS */
+  .page-break { page-break-before: always; }
+
+  /* TOPO CARD */
+  .topo-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px; }
+  .topo-card .name { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+
+  /* DORA */
+  .dora { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 8px 0; }
+  .dora-step { text-align: center; border-radius: 8px; padding: 10px 6px; }
+  .dora-step .letter { font-size: 22px; font-weight: 700; }
+  .dora-step .word { font-size: 11px; font-weight: 600; margin: 2px 0; }
+  .dora-step .desc { font-size: 10px; color: var(--text2); line-height: 1.4; }
+
+  /* FRAME VIZ */
+  .frame-row { display: flex; gap: 3px; flex-wrap: wrap; margin: 6px 0; align-items: stretch; }
+  .frame-cell { text-align: center; border-radius: 4px; padding: 6px 4px; font-size: 11px; font-weight: 500; border: 1px solid var(--border); }
+
+  /* FOOTER */
+  .footer { text-align: center; padding: 20px; font-size: 12px; color: var(--text2); margin-top: 10px; }
 </style>
 </head>
 <body>
+<div class="page-wrap">
 
-<div class="site-header">
-  <h1>Research Methodology — Complete Exam Notes</h1>
-  <p>All 6 units · Exam-ready answers · Concept + example · Point-wise revision</p>
-  <nav class="unit-nav">
-    <a href="#u1">Unit I</a>
-    <a href="#u2">Unit II</a>
-    <a href="#u3">Unit III</a>
-    <a href="#u4">Unit IV</a>
-    <a href="#u5">Unit V</a>
-    <a href="#u6">Unit VI</a>
-  </nav>
+<!-- ═══════════════ COVER ═══════════════ -->
+<div class="cover">
+  <h1>Computer Networks</h1>
+  <div class="sub">Complete Exam-Ready Notes with Memory Tricks</div>
+  <div style="font-size:13px;opacity:.75">Physical Layer · Data Link Layer · Transport Layer · Application Layer</div>
+  <div class="topic-pills">
+    <span class="topic-pill">OSI & TCP/IP Models</span>
+    <span class="topic-pill">Network Topologies</span>
+    <span class="topic-pill">Error Detection & Correction</span>
+    <span class="topic-pill">ARQ Protocols</span>
+    <span class="topic-pill">TCP & UDP</span>
+    <span class="topic-pill">DNS · DHCP · HTTP · FTP · SMTP</span>
+    <span class="topic-pill">Multiplexing · Transmission Media</span>
+  </div>
 </div>
 
-<div class="container">
+<!-- ══════════════════════════════════════════════
+     UNIT 1 : INTRODUCTION TO NETWORKS
+     ══════════════════════════════════════════════ -->
+<div class="unit-header" style="background:var(--blue-bg);color:var(--blue)">
+  <div class="unit-num" style="background:var(--blue)">1</div>
+  <div><div class="unit-title">Introduction to Computer Networks</div>
+  <div class="unit-sub">Types · Internet · Intranet · Topologies · OSI · TCP/IP · Devices</div></div>
+</div>
 
-<!-- ════════════════════════════════
-     UNIT I
-════════════════════════════════ -->
-<div class="unit" id="u1">
-  <div class="unit-header">
-    <span class="unit-num">UNIT I</span>
-    <span class="unit-title">Introduction to Research Methodology</span>
-    <span class="unit-hours">6 hrs</span>
-  </div>
-
-  <!-- Topic 1.1 -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">1.1 &nbsp; Scientific method — history &amp; meaning</span>
-      <span class="chevron">▼</span>
+<!-- 1.1 Types of Networks -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--blue-bg);color:var(--blue)">1.1</span><h2>Types of Computer Networks</h2></div>
+  <div class="section-body">
+    <div class="trick"><b>🧠 Size order trick — "Please Let Me Work":</b> PAN → LAN → MAN → WAN (smallest to largest)</div>
+    <div class="grid4">
+      <div class="card"><div class="lbl">PAN</div><div class="val"><b>Personal Area Network</b></div><p style="font-size:11px;margin-top:3px">~10 m · Bluetooth, USB · Around a person</p></div>
+      <div class="card"><div class="lbl">LAN</div><div class="val"><b>Local Area Network</b></div><p style="font-size:11px;margin-top:3px">Building/Campus · Ethernet, Wi-Fi · High speed</p></div>
+      <div class="card"><div class="lbl">MAN</div><div class="val"><b>Metropolitan Area Network</b></div><p style="font-size:11px;margin-top:3px">~50 km city · Cable TV, DSL backbone</p></div>
+      <div class="card"><div class="lbl">WAN</div><div class="val"><b>Wide Area Network</b></div><p style="font-size:11px;margin-top:3px">Country/Globe · Internet, satellites, leased lines</p></div>
     </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
+    <h3>Internet vs Intranet vs Extranet</h3>
+    <table>
+      <tr><th>Feature</th><th>Internet</th><th>Intranet</th><th>Extranet</th></tr>
+      <tr><td>Access</td><td>Public (anyone)</td><td>Private (org only)</td><td>Semi-private (partners)</td></tr>
+      <tr><td>Users</td><td>Everyone</td><td>Employees only</td><td>Trusted external partners</td></tr>
+      <tr><td>Example</td><td>Google.com</td><td>Company HR portal</td><td>B2B vendor portal</td></tr>
+    </table>
+    <div class="trick"><b>🧠:</b> <b>Inter</b>net = everyone · <b>Intra</b>net = INside org only · <b>Extra</b>net = EXtended to partners</div>
+  </div>
+</div>
+
+<!-- 1.2 Topologies -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--purple-bg);color:var(--purple)">1.2</span><h2>Network Topologies</h2></div>
+  <div class="section-body">
+    <div class="trick"><b>🧠 Remember all 6 — "Big Stars Real Make Tree Hybrid":</b> Bus · Star · Ring · Mesh · Tree · Hybrid</div>
+    <div class="grid3">
+      <div class="topo-card"><div class="name">🚌 Bus</div><p style="font-size:12px">All devices on single backbone cable. Terminators at both ends.</p><div class="pro">✓ Cheap, simple setup</div><div class="con">✗ Single point failure</div></div>
+      <div class="topo-card"><div class="name">⭐ Star</div><p style="font-size:12px">All devices connect to central hub/switch. Most common today.</p><div class="pro">✓ Fault isolation</div><div class="con">✗ Hub failure = network down</div></div>
+      <div class="topo-card"><div class="name">💍 Ring</div><p style="font-size:12px">Devices form closed loop. Token passing used. Each node = repeater.</p><div class="pro">✓ No collision</div><div class="con">✗ One failure breaks ring</div></div>
+      <div class="topo-card"><div class="name">🕸️ Mesh</div><p style="font-size:12px">Every device connected to every other. Full mesh = n(n-1)/2 links.</p><div class="pro">✓ Most reliable</div><div class="con">✗ Expensive, complex</div></div>
+      <div class="topo-card"><div class="name">🌳 Tree</div><p style="font-size:12px">Hierarchical — Bus + Star combo. Root node at top.</p><div class="pro">✓ Scalable</div><div class="con">✗ Root failure = all down</div></div>
+      <div class="topo-card"><div class="name">🔀 Hybrid</div><p style="font-size:12px">Mix of 2+ topologies (e.g. Star+Bus). Real networks use this.</p><div class="pro">✓ Flexible</div><div class="con">✗ Complex & costly</div></div>
+    </div>
+    <div class="info-box"><b>Mesh Formula:</b> Full mesh links = n(n-1)/2 · Ports per device = n-1 · Example: 5 nodes → 5×4/2 = 10 links</div>
+  </div>
+</div>
+
+<!-- 1.3 OSI Model -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--coral-bg);color:var(--coral)">1.3</span><h2>OSI Reference Model (7 Layers)</h2></div>
+  <div class="section-body">
+    <div class="trick"><b>🧠 Top→Bottom: "All People Seem To Need Data Processing"</b><br>
+    <b>🧠 Bottom→Top: "Please Do Not Throw Sausage Pizza Away"</b></div>
+    <div style="margin:8px 0">
+      <div class="osi-row"><div class="osi-num" style="background:var(--purple-bg);color:var(--purple)">7</div><div class="osi-label" style="background:var(--purple-bg);color:var(--purple)"><b>Application</b> — HTTP, FTP, SMTP, DNS. User interface.</div><div class="osi-pdu">Data</div></div>
+      <div class="osi-row"><div class="osi-num" style="background:var(--blue-bg);color:var(--blue)">6</div><div class="osi-label" style="background:var(--blue-bg);color:var(--blue)"><b>Presentation</b> — Encryption, compression, format translation (JPEG, ASCII)</div><div class="osi-pdu">Data</div></div>
+      <div class="osi-row"><div class="osi-num" style="background:var(--teal-bg);color:var(--teal)">5</div><div class="osi-label" style="background:var(--teal-bg);color:var(--teal)"><b>Session</b> — Dialog control, synchronization (NetBIOS)</div><div class="osi-pdu">Data</div></div>
+      <div class="osi-row"><div class="osi-num" style="background:var(--green-bg);color:var(--green)">4</div><div class="osi-label" style="background:var(--green-bg);color:var(--green)"><b>Transport</b> — End-to-end delivery, TCP/UDP, port numbers</div><div class="osi-pdu">Segment</div></div>
+      <div class="osi-row"><div class="osi-num" style="background:var(--amber-bg);color:var(--amber)">3</div><div class="osi-label" style="background:var(--amber-bg);color:var(--amber)"><b>Network</b> — Logical addressing, routing (IP, ICMP, Router)</div><div class="osi-pdu">Packet</div></div>
+      <div class="osi-row"><div class="osi-num" style="background:var(--coral-bg);color:var(--coral)">2</div><div class="osi-label" style="background:var(--coral-bg);color:var(--coral)"><b>Data Link</b> — MAC address, framing, error detection (Switch, Bridge)</div><div class="osi-pdu">Frame</div></div>
+      <div class="osi-row"><div class="osi-num" style="background:var(--gray-bg);color:var(--gray)">1</div><div class="osi-label" style="background:var(--gray-bg);color:var(--gray)"><b>Physical</b> — Bits, cables, voltage, Hub, Repeater</div><div class="osi-pdu">Bits</div></div>
+    </div>
+    <table>
+      <tr><th>Feature</th><th>OSI Model</th><th>TCP/IP Model</th></tr>
+      <tr><td>Layers</td><td>7</td><td>4</td></tr>
+      <tr><td>Developed by</td><td>ISO</td><td>US Dept of Defense</td></tr>
+      <tr><td>Type</td><td>Theoretical/Reference</td><td>Practical/In use</td></tr>
+      <tr><td>TCP/IP layers</td><td>—</td><td>App · Transport · Internet · Network Access</td></tr>
+    </table>
+    <div class="trick"><b>🧠 TCP/IP 4 layers — "All Tigers Ignore Network":</b> Application · Transport · Internet · Network Access</div>
+  </div>
+</div>
+
+<!-- 1.4 Transmission Modes + Network Devices -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--blue-bg);color:var(--blue)">1.4</span><h2>Transmission Modes & Network Devices</h2></div>
+  <div class="section-body">
+    <div class="trick"><b>🧠 "Simple Hens Full":</b> Simplex · Half Duplex · Full Duplex (One-way / Take turns / Both ways simultaneously)</div>
+    <div class="grid3">
+      <div class="card" style="border-top:3px solid #378ADD"><div class="lbl">Simplex</div><b>One direction only</b><p style="font-size:11px;margin-top:3px">A→B only. TV broadcast, keyboard→CPU</p></div>
+      <div class="card" style="border-top:3px solid #1D9E75"><div class="lbl">Half Duplex</div><b>Both, not at same time</b><p style="font-size:11px;margin-top:3px">A→B or B→A (take turns). Walkie-talkie</p></div>
+      <div class="card" style="border-top:3px solid #BA7517"><div class="lbl">Full Duplex</div><b>Both simultaneously</b><p style="font-size:11px;margin-top:3px">A↔B at same time. Telephone, mobile</p></div>
+    </div>
+    <h3>Network Devices by OSI Layer</h3>
+    <table>
+      <tr><th>Device</th><th>OSI Layer</th><th>Role</th></tr>
+      <tr><td>Hub / Repeater</td><td>Layer 1 (Physical)</td><td>Hub: broadcasts to all. Repeater: regenerates signal.</td></tr>
+      <tr><td>Bridge / Switch</td><td>Layer 2 (Data Link)</td><td>Bridge: connects segments. Switch: uses MAC table, no collision.</td></tr>
+      <tr><td>Router</td><td>Layer 3 (Network)</td><td>Connects different networks using IP addressing. Determines best path.</td></tr>
+      <tr><td>Gateway</td><td>Layer 4–7</td><td>Protocol converter. Connects networks with different protocols.</td></tr>
+      <tr><td>Modem</td><td>Layer 1</td><td>Modulates/demodulates digital↔analog for telephone lines.</td></tr>
+      <tr><td>Firewall</td><td>Layer 3–7</td><td>Filters traffic based on security rules.</td></tr>
+    </table>
+    <div class="warn-box"><b>⚠️</b> Hub = broadcasts (causes collision) · Switch = smart (no collision, uses MAC table) · Router = different networks (uses IP)</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     UNIT 2 : PHYSICAL LAYER
+     ══════════════════════════════════════════════ -->
+<div class="unit-header page-break" style="background:var(--teal-bg);color:var(--teal)">
+  <div class="unit-num" style="background:var(--teal)">2</div>
+  <div><div class="unit-title">Physical Layer</div>
+  <div class="unit-sub">Signals · Data Rate · Transmission Media · Multiplexing · Satellite</div></div>
+</div>
+
+<!-- 2.1 Analog & Digital + Nyquist/Shannon -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--teal-bg);color:var(--teal)">2.1</span><h2>Signals & Maximum Data Rate</h2></div>
+  <div class="section-body">
+    <div class="grid2">
+      <div class="card" style="border-top:3px solid #378ADD"><div class="lbl">Analog Signal</div><b>Continuous (sine wave)</b><ul style="font-size:12px;margin-top:4px"><li>Infinite values, smooth curve</li><li>Parameters: Amplitude, Frequency, Phase</li><li>Example: Sound, old telephone</li></ul></div>
+      <div class="card" style="border-top:3px solid #1D9E75"><div class="lbl">Digital Signal</div><b>Discrete (square wave)</b><ul style="font-size:12px;margin-top:4px"><li>Only 0 or 1, stepping pattern</li><li>Parameters: Bit rate, Bit interval</li><li>Example: Computers, CDs</li></ul></div>
+    </div>
+    <div class="trick"><b>🧠 Analog vs Digital:</b> Dimmer switch (analog — infinite) vs Light switch (digital — ON/OFF only)</div>
+    <h3>Nyquist &amp; Shannon Theorems</h3>
+    <div class="trick"><b>🧠 "Nyquist = Noiseless, Shannon = Signal noise"</b></div>
+    <div class="grid2">
+      <div>
+        <h4>Nyquist (Noiseless Channel)</h4>
+        <div class="formula">Max Rate = 2 × B × log<sub>2</sub>(M)</div>
+        <p style="font-size:12px">B = Bandwidth (Hz), M = number of signal levels<br>Example: B=3000Hz, M=8 → 2×3000×3 = <b>18,000 bps</b></p>
       </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p>The <b>scientific method</b> is a systematic, logical procedure for acquiring knowledge through observation, hypothesis formation, experimentation, and conclusion. It originated with Greek philosophers like Aristotle but was formalised during the <b>Scientific Revolution (16th–17th century)</b> by Francis Bacon (inductive reasoning), René Descartes (deductive reasoning), and Galileo Galilei (experimental verification). The method is <b>self-correcting</b> — knowledge is continuously revised based on new evidence. The key steps are: (1) Observation, (2) Problem identification, (3) Hypothesis formulation, (4) Experimentation, (5) Data analysis, and (6) Conclusion. <b>Research</b> is a systematic investigation to establish facts, solve problems, or build new knowledge. The objectives of research include: gaining familiarity with phenomena, describing characteristics, determining frequency, testing hypotheses, and establishing causal relationships.</p>
-        </div>
+      <div>
+        <h4>Shannon (Noisy Channel)</h4>
+        <div class="formula">Max Rate = B × log<sub>2</sub>(1 + SNR)</div>
+        <p style="font-size:12px">SNR = Signal/Noise ratio (linear scale)<br>SNR(dB) = 10×log<sub>10</sub>(SNR)<br>Practical rate = min(Nyquist, Shannon)</p>
       </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">Core concept</div>
-          <div class="concept-text">The scientific method is a loop, not a one-time process. Each cycle refines knowledge. Bacon's inductive approach = observe many cases → generalise. Descartes' deductive approach = start with theory → test specific predictions.</div>
-          <div class="example-box">Galileo dropped balls of different masses from the Leaning Tower of Pisa — observing that both landed simultaneously, disproving Aristotle's claim that heavier objects fall faster. This is the experimental verification step in action.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">Types of research</div>
-          <div class="concept-text"><b>Basic research</b> — builds theory (no immediate application). <b>Applied research</b> — solves specific practical problems. <b>Descriptive</b> — describes what exists. <b>Analytical</b> — examines cause-effect. <b>Qualitative</b> — non-numerical, interpretive. <b>Quantitative</b> — numerical, statistical.</div>
-          <div class="example-box">Basic: studying dark matter properties. Applied: designing a better MRI scanner using those properties.</div>
-        </div>
+    </div>
+    <div class="warn-box"><b>⚠️</b> Bit Rate = Baud Rate × log<sub>2</sub>(M). Bit rate ≠ Baud rate when each symbol carries multiple bits.</div>
+  </div>
+</div>
+
+<!-- 2.2 Guided Media -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--green-bg);color:var(--green)">2.2</span><h2>Guided (Wired) Transmission Media</h2></div>
+  <div class="section-body">
+    <div class="trick"><b>🧠 "Twisted Coaxial Fibre" — speed: Twisted Pair &lt; Coaxial &lt; Fiber Optic</b></div>
+    <table>
+      <tr><th>Feature</th><th>Twisted Pair</th><th>Coaxial Cable</th><th>Fiber Optic</th></tr>
+      <tr><td>Medium</td><td>Copper (2 wires twisted)</td><td>Copper (central + shield)</td><td>Glass/Plastic (light)</td></tr>
+      <tr><td>Speed</td><td>Up to 10 Gbps (Cat 6a)</td><td>Up to 10 Gbps</td><td>100+ Tbps</td></tr>
+      <tr><td>Distance</td><td>~100 m/segment</td><td>~500 m (10Base5)</td><td>100+ km (SMF)</td></tr>
+      <tr><td>Cost</td><td>Lowest</td><td>Medium</td><td>Highest</td></tr>
+      <tr><td>EMI immunity</td><td>Low</td><td>Medium</td><td>Complete (no EMI)</td></tr>
+      <tr><td>Connector</td><td>RJ-45</td><td>BNC</td><td>ST / SC / LC</td></tr>
+      <tr><td>Uses</td><td>LAN, telephone (UTP/STP)</td><td>Cable TV, broadband</td><td>WAN backbone, long-haul</td></tr>
+    </table>
+    <div class="grid2">
+      <div><h4>Twisted Pair Types</h4>
+        <p style="font-size:12px"><b>UTP</b> (Unshielded): No shield, cheap, common. Cat3=10Mbps, Cat5=100Mbps, Cat5e=1Gbps, Cat6=10Gbps</p>
+        <p style="font-size:12px"><b>STP</b> (Shielded): Metal shield around wires. Expensive. Less interference. Industrial use.</p>
       </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>Scientific method steps:</b> Observation → Hypothesis → Experiment → Analysis → Conclusion</li>
-          <li><b>Francis Bacon:</b> Father of inductive scientific method (observe → generalise)</li>
-          <li><b>Galileo:</b> Introduced experimental verification as a cornerstone</li>
-          <li><b>Research objectives:</b> Familiarity, description, hypothesis testing, causal relations <span class="tip-chip">Often asked</span></li>
-          <li><b>Basic vs Applied:</b> Basic = theory, no immediate use; Applied = solves real problems</li>
-          <li><b>Qualitative tenets:</b> Naturalistic, inductive, holistic, subjective, context-sensitive</li>
+      <div><h4>Fiber Optic Types</h4>
+        <p style="font-size:12px"><b>SMF</b> (Single Mode): Core ~8μm, one light path, 100+km, expensive, laser source. WAN use.</p>
+        <p style="font-size:12px"><b>MMF</b> (Multi Mode): Core ~50μm, multiple paths, ~2km, cheaper, LED source. LAN use.</p>
+      </div>
+    </div>
+    <div class="trick"><b>🧠 Fiber trick — "LUST":</b> Light · Ultra-fast · Secure · Total internal reflection</div>
+  </div>
+</div>
+
+<!-- 2.3 Unguided Media + Satellite -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--amber-bg);color:var(--amber)">2.3</span><h2>Unguided (Wireless) Media &amp; Satellite</h2></div>
+  <div class="section-body">
+    <div class="trick"><b>🧠 "Radio Instantly Makes Satellites":</b> Radio Waves · Infrared · Microwaves · Satellite</div>
+    <table>
+      <tr><th>Type</th><th>Frequency</th><th>Range</th><th>Properties</th><th>Uses</th></tr>
+      <tr><td>Radio Waves</td><td>3 Hz – 1 GHz</td><td>Long</td><td>Omnidirectional, penetrates walls, govt regulated</td><td>AM/FM, Wi-Fi (2.4GHz), Bluetooth</td></tr>
+      <tr><td>Microwave</td><td>1 – 300 GHz</td><td>~50 km LoS</td><td>Unidirectional, line-of-sight, tower every 50km</td><td>Cellular, satellite TV, radar</td></tr>
+      <tr><td>Infrared</td><td>300 GHz – 400 THz</td><td>~1 m</td><td>Cannot penetrate walls, room-contained, no license</td><td>TV remote, IrDA</td></tr>
+    </table>
+    <h3>Satellite Communication — LEO / MEO / GEO</h3>
+    <div class="trick"><b>🧠 "Lazy Monkeys Geek":</b> LEO → MEO → GEO (increasing altitude)</div>
+    <table>
+      <tr><th>Type</th><th>Altitude</th><th>Delay</th><th>Coverage</th><th>Use</th></tr>
+      <tr><td>LEO (Low Earth Orbit)</td><td>200–1200 km</td><td>~1–7 ms</td><td>Small, needs 50+ sats</td><td>Starlink, Iridium, internet</td></tr>
+      <tr><td>MEO (Medium Earth Orbit)</td><td>5000–15000 km</td><td>~35–85 ms</td><td>Medium, needs ~12 sats</td><td>GPS navigation</td></tr>
+      <tr><td>GEO (Geostationary)</td><td>35,786 km</td><td>~270 ms</td><td>Large (1/3 Earth), only 3 needed</td><td>DTH TV, weather, INSAT</td></tr>
+    </table>
+    <div class="warn-box"><b>⚠️</b> GEO: Only 3 satellites cover entire Earth (except poles). Fixed antenna. 24-hour orbital period. High delay (~540ms round trip) makes real-time voice poor.</div>
+  </div>
+</div>
+
+<!-- 2.4 Multiplexing -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--coral-bg);color:var(--coral)">2.4</span><h2>Multiplexing — FDM, TDM, WDM</h2></div>
+  <div class="section-body">
+    <div class="info-box"><b>Multiplexing:</b> Combining multiple signals onto one channel. MUX at sender, DEMUX at receiver. Maximizes channel utilization.</div>
+    <div class="trick"><b>🧠 "Flowers Take Wavelengths":</b> FDM · TDM · WDM — Frequency / Time / Wavelength (light)</div>
+    <table>
+      <tr><th>Feature</th><th>FDM</th><th>TDM</th><th>WDM</th></tr>
+      <tr><td>Division method</td><td>Frequency bands</td><td>Time slots</td><td>Light wavelengths</td></tr>
+      <tr><td>Signal type</td><td>Analog</td><td>Digital</td><td>Optical (fiber only)</td></tr>
+      <tr><td>Simultaneous?</td><td>Yes</td><td>No (takes turns)</td><td>Yes</td></tr>
+      <tr><td>Guard bands?</td><td>Yes (frequency gaps)</td><td>No</td><td>Yes (wavelength gaps)</td></tr>
+      <tr><td>Example</td><td>AM/FM radio, Cable TV</td><td>T1/E1 lines, GSM</td><td>Fiber backbone, undersea cable</td></tr>
+    </table>
+    <div class="formula">T1 line = 24 channels × 64 kbps = 1.544 Mbps &nbsp;|&nbsp; E1 line = 30 channels × 64 kbps = 2.048 Mbps</div>
+    <div class="warn-box"><b>⚠️</b> WDM is used ONLY with fiber optic cables — NOT copper. DWDM (Dense WDM) packs hundreds of channels with very close spacing.</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     UNIT 3 : DATA LINK LAYER
+     ══════════════════════════════════════════════ -->
+<div class="unit-header page-break" style="background:var(--amber-bg);color:var(--amber)">
+  <div class="unit-num" style="background:var(--amber)">3</div>
+  <div><div class="unit-title">Data Link Layer</div>
+  <div class="unit-sub">Error Detection · ARQ Protocols · Multiple Access · MAC · Ethernet</div></div>
+</div>
+
+<!-- 3.1 DLL Services -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--amber-bg);color:var(--amber)">3.1</span><h2>DLL Services &amp; Frame Structure</h2></div>
+  <div class="section-body">
+    <div class="trick"><b>🧠 6 DLL services — "Friendly Elephants Fight Every Angry Monster":</b><br>Framing · Error Control · Flow Control · Error Detection · Access Control · MAC Addressing</div>
+    <div class="grid3">
+      <div class="card"><div class="lbl">Framing</div><p style="font-size:12px">Divides bitstream into frames. Adds header & trailer. Methods: character count, flag bytes, bit stuffing.</p></div>
+      <div class="card"><div class="lbl">Error Detection/Correction</div><p style="font-size:12px">Detects & corrects bit errors: Parity, CRC, Checksum, Hamming Code.</p></div>
+      <div class="card"><div class="lbl">Flow Control</div><p style="font-size:12px">Prevents fast sender overwhelming slow receiver. Stop-and-Wait, Sliding Window.</p></div>
+      <div class="card"><div class="lbl">MAC Addressing</div><p style="font-size:12px">48-bit hardware address burned into NIC. Identifies devices within LAN.</p></div>
+      <div class="card"><div class="lbl">Access Control</div><p style="font-size:12px">Determines which device controls shared channel. Prevents collision.</p></div>
+      <div class="card"><div class="lbl">Link Management</div><p style="font-size:12px">Establishes, maintains, and terminates data link connections.</p></div>
+    </div>
+    <h3>Ethernet Frame Structure</h3>
+    <div class="frame-row">
+      <div class="frame-cell" style="background:var(--purple-bg);color:var(--purple);flex:0.7">Flag<br><span style="font-size:10px">7B</span></div>
+      <div class="frame-cell" style="background:var(--purple-bg);color:var(--purple);flex:0.5">SFD<br><span style="font-size:10px">1B</span></div>
+      <div class="frame-cell" style="background:var(--blue-bg);color:var(--blue);flex:1">Dest MAC<br><span style="font-size:10px">6 bytes</span></div>
+      <div class="frame-cell" style="background:var(--teal-bg);color:var(--teal);flex:1">Src MAC<br><span style="font-size:10px">6 bytes</span></div>
+      <div class="frame-cell" style="background:var(--green-bg);color:var(--green);flex:0.7">Type<br><span style="font-size:10px">2B</span></div>
+      <div class="frame-cell" style="background:var(--amber-bg);color:var(--amber);flex:2">Data + Padding<br><span style="font-size:10px">46–1500 bytes</span></div>
+      <div class="frame-cell" style="background:var(--coral-bg);color:var(--coral);flex:0.7">FCS<br><span style="font-size:10px">4B</span></div>
+    </div>
+    <div class="formula">Min Ethernet frame = 64 bytes &nbsp;|&nbsp; Max payload (MTU) = 1500 bytes &nbsp;|&nbsp; Max frame = 1518 bytes</div>
+  </div>
+</div>
+
+<!-- 3.2 Error Detection -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--purple-bg);color:var(--purple)">3.2</span><h2>Error Detection &amp; Correction Techniques</h2></div>
+  <div class="section-body">
+    <div class="trick"><b>🧠 "Pigs Can't Hamster":</b> Parity · CRC · Checksum · Hamming Code</div>
+    <table>
+      <tr><th>Method</th><th>How it works</th><th>Detects</th><th>Corrects</th><th>Used in</th></tr>
+      <tr><td><b>Parity Check</b></td><td>Adds 1 bit so total 1s = even (or odd). 2D parity for correction.</td><td>Single-bit errors</td><td>No (2D: yes)</td><td>RAM, simple systems</td></tr>
+      <tr><td><b>Checksum</b></td><td>Divide into segments, sum all, 1's complement = checksum. Receiver: sum+checksum=all 1s.</td><td>Most errors</td><td>No</td><td>TCP, UDP, IP headers</td></tr>
+      <tr><td><b>CRC</b></td><td>XOR polynomial division. Sender appends r-bit remainder. Receiver divides; remainder=0 → no error.</td><td>Burst errors (up to r bits)</td><td>No</td><td>Ethernet, Wi-Fi, USB, ZIP</td></tr>
+      <tr><td><b>Hamming Code</b></td><td>Parity bits at positions 2^0,2^1,2^2... Syndrome = error bit position.</td><td>2-bit errors</td><td>1-bit errors</td><td>ECC RAM, memory</td></tr>
+    </table>
+    <div class="formula">Hamming condition: 2<sup>r</sup> &ge; m + r + 1 &nbsp; (m=data bits, r=parity bits needed)</div>
+    <div class="formula">CRC check bits = r (degree of generator polynomial)</div>
+    <div class="trick"><b>🧠 Hamming trick:</b> Parity bits go at positions 1, 2, 4, 8, 16... (powers of 2). Error position = sum of failed parity positions (syndrome).</div>
+  </div>
+</div>
+
+<!-- 3.3 ARQ Protocols -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--teal-bg);color:var(--teal)">3.3</span><h2>ARQ Error Recovery Protocols</h2></div>
+  <div class="section-body">
+    <div class="trick"><b>🧠 "Stop Going Selectively" (efficiency increases):</b> Stop-and-Wait · Go-Back-N · Selective Repeat</div>
+    <table>
+      <tr><th>Feature</th><th>Stop-and-Wait</th><th>Go-Back-N (GBN)</th><th>Selective Repeat (SR)</th></tr>
+      <tr><td>Sender window</td><td>1</td><td>2<sup>n</sup> − 1</td><td>2<sup>n-1</sup></td></tr>
+      <tr><td>Receiver window</td><td>1</td><td><b>1 (always!)</b></td><td>2<sup>n-1</sup></td></tr>
+      <tr><td>On error: retransmit</td><td>1 frame</td><td>Error + all after</td><td>Error frame only</td></tr>
+      <tr><td>Rx buffering</td><td>No</td><td>No</td><td>Yes (out-of-order)</td></tr>
+      <tr><td>Efficiency</td><td>Lowest — 1/(1+2a)</td><td>Medium — W/(1+2a)</td><td>Highest</td></tr>
+      <tr><td>Complexity</td><td>Simple</td><td>Medium</td><td>Most complex</td></tr>
+    </table>
+    <div class="formula">Stop-and-Wait: &eta; = 1/(1+2a) &nbsp; where a = Tp/Tf</div>
+    <div class="formula">GBN: &eta; = W/(1+2a) if W &lt; 1+2a, else &eta; = 1</div>
+    <div class="trick"><b>🧠 Window trick:</b> GBN sender = 2<sup>n</sup>−1 (one less) · SR both = 2<sup>n-1</sup> (half) · GBN receiver = ALWAYS 1</div>
+    <div class="warn-box"><b>⚠️ #1 exam trap:</b> GBN receiver window is ALWAYS 1 (discards out-of-order). SR receiver window = 2<sup>n-1</sup> (buffers out-of-order). Getting these swapped loses marks.</div>
+  </div>
+</div>
+
+<!-- 3.4 Multiple Access -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--green-bg);color:var(--green)">3.4</span><h2>Multiple Access Protocols &amp; MAC Addressing</h2></div>
+  <div class="section-body">
+    <div class="trick"><b>🧠 "Random Control Channel":</b> Random Access · Controlled Access · Channelization</div>
+    <table>
+      <tr><th>Protocol</th><th>When to sense</th><th>Collision action</th><th>Efficiency</th><th>Used in</th></tr>
+      <tr><td>Pure ALOHA</td><td>Never</td><td>Wait random time</td><td>18.4% (1/2e)</td><td>Satellite, early networks</td></tr>
+      <tr><td>Slotted ALOHA</td><td>Never (slot boundary)</td><td>Wait next slot</td><td>36.8% (1/e)</td><td>Satellite</td></tr>
+      <tr><td>CSMA</td><td>Before sending</td><td>Wait, retry</td><td>Better than ALOHA</td><td>Early Ethernet</td></tr>
+      <tr><td>CSMA/CD</td><td>Before + during (listen while talking)</td><td>Jam signal + BEB backoff</td><td>Good (wired)</td><td>Wired Ethernet 802.3</td></tr>
+      <tr><td>CSMA/CA</td><td>Before sending (RTS/CTS)</td><td>Collision avoidance</td><td>Good (wireless)</td><td>Wi-Fi 802.11</td></tr>
+    </table>
+    <div class="trick"><b>🧠 ALOHA efficiency:</b> Slotted ALOHA = 2 × Pure ALOHA (36.8% vs 18.4%)</div>
+    <div class="warn-box"><b>⚠️</b> CSMA/CD = wired (detect collision during transmission) · CSMA/CA = wireless (avoid collision before it happens). CD impossible wirelessly.</div>
+    <h3>MAC Addressing</h3>
+    <div class="grid2">
+      <div class="card">
+        <div class="lbl">MAC Address Structure</div>
+        <p style="font-size:12px;margin-top:4px"><b>48 bits = 6 bytes</b> written as hex: A4:C3:F0:85:AC:2D<br>First 3 bytes = OUI (vendor, assigned by IEEE)<br>Last 3 bytes = Device serial (assigned by vendor)<br>FF:FF:FF:FF:FF:FF = Broadcast</p>
+      </div>
+      <div class="card">
+        <div class="lbl">MAC vs IP Address</div>
+        <table style="margin:4px 0">
+          <tr><th>MAC</th><th>IP</th></tr>
+          <tr><td>Layer 2</td><td>Layer 3</td></tr>
+          <tr><td>48 bits (hex)</td><td>32/128 bits</td></tr>
+          <tr><td>Permanent (NIC)</td><td>Dynamic (DHCP)</td></tr>
+          <tr><td>Local (LAN)</td><td>Global (internet)</td></tr>
+          <tr><td>Changes per hop</td><td>Same end-to-end</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     UNIT 4 : TRANSPORT & APPLICATION LAYER
+     ══════════════════════════════════════════════ -->
+<div class="unit-header page-break" style="background:var(--purple-bg);color:var(--purple)">
+  <div class="unit-num" style="background:var(--purple)">4</div>
+  <div><div class="unit-title">Transport &amp; Application Layer</div>
+  <div class="unit-sub">UDP · TCP · FTP · SMTP · Telnet · HTTP · DNS · DHCP · BOOTP</div></div>
+</div>
+
+<!-- 4.1 UDP -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--purple-bg);color:var(--purple)">4.1</span><h2>UDP — User Datagram Protocol</h2></div>
+  <div class="section-body">
+    <div class="trick"><b>🧠 UDP = "Uncle Doesn't Promise"</b> — no delivery guarantee, no ordering, no error recovery</div>
+    <div class="grid2">
+      <div>
+        <h4>UDP Header (8 bytes — fixed)</h4>
+        <div class="frame-row">
+          <div class="frame-cell" style="background:var(--blue-bg);color:var(--blue);flex:1">Source Port<br><span style="font-size:10px">16 bits</span></div>
+          <div class="frame-cell" style="background:var(--green-bg);color:var(--green);flex:1">Dest Port<br><span style="font-size:10px">16 bits</span></div>
+          <div class="frame-cell" style="background:var(--amber-bg);color:var(--amber);flex:1">Length<br><span style="font-size:10px">16 bits</span></div>
+          <div class="frame-cell" style="background:var(--coral-bg);color:var(--coral);flex:1">Checksum<br><span style="font-size:10px">16 bits</span></div>
+        </div>
+        <div class="formula">UDP header = 8 bytes (always fixed)</div>
+      </div>
+      <div>
+        <h4>Features &amp; Use Cases</h4>
+        <ul style="font-size:12px">
+          <li>No connection setup — fire and forget</li>
+          <li>No ACK, no flow control, no congestion control</li>
+          <li>Supports broadcast and multicast</li>
+          <li>Very low latency</li>
+          <li><b>Uses:</b> DNS, DHCP, VoIP, Video streaming, Online gaming, SNMP, TFTP</li>
         </ul>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Topic 1.2 -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">1.2 &nbsp; Research problem — identification &amp; formulation</span>
-      <span class="chevron">▼</span>
+<!-- 4.2 TCP -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--teal-bg);color:var(--teal)">4.2</span><h2>TCP — Transmission Control Protocol &amp; Flow Control</h2></div>
+  <div class="section-body">
+    <div class="trick"><b>🧠 TCP = "Takes Care Precisely"</b> — reliable, ordered, error-checked delivery with flow &amp; congestion control</div>
+    <h4>TCP Header (Min 20 bytes)</h4>
+    <div class="frame-row" style="flex-wrap:wrap">
+      <div class="frame-cell" style="background:var(--blue-bg);color:var(--blue);flex:1">Src Port<br><span style="font-size:10px">16b</span></div>
+      <div class="frame-cell" style="background:var(--green-bg);color:var(--green);flex:1">Dst Port<br><span style="font-size:10px">16b</span></div>
+      <div class="frame-cell" style="background:var(--purple-bg);color:var(--purple);flex:2">Sequence Number<br><span style="font-size:10px">32 bits</span></div>
+      <div class="frame-cell" style="background:var(--indigo-bg);color:var(--indigo);flex:2">Acknowledgement Number<br><span style="font-size:10px">32 bits</span></div>
+      <div class="frame-cell" style="background:var(--coral-bg);color:var(--coral);flex:1">Flags<br><span style="font-size:10px">SYN ACK FIN...</span></div>
+      <div class="frame-cell" style="background:var(--teal-bg);color:var(--teal);flex:1">Window<br><span style="font-size:10px">16b</span></div>
+      <div class="frame-cell" style="background:var(--amber-bg);color:var(--amber);flex:1">Checksum<br><span style="font-size:10px">16b</span></div>
     </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p>A <b>research problem</b> is a specific gap, contradiction, or unanswered question in existing knowledge that motivates a scientific investigation. The process of formulation involves: (1) Identifying a broad area of interest, (2) Conducting a preliminary literature review, (3) Narrowing the problem to a specific researchable question, (4) Operationally defining variables, and (5) Stating the problem precisely and unambiguously.<br><br>
-          <b>Sources of research problems:</b> personal experience, contradictions in existing literature, social needs, expert suggestions, and gaps revealed in previous research.<br><br>
-          <b>Bias and prejudice</b> are systematic distortions in research. Types include: <b>Personal bias</b> (researcher's own values influencing results), <b>Sampling bias</b> (non-representative sample), <b>Measurement bias</b> (faulty instruments), and <b>Observer bias</b> (expectations affecting recording). These are minimised through random sampling, double-blind designs, pre-registration, and calibrated instruments.</p>
+    <div class="info-box"><b>TCP Flags:</b> URG · ACK · PSH · RST · SYN · FIN — "Until Amazing People Remember Sending Forms"</div>
+    <div class="grid2">
+      <div>
+        <h4>3-Way Handshake (Connection Setup)</h4>
+        <div class="handshake">
+          <div class="hs-step"><span style="background:var(--green-bg);color:var(--green);padding:2px 8px;border-radius:4px;font-size:11px">Client</span><span class="hs-arrow">→</span><b style="font-size:12px">SYN</b> (seq=x)<span class="hs-arrow">→</span><span style="background:var(--blue-bg);color:var(--blue);padding:2px 8px;border-radius:4px;font-size:11px">Server</span></div>
+          <div class="hs-step"><span style="background:var(--green-bg);color:var(--green);padding:2px 8px;border-radius:4px;font-size:11px">Client</span><span class="hs-arrow">←</span><b style="font-size:12px">SYN+ACK</b> (seq=y, ack=x+1)<span class="hs-arrow">←</span><span style="background:var(--blue-bg);color:var(--blue);padding:2px 8px;border-radius:4px;font-size:11px">Server</span></div>
+          <div class="hs-step"><span style="background:var(--green-bg);color:var(--green);padding:2px 8px;border-radius:4px;font-size:11px">Client</span><span class="hs-arrow">→</span><b style="font-size:12px">ACK</b> (ack=y+1)<span class="hs-arrow">→</span><span style="background:var(--blue-bg);color:var(--blue);padding:2px 8px;border-radius:4px;font-size:11px">Server</span></div>
         </div>
+        <p style="font-size:11px;color:var(--text2)">4-way termination: FIN→ACK→FIN→ACK (each direction closes independently)</p>
       </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">What makes a good research problem?</div>
-          <div class="concept-text">A research problem must be: <b>Feasible</b> (doable with available resources), <b>Interesting</b> (worth investigating), <b>Novel</b> (fills a gap), <b>Ethical</b>, and <b>Relevant</b> (FINER criteria).</div>
-          <div class="example-box">Poor problem: "Study climate change." (Too broad) Better: "Does increasing PM2.5 concentration in Delhi winters correlate with a rise in paediatric asthma cases in 2019–2023?"</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">Types of bias</div>
-          <div class="concept-text">Bias is systematic — it consistently pushes results in one direction, unlike random error which averages out. The key distinction examiners test: <b>bias ≠ random error</b>.</div>
-          <div class="example-box">Sampling bias: surveying only urban students about internet access will overestimate connectivity rates nationwide.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>Research problem:</b> Specific gap or unanswered question in existing knowledge</li>
-          <li><b>Steps to formulate:</b> Broad area → Literature review → Narrow → Operationalise → State precisely</li>
-          <li><b>Sources:</b> Personal experience, expert suggestion, gaps in literature, social needs</li>
-          <li><b>Personal bias:</b> Researcher's values distort data interpretation</li>
-          <li><b>Sampling bias:</b> Non-representative sample → wrong conclusions</li>
-          <li><b>Measurement bias:</b> Faulty/uncalibrated instrument → systematic error</li>
-          <li><b>Observer bias:</b> Expectation affects how data is recorded <span class="tip-chip">Fix: blind studies</span></li>
+      <div>
+        <h4>Flow &amp; Congestion Control</h4>
+        <ul style="font-size:12px">
+          <li><b>Flow control:</b> Receiver advertises rwnd (receive window). Prevents buffer overflow.</li>
+          <li><b>Congestion control:</b> Sender maintains cwnd (congestion window). Network-level.</li>
+          <li><b>Actual send = min(rwnd, cwnd)</b></li>
+          <li><b>Slow Start:</b> cwnd doubles each RTT (exponential) until ssthresh</li>
+          <li><b>Cong. Avoidance:</b> cwnd increases by 1 MSS per RTT (linear)</li>
+          <li><b>3 dup ACKs:</b> ssthresh=cwnd/2, fast retransmit</li>
         </ul>
       </div>
     </div>
+    <h4>TCP vs UDP — Final Comparison</h4>
+    <table>
+      <tr><th>Feature</th><th>TCP</th><th>UDP</th></tr>
+      <tr><td>Connection</td><td>Connection-oriented</td><td>Connectionless</td></tr>
+      <tr><td>Header size</td><td>20–60 bytes</td><td>8 bytes (fixed)</td></tr>
+      <tr><td>Reliability, Ordering</td><td>Yes (ACK + seq numbers)</td><td>No</td></tr>
+      <tr><td>Flow / Congestion control</td><td>Yes</td><td>No</td></tr>
+      <tr><td>Broadcast / Multicast</td><td>No</td><td>Yes</td></tr>
+      <tr><td>Protocols</td><td>HTTP, FTP, SMTP, SSH, Telnet</td><td>DNS, DHCP, VoIP, SNMP</td></tr>
+    </table>
   </div>
+</div>
 
-  <!-- Topic 1.3 -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">1.3 &nbsp; Literature review — tools &amp; methods</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p>A <b>literature review</b> is a critical, comprehensive survey of existing published work on a research topic. It identifies what is known, reveals gaps, provides a theoretical framework, and justifies the methodology. It is not a summary list — it is a <b>thematic synthesis</b>.<br><br>
-          <b>Open-source (free) tools:</b> Google Scholar, PubMed, arXiv, DOAJ (Directory of Open Access Journals), Semantic Scholar, SSRN, Unpaywall (accesses paywalled papers legally).<br><br>
-          <b>Paid tools:</b> Web of Science, Scopus, JSTOR, IEEE Xplore, ScienceDirect, Nature, and Springer.<br><br>
-          <b>Reference management software:</b> Zotero (free), Mendeley (free), EndNote (paid), JabRef (free, for LaTeX). These tools store citations, generate bibliographies, and track reading status.<br><br>
-          <b>Primary sources</b> are original research papers and raw data. <b>Secondary sources</b> are review articles, textbooks, and meta-analyses that summarise primary sources.</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">Why review literature before starting research?</div>
-          <div class="concept-text">Without a literature review, you might unknowingly duplicate existing work, use an outdated methodology, or miss the most relevant theoretical framework for your study.</div>
-          <div class="example-box">A physics student wanting to study superconductivity at room temperature would first search ADS and arXiv to see what materials have already been tested — avoiding repeating failed experiments.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">Systematic vs Narrative review</div>
-          <div class="concept-text"><b>Systematic review</b>: Structured, reproducible, pre-defined criteria for including/excluding papers. Gold standard in medical research. <b>Narrative review</b>: Author-driven, selective, interpretive. Common in humanities and early-stage research.</div>
-          <div class="example-box">A systematic review on "efficacy of hydroxychloroquine for COVID-19" would define exact search terms, databases, and inclusion criteria before starting — making it replicable.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>Literature review purpose:</b> Find gaps, avoid duplication, build framework, justify method</li>
-          <li><b>Free tools:</b> Google Scholar, arXiv, PubMed, DOAJ, Unpaywall, Semantic Scholar</li>
-          <li><b>Paid tools:</b> Web of Science, Scopus, JSTOR, ScienceDirect, IEEE Xplore</li>
-          <li><b>Reference managers:</b> Zotero (free), Mendeley (free), EndNote (paid), JabRef (LaTeX) <span class="tip-chip">Name all 4</span></li>
-          <li><b>Primary source:</b> Original research paper, raw experimental data</li>
-          <li><b>Secondary source:</b> Review articles, textbooks, meta-analyses</li>
-          <li><b>Systematic review:</b> Structured, reproducible — gold standard</li>
-          <li><b>Narrative review:</b> Selective, author-driven interpretation</li>
+<!-- 4.3 Application Protocols -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--amber-bg);color:var(--amber)">4.3</span><h2>FTP, SMTP, Telnet, HTTP &amp; URL</h2></div>
+  <div class="section-body">
+    <div class="grid2">
+      <!-- FTP -->
+      <div class="card" style="border-top:3px solid #378ADD">
+        <div class="lbl">FTP — File Transfer Protocol (RFC 959)</div>
+        <ul style="font-size:12px;margin-top:4px">
+          <li><b>Port 21:</b> Control connection (persistent) — commands</li>
+          <li><b>Port 20:</b> Data connection (opens per file) — file data</li>
+          <li>Uses TCP. Two separate connections.</li>
+          <li><b>Active mode:</b> Server connects to client (port 20)</li>
+          <li><b>Passive mode:</b> Client connects to server (random port) — firewall-friendly</li>
+          <li>Sends credentials in plaintext — not secure!</li>
+          <li>FTPS = FTP + SSL · SFTP = SSH-based · TFTP = UDP, no auth</li>
         </ul>
+        <div class="trick" style="margin-top:6px"><b>🧠 "21 Controls, 20 Delivers"</b></div>
       </div>
-    </div>
-  </div>
-</div><!-- end unit I -->
-
-
-<!-- ════════════════════════════════
-     UNIT II
-════════════════════════════════ -->
-<div class="unit" id="u2">
-  <div class="unit-header">
-    <span class="unit-num">UNIT II</span>
-    <span class="unit-title">Data Collection, Analysis &amp; Interpretation</span>
-    <span class="unit-hours">15 hrs</span>
-  </div>
-
-  <!-- 2.1 Data collection -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">2.1 &nbsp; Methods of data collection</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p>Data can be collected using five major methods:<br><br>
-          1. <b>Survey:</b> Structured questionnaire administered to a large group. Generates quantitative data quickly and cheaply. Limitation: cannot probe deeper meanings; susceptible to response bias.<br>
-          2. <b>Interview:</b> Direct researcher-participant conversation. Can be structured (fixed questions), semi-structured (flexible), or unstructured (open-ended). Generates rich qualitative data. Limitation: time-consuming, interviewer bias.<br>
-          3. <b>Observation:</b> Researcher watches subjects in natural (field observation) or controlled (lab) settings. Can be participant (researcher joins the group) or non-participant. Limitation: observer effect (Hawthorne effect — people behave differently when watched).<br>
-          4. <b>Experimentation:</b> Manipulates an independent variable (IV) and measures its effect on a dependent variable (DV) while keeping all other variables (confounds) constant. Most powerful method for establishing causality.<br>
-          5. <b>Case study:</b> In-depth investigation of a single subject, event, or organisation. Yields rich detail. Limitation: low external validity — findings cannot be generalised.</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">When to use which method?</div>
-          <div class="concept-text">The choice depends on what you want to know. Use surveys when you need numbers from many people. Use interviews when you need depth and nuance. Use experiments when you need to prove causality.</div>
-          <div class="example-box">Survey: "What % of students own a laptop?" — needs 500+ responses, survey is ideal. Interview: "How do students feel about online exams?" — needs opinions and experiences, interview is better.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">Hawthorne effect</div>
-          <div class="concept-text">When people know they are being observed, they change their behaviour — usually becoming more productive or behaving better. This was discovered in studies at the Hawthorne Works factory in the 1920s. It is a major limitation of observational research.</div>
-          <div class="example-box">Workers in a factory produced more when observed by researchers — not because of any change in working conditions, but simply because they were being watched.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>Survey:</b> Questionnaire, large sample, quantitative, cheap, but surface-level</li>
-          <li><b>Interview:</b> Structured / semi-structured / unstructured; qualitative; deep but slow</li>
-          <li><b>Observation:</b> Participant vs non-participant; Hawthorne effect is key limitation</li>
-          <li><b>Experimentation:</b> IV → DV, control confounds; best for causality <span class="tip-chip">Define IV and DV</span></li>
-          <li><b>Case study:</b> Single subject, deep detail, low generalisability</li>
-          <li><b>Likert scale:</b> 1–5 or 1–7 scale used in surveys (Strongly Disagree → Strongly Agree)</li>
+      <!-- SMTP -->
+      <div class="card" style="border-top:3px solid #1D9E75">
+        <div class="lbl">SMTP — Simple Mail Transfer Protocol</div>
+        <ul style="font-size:12px;margin-top:4px">
+          <li><b>Port 25</b> (server-to-server), Port 587 (client-to-server)</li>
+          <li>Used only for <b>SENDING</b> emails. Uses TCP.</li>
+          <li>Push protocol — sender pushes to mail server</li>
+          <li>Commands: HELO, MAIL FROM, RCPT TO, DATA, QUIT</li>
+          <li>Response codes: 220=Ready, 250=OK, 550=User unknown</li>
+          <li><b>MIME:</b> extends SMTP for binary/multimedia attachments</li>
         </ul>
+        <div style="font-size:12px;margin-top:6px">Email flow: Client <b>→SMTP→</b> Sender Server <b>→SMTP→</b> Receiver Server <b>→POP3/IMAP→</b> Receiver</div>
+        <div class="trick" style="margin-top:4px"><b>🧠 "SMTP = Send Mail To People" · POP3=110 (download) · IMAP=143 (access)</b></div>
       </div>
-    </div>
-  </div>
-
-  <!-- 2.2 Descriptive statistics -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">2.2 &nbsp; Descriptive statistics — central tendency &amp; dispersion</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p><b>Descriptive statistics</b> summarise and describe the main features of a dataset without drawing conclusions beyond the data itself.<br><br>
-          <b>Measures of Central Tendency:</b><br>
-          — <b>Mean:</b> Arithmetic average = (Sum of all values) / n. Best for symmetric distributions. Sensitive to outliers.<br>
-          — <b>Median:</b> Middle value when data is arranged in order. Robust to outliers. Best for skewed data.<br>
-          — <b>Mode:</b> Most frequently occurring value. Used for categorical data.<br><br>
-          <b>Measures of Dispersion:</b><br>
-          — <b>Range:</b> Maximum − Minimum. Simple but sensitive to outliers.<br>
-          — <b>Standard Deviation (σ):</b> Average deviation of each data point from the mean.
-          </p>
-          <span class="formula-box">σ = √[ Σ(xᵢ − x̄)² / n ]</span>
-          <p>A low σ means data is tightly clustered around the mean (precise). A high σ means data is widely spread (variable). In physics: low σ = high precision; accuracy (closeness to true value) is separate — improved by calibration, not averaging.</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">When to use mean vs median?</div>
-          <div class="concept-text">Always ask: does this dataset have outliers or is it skewed? If yes → use median. If data is symmetric → mean and median are close, use either.</div>
-          <div class="example-box">Dataset: 2, 3, 4, 5, 100. Mean = 22.8 (pulled up by 100). Median = 4. The median better represents the "typical" value here.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">Skewness and central tendency</div>
-          <div class="concept-text"><b>Right skew (positive):</b> Mean &gt; Median &gt; Mode (tail on the right — income data, exam scores). <b>Left skew (negative):</b> Mode &gt; Median &gt; Mean (tail on the left — age at death). <b>Symmetric:</b> Mean = Median = Mode.</div>
-          <div class="example-box">Indian household income data is right-skewed: a few billionaires pull the mean upward, while most households earn far less than the mean — the median is a better policy measure.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>Mean:</b> Σx / n — use for symmetric data, affected by outliers</li>
-          <li><b>Median:</b> Middle value — use for skewed data, robust to outliers</li>
-          <li><b>Mode:</b> Most frequent — use for categorical data</li>
-          <li><b>Range:</b> Max − Min — simple, crude, outlier-sensitive</li>
-          <li><b>Standard deviation σ:</b> √[Σ(xᵢ−x̄)²/n] — best measure of spread <span class="tip-chip">Write formula</span></li>
-          <li><b>Variance:</b> σ² — in squared units, harder to interpret than SD</li>
-          <li><b>Precision vs accuracy:</b> Precision = low SD; Accuracy = closeness to true value</li>
-          <li><b>Right skew:</b> Mean &gt; Median (income, exam scores)</li>
+      <!-- Telnet -->
+      <div class="card" style="border-top:3px solid #BA7517">
+        <div class="lbl">Telnet — Remote Login Protocol</div>
+        <ul style="font-size:12px;margin-top:4px">
+          <li><b>Port 23.</b> Uses TCP. Application layer.</li>
+          <li>Allows remote terminal access to another machine</li>
+          <li>Uses <b>NVT</b> (Network Virtual Terminal) for character encoding</li>
+          <li>Option negotiation: WILL / WONT / DO / DONT</li>
+          <li><b>Insecure:</b> transmits everything (inc. passwords) as plaintext</li>
+          <li>Replaced by <b>SSH (port 22)</b> for secure remote access</li>
         </ul>
+        <div class="trick" style="margin-top:4px"><b>🧠 Telnet = "Type Everywhere, Login Network" — plain text = insecure</b></div>
       </div>
-    </div>
-  </div>
-
-  <!-- 2.3 Hypothesis testing -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">2.3 &nbsp; Hypothesis testing — Z-test, T-test, Type I &amp; II errors</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p><b>Hypothesis testing</b> is a statistical procedure to decide whether to reject the null hypothesis (H₀) based on sample data.<br><br>
-          <b>H₀ (Null hypothesis):</b> States no effect or no difference exists. The default position.<br>
-          <b>H₁ (Alternative hypothesis):</b> States an effect exists. Accepted if H₀ is rejected.<br><br>
-          <b>Z-test:</b> Used when sample size n &gt; 30 AND population standard deviation (σ) is known.
-          </p>
-          <span class="formula-box">Z = (x̄ − μ) / (σ / √n)</span>
-          <p><b>T-test:</b> Used when n ≤ 30 OR σ is unknown. Three types: one-sample, independent two-sample, paired t-test.</p>
-          <span class="formula-box">t = (x̄ − μ) / (s / √n),  df = n − 1</span>
-          <p><b>Type I error (α):</b> Rejecting H₀ when it is true — false positive. Probability = α (typically 0.05).<br>
-          <b>Type II error (β):</b> Failing to reject H₀ when it is false — false negative. Probability = β.<br>
-          <b>Statistical power</b> = 1 − β = probability of correctly detecting a real effect.<br>
-          <b>Trade-off:</b> Decreasing α increases β. Increasing sample size reduces both simultaneously.</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">Z-test vs T-test — the decision rule</div>
-          <div class="concept-text">Think of it this way: when you don't know the population SD (which is almost always the case in practice), you use the T-test. The t-distribution has heavier tails than the normal distribution — it accounts for the extra uncertainty from estimating σ from the sample. As n grows, the t-distribution converges to the normal distribution.</div>
-          <div class="example-box">Testing if a new teaching method changes scores: 25 students, population SD unknown → use t-test. Census data with 10,000 entries, known σ → use Z-test.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">Type I and Type II errors — real life</div>
-          <div class="concept-text">Think of a COVID test. <b>Type I error</b>: test says "positive" but person is healthy (false alarm — triggers unnecessary quarantine). <b>Type II error</b>: test says "negative" but person is infected (missed case — person spreads disease).</div>
-          <div class="example-box">In drug approval: Type I = approving a useless drug (harm from side effects with no benefit). Type II = rejecting an effective drug (patients miss out on a cure). Regulators choose α = 0.05 to limit Type I errors.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>H₀:</b> No effect/difference — researcher tries to disprove it</li>
-          <li><b>H₁:</b> Effect exists — accepted if H₀ is rejected</li>
-          <li><b>Z-test:</b> n &gt; 30, σ known; formula Z = (x̄−μ)/(σ/√n)</li>
-          <li><b>T-test:</b> n ≤ 30 or σ unknown; df = n−1 <span class="tip-chip">3 types</span></li>
-          <li><b>3 types of T-test:</b> One-sample, Independent two-sample, Paired</li>
-          <li><b>Type I (α):</b> Reject true H₀ — false positive — probability = α</li>
-          <li><b>Type II (β):</b> Accept false H₀ — false negative — probability = β</li>
-          <li><b>Power:</b> 1 − β — ability to detect a real effect</li>
-          <li><b>Degrees of freedom:</b> df = n − 1 for one-sample t-test</li>
-          <li><b>Mnemonic:</b> Type I = crying wolf; Type II = missing the wolf</li>
+      <!-- HTTP -->
+      <div class="card" style="border-top:3px solid #D4537E">
+        <div class="lbl">HTTP — HyperText Transfer Protocol</div>
+        <ul style="font-size:12px;margin-top:4px">
+          <li><b>Port 80</b> (HTTP) / <b>Port 443</b> (HTTPS). Uses TCP.</li>
+          <li>Stateless — each request is independent</li>
+          <li>Methods: GET (retrieve) · POST (send data) · PUT (update) · DELETE · HEAD</li>
+          <li>Response codes: 2xx=OK · 3xx=Redirect · 4xx=Client error · 5xx=Server error</li>
+          <li>HTTP/1.0 = non-persistent · HTTP/1.1 = persistent (default) · HTTP/2 = multiplexed</li>
+          <li>Cookies/sessions used to add state on top of HTTP</li>
         </ul>
+        <div class="trick" style="margin-top:4px"><b>🧠 HTTP codes:</b> "I Successfully Redirected, Client got Server error" → 1·2·3·4·5xx</div>
+      </div>
+    </div>
+    <h3>URL — Uniform Resource Locator</h3>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-family:'Courier New',monospace;font-size:12px;margin:8px 0">
+      <span style="color:var(--blue);font-weight:700">https</span><span style="color:var(--gray)">://</span><span style="color:var(--green);font-weight:700">www.example.com</span><span style="color:var(--gray)">:</span><span style="color:var(--coral);font-weight:700">443</span><span style="color:var(--amber);font-weight:700">/path/page.html</span><span style="color:var(--gray)">?</span><span style="color:var(--purple);font-weight:700">key=value</span><span style="color:var(--gray)">#</span><span style="color:var(--pink);font-weight:700">section</span>
+    </div>
+    <div class="grid3">
+      <div class="card"><div class="lbl" style="color:var(--blue)">Protocol/Scheme</div><p style="font-size:12px">https — how to access the resource</p></div>
+      <div class="card"><div class="lbl" style="color:var(--green)">Host / Domain</div><p style="font-size:12px">www.example.com — where to find it</p></div>
+      <div class="card"><div class="lbl" style="color:var(--coral)">Port</div><p style="font-size:12px">443 — optional (default: 80/443)</p></div>
+      <div class="card"><div class="lbl" style="color:var(--amber)">Path</div><p style="font-size:12px">/path/page.html — specific resource</p></div>
+      <div class="card"><div class="lbl" style="color:var(--purple)">Query String</div><p style="font-size:12px">?key=value — parameters</p></div>
+      <div class="card"><div class="lbl" style="color:var(--pink)">Fragment</div><p style="font-size:12px">#section — anchor within page</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 4.4 DNS & DHCP -->
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--indigo-bg);color:var(--indigo)">4.4</span><h2>DNS &amp; DHCP / BOOTP</h2></div>
+  <div class="section-body">
+    <div class="grid2">
+      <div>
+        <h4>DNS — Domain Name System (Port 53)</h4>
+        <div class="trick"><b>🧠 DNS = "Domain Name to IP System"</b> — phonebook of the internet. UDP for queries, TCP for zone transfers.</div>
+        <h4 style="margin-top:8px">DNS Resolution Steps:</h4>
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:12px;line-height:1.9;margin-top:4px">
+          1. Browser checks <b>local cache</b><br>
+          2. Query to <b>Local Resolver</b> (ISP)<br>
+          3. Resolver queries <b>Root Name Server</b><br>
+          4. Root returns <b>TLD Name Server</b> address<br>
+          5. TLD returns <b>Authoritative Server</b> address<br>
+          6. Authoritative returns <b>final IP address</b><br>
+          7. Resolver caches &amp; returns IP to browser
+        </div>
+        <div class="trick" style="margin-top:6px"><b>🧠 "Brave Rascals Run To Answer":</b> Browser cache → Resolver → Root → TLD → Authoritative</div>
+        <h4 style="margin-top:8px">DNS Record Types:</h4>
+        <table>
+          <tr><th>Record</th><th>Purpose</th></tr>
+          <tr><td>A</td><td>Domain → IPv4 address</td></tr>
+          <tr><td>AAAA</td><td>Domain → IPv6 address</td></tr>
+          <tr><td>MX</td><td>Mail Exchange server</td></tr>
+          <tr><td>CNAME</td><td>Alias → canonical name</td></tr>
+          <tr><td>PTR</td><td>IP → Domain (reverse lookup)</td></tr>
+          <tr><td>NS</td><td>Name Server record</td></tr>
+        </table>
+      </div>
+      <div>
+        <h4>DHCP — Dynamic Host Configuration Protocol (Ports 67/68 UDP)</h4>
+        <div class="trick"><b>🧠 DHCP = "Dynamic Host Configures Please"</b> — auto-assigns IP, mask, gateway, DNS to joining devices</div>
+        <h4 style="margin-top:8px">DORA Process:</h4>
+        <div class="dora">
+          <div class="dora-step" style="background:var(--purple-bg)"><div class="letter" style="color:var(--purple)">D</div><div class="word" style="color:var(--purple)">Discover</div><div class="desc">Client broadcasts to find DHCP server (src=0.0.0.0)</div></div>
+          <div class="dora-step" style="background:var(--green-bg)"><div class="letter" style="color:var(--green)">O</div><div class="word" style="color:var(--green)">Offer</div><div class="desc">Server offers IP address with lease time</div></div>
+          <div class="dora-step" style="background:var(--amber-bg)"><div class="letter" style="color:var(--amber)">R</div><div class="word" style="color:var(--amber)">Request</div><div class="desc">Client accepts offered IP (broadcast)</div></div>
+          <div class="dora-step" style="background:var(--blue-bg)"><div class="letter" style="color:var(--blue)">A</div><div class="word" style="color:var(--blue)">Acknowledge</div><div class="desc">Server confirms IP assignment with full config</div></div>
+        </div>
+        <p style="font-size:12px;margin-top:6px">DHCP provides: IP address · Subnet mask · Default gateway · DNS server · Lease duration</p>
+        <h4 style="margin-top:10px">BOOTP vs DHCP:</h4>
+        <table>
+          <tr><th>Feature</th><th>BOOTP</th><th>DHCP</th></tr>
+          <tr><td>IP Assignment</td><td>Static (manual table)</td><td>Dynamic + static</td></tr>
+          <tr><td>Lease time</td><td>No (permanent)</td><td>Yes (timed)</td></tr>
+          <tr><td>Configuration</td><td>Limited</td><td>Full (DNS, GW etc.)</td></tr>
+          <tr><td>Ports</td><td>67/68 UDP</td><td>67/68 UDP (same!)</td></tr>
+          <tr><td>Relation</td><td>Predecessor</td><td>Successor to BOOTP</td></tr>
+        </table>
+        <div class="trick" style="margin-top:6px"><b>🧠 BOOTP = "Boot Only One Time Parameters" (static, old) · DHCP = Dynamic, modern evolution</b></div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- 2.4 Regression -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">2.4 &nbsp; Regression analysis &amp; curve fitting</span>
-      <span class="chevron">▼</span>
+<!-- ══════════════════════════════════════════════
+     MASTER QUICK REVISION
+     ══════════════════════════════════════════════ -->
+<div class="unit-header page-break" style="background:var(--gray-bg);color:var(--gray)">
+  <div class="unit-num" style="background:var(--gray)">★</div>
+  <div><div class="unit-title">Master Quick Revision</div>
+  <div class="unit-sub">All port numbers · All formulas · All memory tricks · All exam traps</div></div>
+</div>
+
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--gray-bg);color:var(--gray)">R1</span><h2>All Port Numbers Cheatsheet</h2></div>
+  <div class="section-body">
+    <div class="port-row">
+      <div class="port"><span class="port-num t-blue" style="padding:2px 7px;border-radius:4px">20/21</span> FTP (Data/Control)</div>
+      <div class="port"><span class="port-num t-teal" style="padding:2px 7px;border-radius:4px">22</span> SSH (Secure Shell)</div>
+      <div class="port"><span class="port-num t-amber" style="padding:2px 7px;border-radius:4px">23</span> Telnet</div>
+      <div class="port"><span class="port-num t-red" style="padding:2px 7px;border-radius:4px">25</span> SMTP</div>
+      <div class="port"><span class="port-num t-purple" style="padding:2px 7px;border-radius:4px">53</span> DNS (UDP/TCP)</div>
+      <div class="port"><span class="port-num t-coral" style="padding:2px 7px;border-radius:4px">67/68</span> DHCP/BOOTP</div>
+      <div class="port"><span class="port-num t-green" style="padding:2px 7px;border-radius:4px">80</span> HTTP</div>
+      <div class="port"><span class="port-num t-pink" style="padding:2px 7px;border-radius:4px">110</span> POP3</div>
+      <div class="port"><span class="port-num t-indigo" style="padding:2px 7px;border-radius:4px">143</span> IMAP</div>
+      <div class="port"><span class="port-num t-blue" style="padding:2px 7px;border-radius:4px">443</span> HTTPS</div>
     </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
+    <div class="trick"><b>🧠 Port trick — "Friendly Telnet Sends Data Pretty Happily":</b> FTP=21 · Telnet=23 · SMTP=25 · DNS=53 · POP3=110 · HTTP=80</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--gray-bg);color:var(--gray)">R2</span><h2>All Critical Formulas</h2></div>
+  <div class="section-body">
+    <div class="grid2">
+      <div>
+        <div class="formula">Nyquist (noiseless): Max Rate = 2 × B × log<sub>2</sub>(M)</div>
+        <div class="formula">Shannon (noisy): Max Rate = B × log<sub>2</sub>(1 + SNR)</div>
+        <div class="formula">Period: T = 1/f &nbsp;|&nbsp; Wavelength: &lambda; = c/f (c=3&times;10<sup>8</sup>)</div>
+        <div class="formula">Mesh links = n(n-1)/2 &nbsp;|&nbsp; Ports per device = n-1</div>
       </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p><b>Regression analysis</b> models the relationship between a dependent variable (Y) and one or more independent variables (X).<br><br>
-          <b>Simple linear regression:</b></p>
-          <span class="formula-box">Y = β₀ + β₁X + ε</span>
-          <p>where β₀ = intercept, β₁ = slope (change in Y per unit X), ε = residual error.<br>
-          <b>Multiple linear regression:</b></p>
-          <span class="formula-box">Y = β₀ + β₁X₁ + β₂X₂ + … + βₙXₙ + ε</span>
-          <p><b>R² (coefficient of determination):</b> Proportion of variance in Y explained by the model. R² = 0.85 means 85% of variation in Y is explained.<br><br>
-          <b>Nonlinear curve fitting:</b> When data does not follow a straight line, iterative methods are used.<br>
-          — <b>Gradient descent (steepest descent):</b> Moves in the direction of steepest decrease of the error function. Slow near the minimum.<br>
-          — <b>Marquardt (Levenberg-Marquardt) method:</b> A hybrid of gradient descent and Gauss-Newton. Behaves like gradient descent far from the minimum, and like Gauss-Newton (faster) near it. It is the <b>gold standard</b> for nonlinear least-squares fitting.</p>
-        </div>
+      <div>
+        <div class="formula">Hamming: 2<sup>r</sup> &ge; m + r + 1</div>
+        <div class="formula">Stop-and-Wait: &eta; = 1/(1+2a) &nbsp; a = Tp/Tf</div>
+        <div class="formula">GBN window = 2<sup>n</sup>&minus;1 &nbsp;|&nbsp; SR window = 2<sup>n-1</sup></div>
+        <div class="formula">ALOHA: Pure=18.4%(1/2e) · Slotted=36.8%(1/e)</div>
       </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">What does the regression coefficient tell you?</div>
-          <div class="concept-text">β₁ = 3 means: for every 1-unit increase in X, Y increases by 3 units on average. β₀ is the value of Y when X = 0. The residual ε is the gap between the actual Y and the Y predicted by the model.</div>
-          <div class="example-box">Y = exam score, X = hours studied. β₁ = 5 means: each extra hour of study raises the expected score by 5 marks. R² = 0.72 means studying hours explain 72% of score variation.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">Marquardt vs gradient descent</div>
-          <div class="concept-text">Gradient descent is like walking downhill blindly — slow but reliable. Gauss-Newton is like taking a mathematical shortcut — fast but only works if you are already close to the bottom. Marquardt switches between the two intelligently.</div>
-          <div class="example-box">Fitting a radioactive decay curve A·e^(−λt) to data from a gamma ray detector uses the Marquardt method — it handles the non-linearity robustly even with a poor initial guess.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>Linear regression:</b> Y = β₀ + β₁X + ε; β₁ = slope, β₀ = intercept</li>
-          <li><b>Multiple regression:</b> Multiple X variables predict Y</li>
-          <li><b>R²:</b> Proportion of variance explained (0 to 1; closer to 1 = better fit)</li>
-          <li><b>Assumptions:</b> Linearity, independence, homoscedasticity, normality of residuals</li>
-          <li><b>Gradient descent:</b> Iterative, moves toward error minimum, slow near solution</li>
-          <li><b>Marquardt method:</b> Hybrid — gold standard for nonlinear fitting <span class="tip-chip">Must know</span></li>
-          <li><b>Residual (ε):</b> Actual Y − Predicted Y; should be random with zero mean</li>
-          <li><b>Calibration:</b> Reduces systematic error; comparison against known standard</li>
-          <li><b>Error propagation:</b> For z = x+y → Δz = √(Δx² + Δy²)</li>
-        </ul>
-      </div>
+    </div>
+    <div class="formula">Ethernet: min frame=64 bytes · MTU=1500 bytes · T1=1.544Mbps · E1=2.048Mbps</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--amber-bg);color:var(--amber)">R3</span><h2>All Memory Tricks at a Glance</h2></div>
+  <div class="section-body">
+    <div class="ref-box">
+      <div>🔵 <b>Network size:</b> "Please Let Me Work" → PAN, LAN, MAN, WAN</div>
+      <div>🟣 <b>Topologies:</b> "Big Stars Real Make Tree Hybrid" → Bus, Star, Ring, Mesh, Tree, Hybrid</div>
+      <div>🟠 <b>OSI (top→bottom):</b> "All People Seem To Need Data Processing"</div>
+      <div>🟠 <b>OSI (bottom→top):</b> "Please Do Not Throw Sausage Pizza Away"</div>
+      <div>🟢 <b>TCP/IP layers:</b> "All Tigers Ignore Network" → App, Transport, Internet, Network Access</div>
+      <div>🔵 <b>Transmission modes:</b> "Simple Hens Full" → Simplex, Half Duplex, Full Duplex</div>
+      <div>⚡ <b>Physical layer PDU names:</b> Bit→Frame→Packet→Segment→Data (bottom to top)</div>
+      <div>🔴 <b>Error techniques:</b> "Pigs Can't Hamster" → Parity, CRC, Checksum, Hamming</div>
+      <div>🟤 <b>ARQ protocols:</b> "Stop Going Selectively" → Stop-and-Wait, Go-Back-N, Selective Repeat</div>
+      <div>🟡 <b>Multiple access:</b> "Random Control Channel" → Random, Controlled, Channelization</div>
+      <div>💡 <b>ALOHA:</b> Slotted = exactly 2× Pure (36.8% vs 18.4%)</div>
+      <div>🟣 <b>Signals:</b> "Nyquist=Noiseless, Shannon=Signal noise"</div>
+      <div>🌐 <b>Wireless media:</b> "Radio Instantly Makes Satellites" → Radio, Infrared, Microwave, Satellite</div>
+      <div>🛰️ <b>Satellite orbits:</b> "Lazy Monkeys Geek" → LEO, MEO, GEO</div>
+      <div>📡 <b>Multiplexing:</b> "Flowers Take Wavelengths" → FDM, TDM, WDM</div>
+      <div>📧 <b>SMTP:</b> "Send Mail To People" | POP3=download | IMAP=access</div>
+      <div>🌍 <b>DNS resolution:</b> "Brave Rascals Run To Answer" → Browser→Resolver→Root→TLD→Auth</div>
+      <div>🖥️ <b>DHCP process:</b> "Devices Often Request Addresses" → DORA</div>
+      <div>📂 <b>FTP ports:</b> "21 Controls, 20 Delivers"</div>
+      <div>🔐 <b>UDP vs TCP:</b> UDP="Uncle Doesn't Promise" · TCP="Takes Care Precisely"</div>
     </div>
   </div>
-</div><!-- end unit II -->
+</div>
 
-
-<!-- ════════════════════════════════
-     UNIT III
-════════════════════════════════ -->
-<div class="unit" id="u3">
-  <div class="unit-header">
-    <span class="unit-num">UNIT III</span>
-    <span class="unit-title">Journals, Databases &amp; Research Metrics</span>
-    <span class="unit-hours">7 hrs</span>
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:var(--red-bg);color:var(--red)">R4</span><h2>⚠️ Top Exam Traps — Must Read Before Exam</h2></div>
+  <div class="section-body">
+    <div class="warn-box"><b>1. TCP header min = 20 bytes · UDP header = exactly 8 bytes (fixed, always)</b></div>
+    <div class="warn-box"><b>2. GBN receiver window is ALWAYS 1.</b> SR receiver window = 2<sup>n-1</sup>. Getting these swapped = guaranteed mark loss.</div>
+    <div class="warn-box"><b>3. CSMA/CD = wired Ethernet (collision detected DURING transmission). CSMA/CA = wireless Wi-Fi (collision AVOIDED before).</b></div>
+    <div class="warn-box"><b>4. SMTP = SENDING email only. POP3/IMAP = receiving/accessing email. Very commonly confused.</b></div>
+    <div class="warn-box"><b>5. DNS uses UDP port 53 for queries but TCP port 53 for zone transfers. NOT purely UDP.</b></div>
+    <div class="warn-box"><b>6. Ethernet minimum frame = 64 bytes. If data &lt; 46 bytes → PADDING is added to reach minimum.</b></div>
+    <div class="warn-box"><b>7. FTP uses TWO TCP connections: port 21 (control, persistent) and port 20 (data, opens per file).</b></div>
+    <div class="warn-box"><b>8. Telnet = insecure (plain text, port 23). SSH = secure (encrypted, port 22). Always distinguish these.</b></div>
+    <div class="warn-box"><b>9. DHCP is successor to BOOTP. Both use UDP ports 67/68. DHCP added dynamic IP + lease concept.</b></div>
+    <div class="warn-box"><b>10. WWW ≠ Internet. Internet = physical infrastructure. WWW = one service/application running ON the internet.</b></div>
+    <div class="warn-box"><b>11. WDM is ONLY for fiber optic cables — NEVER copper. DWDM = Dense WDM (closer wavelength spacing).</b></div>
+    <div class="warn-box"><b>12. Walkie-talkie = Half Duplex (NOT simplex). Mobile phone call = Full Duplex.</b></div>
   </div>
+</div>
 
-  <!-- 3.1 Journals -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">3.1 &nbsp; Types of journals — peer-review, OA, predatory</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p>Journals are broadly classified as:<br><br>
-          <b>1. Subscription-based (paid) journals:</b> Access requires institutional or personal subscription. Examples: Nature, Science, Physical Review (APS).<br><br>
-          <b>2. Open Access (OA) journals:</b> Free to read online. <b>Gold OA</b> — author pays Article Processing Charge (APC), free for readers. <b>Green OA</b> — author self-archives a version in a repository (arXiv, PubMed Central). Examples: PLOS ONE, journals in DOAJ.<br><br>
-          <b>3. Peer-reviewed journals:</b> Submitted manuscripts are evaluated by independent subject-matter experts before acceptance. This is the cornerstone of scientific quality control. The process: Submit → Editorial check → Peer review (2–3 reviewers) → Revision → Accept/Reject → Publish.<br><br>
-          <b>4. Predatory journals:</b> Fraudulent journals that charge APCs without providing genuine peer review. Warning signs: unsolicited email invitations, rapid acceptance (24–48 hrs), vague editorial board, poor website. Detection: use Beall's List, DOAJ whitelist, Think-Check-Submit checklist.</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">Why does peer review matter?</div>
-          <div class="concept-text">Peer review is the quality filter of science. Without it, anyone can publish anything. It ensures methods are sound, conclusions are supported by data, and the work advances knowledge. However, it is not perfect — it can miss fraud (Schön scandal) or reject correct but unconventional work (Wegener's continental drift was initially rejected).</div>
-          <div class="example-box">The Sokal Affair (1996): A physicist submitted a nonsensical physics paper stuffed with jargon to a cultural studies journal. It was published — exposing weak peer review in that field.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">How to spot a predatory journal</div>
-          <div class="concept-text">Apply the Think-Check-Submit checklist: Can you find the journal's publisher? Is the editorial board real and verifiable? Is it indexed in Scopus, WoS, or DOAJ? Was the acceptance unrealistically fast? If any answer is suspicious, it is likely predatory.</div>
-          <div class="example-box">"International Journal of Advanced Science and Technology Studies" — generic name, no verified editors, promises publication in 7 days for USD 150 → classic predatory journal profile.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>Subscription journal:</b> Requires payment to access (e.g., Nature, Science)</li>
-          <li><b>Gold OA:</b> Author pays APC; free to read (PLOS ONE)</li>
-          <li><b>Green OA:</b> Author self-archives in repository (arXiv, PubMed Central)</li>
-          <li><b>Peer review:</b> Independent expert evaluation before publication — quality control of science</li>
-          <li><b>Predatory journal:</b> Charges fees, no real peer review, spam invitations <span class="tip-chip">List 4 signs</span></li>
-          <li><b>Detection:</b> Beall's List, DOAJ whitelist, Think-Check-Submit, COPE/OASPA membership</li>
-          <li><b>Peer review steps:</b> Submit → Editorial check → 2-3 reviewers → Revision → Decision</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="footer">
+  Computer Networks — Complete Exam Notes &nbsp;|&nbsp; All 4 Units Covered &nbsp;|&nbsp; Good Luck! 🎯
+</div>
 
-  <!-- 3.2 Databases -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">3.2 &nbsp; Scientific databases — indexing, citation, physics databases</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p><b>Indexing databases</b> collect and organise metadata (title, author, abstract, keywords) to make articles discoverable. Examples: PubMed, DOAJ, arXiv.<br><br>
-          <b>Citation databases</b> track not just articles but also who cited whom — enabling impact metric calculations. The two major ones are:<br>
-          — <b>Web of Science (WoS):</b> By Clarivate. Selective — high quality threshold. Source of the official Journal Impact Factor (JIF).<br>
-          — <b>Scopus:</b> By Elsevier. Broader coverage; more non-English journals. Source of CiteScore, SNIP, and SJR.<br><br>
-          <b>Discipline-specific physics databases:</b><br>
-          — <b>ADS (Astrophysics Data System):</b> NASA-funded. Literature in astronomy, astrophysics, physics.<br>
-          — <b>NED (NASA/IPAC Extragalactic Database):</b> Data on objects outside the Milky Way (galaxies, quasars, AGN).<br>
-          — <b>SIMBAD:</b> CDS Strasbourg. Objects within the Milky Way (stars, nebulae, clusters).<br>
-          — <b>VizieR:</b> CDS Strasbourg. Full numerical data tables and catalogues from published papers.<br>
-          — <b>PubMed:</b> NLM/NCBI. Biomedical and life science literature (biophysics).<br>
-          — <b>INSPIRE-HEP:</b> High energy physics literature (particle physics, accelerators, CERN).<br>
-          — <b>ICDD (X-ray database):</b> Powder diffraction data for material identification in condensed matter physics.</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">Indexing vs citation database — the key difference</div>
-          <div class="concept-text">An indexing database helps you find papers (discovery tool). A citation database helps you measure the impact of papers and trace the intellectual lineage of ideas (analysis tool). Think of it as: Google for papers (indexing) vs a family tree of citations (citation database).</div>
-          <div class="example-box">PubMed tells you "this paper exists and here's what it's about." Scopus tells you "this paper exists, and 347 other papers have cited it, and here's who."</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">Memory trick for astronomy databases</div>
-          <div class="concept-text">SIMBAD = <b>S</b>tars and objects <b>IN</b>side our galaxy. NED = objects <b>B</b>eyond our galaxy (extragalactic). VizieR = data <b>T</b>ables. ADS = literature search engine linking all three.</div>
-          <div class="example-box">Looking up the star Betelgeuse? Use SIMBAD. Looking up galaxy M87 (where the first black hole photo was taken)? Use NED.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>WoS:</b> Clarivate, selective, source of official Impact Factor</li>
-          <li><b>Scopus:</b> Elsevier, broader, source of CiteScore/SNIP/SJR</li>
-          <li><b>ADS:</b> NASA — astronomy and astrophysics literature</li>
-          <li><b>NED:</b> NASA/IPAC — extragalactic objects (beyond Milky Way)</li>
-          <li><b>SIMBAD:</b> CDS — objects within/near Milky Way</li>
-          <li><b>VizieR:</b> CDS — numerical catalogues and data tables</li>
-          <li><b>PubMed:</b> NLM/NCBI — biomedical/biophysics literature</li>
-          <li><b>INSPIRE-HEP:</b> HEP literature — particle physics, CERN <span class="tip-chip">All 7 databases</span></li>
-          <li><b>ICDD:</b> X-ray powder diffraction — condensed matter physics</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3.3 Metrics -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">3.3 &nbsp; Research metrics — journal &amp; author level</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p><b>Journal-level metrics:</b><br>
-          — <b>Impact Factor (IF):</b> Citations in year Y to articles from years (Y-1) and (Y-2), divided by total articles published in those two years. Published by Clarivate via JCR.<br>
-          — <b>CiteScore:</b> Scopus metric. Citations in 4 years / documents in 4 years.<br>
-          — <b>SNIP (Source Normalized Impact per Paper):</b> Corrects for different citation habits across fields.<br>
-          — <b>SJR (SCImago Journal Rank):</b> Weighted citations — a citation from a high-prestige journal counts more (similar to Google PageRank).<br>
-          — <b>IPP (Impact per Publication):</b> 3-year Scopus metric, similar to IF.<br><br>
-          <b>Author-level metrics:</b><br>
-          — <b>h-index:</b> A researcher has h-index h if h papers have each been cited ≥ h times. Balances quantity and quality.<br>
-          — <b>g-index:</b> Top g papers have together received g² citations. More sensitive to highly cited papers than h-index.<br>
-          — <b>i10-index:</b> Number of papers with ≥ 10 citations. Used by Google Scholar.<br>
-          — <b>Altmetrics:</b> Non-traditional impact measures — social media mentions, downloads, news articles, policy citations.<br><br>
-          <b>Key limitations:</b> Not comparable across fields; review articles inflate IF; disadvantages new journals and early-career researchers; susceptible to self-citation manipulation.</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">h-index explained simply</div>
-          <div class="concept-text">Sort your papers from most to least cited. Find the point where the rank equals the citation count. That rank is your h-index. A researcher with h = 20 has 20 papers each cited at least 20 times.</div>
-          <div class="example-box">10 papers with citations: 50, 40, 30, 20, 15, 12, 8, 5, 3, 1. At rank 6, citations = 12 ≥ 6 ✓. At rank 7, citations = 8 ≥ 7 ✓. At rank 8, citations = 5 &lt; 8 ✗. So h-index = 7.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">Why field comparison of IF is meaningless</div>
-          <div class="concept-text">Biology papers cite 40–50 references; physics papers cite 20–25. A biology journal will naturally accumulate more citations than a physics journal of equal importance. SNIP corrects for this by normalising against the field's citation potential.</div>
-          <div class="example-box">Nature (IF ≈ 65) vs Physical Review Letters (IF ≈ 9) — PRL is one of the most prestigious physics journals in the world, but its IF looks low compared to biology journals. SNIP makes them comparable.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>IF formula:</b> Citations to (Y-1, Y-2) / Articles in (Y-1, Y-2) — Clarivate/JCR</li>
-          <li><b>CiteScore:</b> 4-year Scopus metric</li>
-          <li><b>SNIP:</b> Field-normalised — corrects for citation culture differences</li>
-          <li><b>SJR:</b> Weighted citations — high-prestige citing journal = more weight</li>
-          <li><b>h-index:</b> h papers each cited ≥ h times — balances quantity and quality <span class="tip-chip">Calculate it</span></li>
-          <li><b>g-index:</b> Top g papers together have g² citations — rewards blockbusters</li>
-          <li><b>i10-index:</b> Papers with ≥10 citations — Google Scholar metric</li>
-          <li><b>Altmetrics:</b> Social media, news, policy mentions of research</li>
-          <li><b>IF limitations:</b> Field-dependent, review article bias, new journal bias, manipulation</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div><!-- end unit III -->
-
-
-<!-- ════════════════════════════════
-     UNIT IV
-════════════════════════════════ -->
-<div class="unit" id="u4">
-  <div class="unit-header">
-    <span class="unit-num">UNIT IV</span>
-    <span class="unit-title">Scientific Conduct &amp; Publication Ethics</span>
-    <span class="unit-hours">8 hrs</span>
-  </div>
-
-  <!-- 4.1 Integrity -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">4.1 &nbsp; Research integrity — errors, records, honest reporting</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p><b>Research integrity</b> refers to the adherence to ethical principles and professional standards throughout the research process. Its core elements include: intellectual honesty, transparency, accountability, fairness, and respect for all participants.<br><br>
-          <b>Communicating errors:</b><br>
-          — <b>Erratum:</b> Minor error introduced by the author (typo, wrong unit). Published as a short notice. Does not change conclusions.<br>
-          — <b>Corrigendum/Correction:</b> More substantial error. May affect interpretation. Issued by author or publisher.<br>
-          — <b>Retraction:</b> Complete withdrawal of the paper due to major flaws — data fabrication, duplicate publication, or errors that invalidate the conclusions. The paper remains visible but marked "RETRACTED." Tracked by Retraction Watch.<br>
-          — <b>Expression of Concern:</b> Interim notice issued when an investigation is ongoing but misconduct is not yet confirmed.<br><br>
-          <b>Records to maintain:</b> Raw data, lab notebooks, observation logs, experimental protocols, analysis code, sample records. Must be retained for at least 5–10 years post-publication. Reason: enables reproducibility, protects against misconduct allegations, supports error correction.</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">Erratum vs Retraction — severity spectrum</div>
-          <div class="concept-text">Think of it as: Erratum = a spelling mistake in a newspaper. Correction = a factual error that needs a prominent fix. Retraction = the entire story was fabricated and must be unpublished.</div>
-          <div class="example-box">The Hwang Woo-suk stem cell scandal (2006): faked embryonic stem cell data led to full retraction of two Nature papers — one of the most high-profile retractions in biology.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">Why keep records?</div>
-          <div class="concept-text">Good record-keeping is your insurance policy. If a result is questioned years later, your raw data and protocols prove you did the experiment correctly. Without records, you cannot defend your work — and suspicion is impossible to disprove.</div>
-          <div class="example-box">In 2014, the STAP stem cell paper was published in Nature. When others could not reproduce the results, the authors were asked to provide raw data and lab notebooks. Their absence led to a retraction and one author's tragic death.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>Intellectual honesty:</b> Accurate reporting, acknowledging limitations, proper attribution</li>
-          <li><b>Erratum:</b> Minor author error — typo, calculation; does NOT change conclusions</li>
-          <li><b>Corrigendum:</b> Substantial error — may affect interpretation</li>
-          <li><b>Retraction:</b> Full withdrawal — fabrication, fraud, or fatal errors <span class="tip-chip">Most severe</span></li>
-          <li><b>Expression of Concern:</b> Interim notice during ongoing investigation</li>
-          <li><b>Records to keep:</b> Raw data, protocols, lab notebooks, analysis code, sample logs</li>
-          <li><b>Retention period:</b> Minimum 5–10 years post-publication</li>
-          <li><b>Retraction Watch:</b> Database tracking all retracted papers</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4.2 Plagiarism -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">4.2 &nbsp; Plagiarism — types, detection &amp; avoidance</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p><b>Plagiarism</b> is the act of presenting another person's ideas, words, data, images, or creative work as one's own without proper attribution. It is a form of intellectual theft and academic dishonesty.<br><br>
-          <b>Types of plagiarism:</b><br>
-          1. <b>Verbatim (direct) plagiarism:</b> Word-for-word copying without quotation marks or citation.<br>
-          2. <b>Paraphrasing plagiarism:</b> Rewording another's ideas without citing the source.<br>
-          3. <b>Mosaic plagiarism:</b> Mixing copied phrases from multiple sources without attribution.<br>
-          4. <b>Self-plagiarism:</b> Reusing one's own previously published work in a new submission without disclosure.<br>
-          5. <b>Idea plagiarism:</b> Stealing someone's concept, theory, or argument without attribution even if the wording is different.<br>
-          6. <b>Ghost authorship:</b> Someone else writes the work but the submitter claims authorship.<br><br>
-          <b>Detection tools:</b> iThenticate (used by journals), Turnitin (used by universities), PlagScan, Unicheck. These compare submitted text against databases of published papers and websites and generate a similarity report with percentage match.<br><br>
-          <b>Avoidance:</b> Proper citation (APA/MLA/Vancouver), paraphrasing with attribution, using reference managers, and ensuring the similarity index remains below 15–20% (institution-specific threshold).</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">Self-plagiarism — the surprising one</div>
-          <div class="concept-text">Many students don't realise that reusing your own earlier work without disclosure is also plagiarism. When you publish a paper, copyright often transfers to the journal. Submitting the same content again without permission violates that copyright and misleads readers about the novelty of the work.</div>
-          <div class="example-box">A researcher publishes findings in a conference proceedings, then submits the same manuscript to a journal without disclosing the previous publication → self-plagiarism / duplicate publication.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">What is an acceptable similarity index?</div>
-          <div class="concept-text">There is no universal rule, but most universities and journals consider below 15–20% similarity acceptable, provided it is not concentrated in one source. A 5% match that is entirely verbatim from a key reference may be more problematic than 18% spread across many correctly cited sources.</div>
-          <div class="example-box">Turnitin flags a thesis at 22% similarity. On investigation, most matched text is from the student's own properly cited references and standard definitions. The actual plagiarism may be near 0%.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>Plagiarism:</b> Presenting others' work as your own without attribution</li>
-          <li><b>Verbatim:</b> Word-for-word copy — most obvious form</li>
-          <li><b>Paraphrasing:</b> Reword without citation — equally unacceptable</li>
-          <li><b>Mosaic:</b> Mix phrases from multiple sources without attribution</li>
-          <li><b>Self-plagiarism:</b> Reuse own published work without disclosure</li>
-          <li><b>iThenticate:</b> Used by journals — compares against published literature <span class="tip-chip">Name this tool</span></li>
-          <li><b>Turnitin:</b> Used by universities — generates similarity report</li>
-          <li><b>Acceptable similarity:</b> Usually &lt;15–20% (institution-specific)</li>
-          <li><b>Avoidance:</b> Cite properly, paraphrase with attribution, use reference manager</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4.3 Publication misconduct + COPE -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">4.3 &nbsp; Publication misconduct — salami slicing, COPE, waste disposal</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p><b>Redundant publications</b> are forms of publication misconduct that inflate the literature without adding knowledge:<br><br>
-          — <b>Salami slicing:</b> Artificially dividing one coherent study into the smallest possible number of separate publications ("least publishable units") solely to maximise publication count.<br>
-          — <b>Duplicate publication:</b> Submitting the same manuscript to two journals simultaneously, or publishing the same data in two journals without disclosure.<br>
-          — <b>Overlapping publications:</b> Publishing partially overlapping datasets in different papers without disclosure.<br>
-          — <b>Selective reporting:</b> Reporting only statistically significant (positive) results while suppressing negative or null results — causes publication bias in the literature.<br>
-          — <b>Data misrepresentation:</b> Manipulating graphs, selectively cropping images, or cherry-picking data to support a predetermined conclusion.<br><br>
-          <b>COPE (Committee on Publication Ethics):</b> An international body (founded 1997) that provides guidelines, case studies, and flowcharts to help editors and publishers handle allegations of misconduct. Core practices: data integrity, authorship, peer review, conflicts of interest, and handling of misconduct allegations. COPE does NOT investigate cases — it advises editors.<br><br>
-          <b>Environmental clearances:</b> Research involving hazardous chemicals, radioactive materials, or biological agents requires prior clearance. Waste must be segregated, labelled, stored safely, and disposed of through licensed agencies per national regulations (Environment Protection Act, India).</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">Why is salami slicing harmful?</div>
-          <div class="concept-text">When researchers conduct a systematic review or meta-analysis, they count studies. A salami-sliced project counted as 5 papers inflates the apparent evidence base, biases the meta-analysis, and can mislead clinical practice or policy.</div>
-          <div class="example-box">A clinical trial testing a drug on 1,000 patients — results split into: cardiovascular outcomes (Paper 1), respiratory outcomes (Paper 2), renal outcomes (Paper 3). This should have been one paper with subgroup analyses.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">COPE flowcharts — what they cover</div>
-          <div class="concept-text">COPE has specific flowcharts for: suspected plagiarism after publication, redundant publication, authorship disputes, peer reviewer misconduct, data fabrication, and undisclosed conflicts of interest. These are used by journal editors as decision guides.</div>
-          <div class="example-box">An editor receives a tip that a published paper was also submitted to another journal. They consult the COPE "Suspected redundant publication — after publication" flowchart, contact both journals, and coordinate a retraction.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>Salami slicing:</b> Splitting one study into minimum publishable units to inflate count</li>
-          <li><b>Duplicate publication:</b> Same manuscript submitted to two journals simultaneously</li>
-          <li><b>Selective reporting:</b> Only publishing positive results → publication bias</li>
-          <li><b>Data misrepresentation:</b> Cropping images, cherry-picking data, manipulating graphs</li>
-          <li><b>COPE:</b> Committee on Publication Ethics — provides guidelines and flowcharts <span class="tip-chip">Founded 1997</span></li>
-          <li><b>COPE does NOT investigate:</b> It advises editors — enforcement is institutional</li>
-          <li><b>COPE core practices:</b> Data integrity, authorship, peer review, conflicts of interest</li>
-          <li><b>Hazardous waste:</b> Must be segregated, labelled, stored safely, disposed via licensed agencies</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div><!-- end unit IV -->
-
-
-<!-- ════════════════════════════════
-     UNIT V
-════════════════════════════════ -->
-<div class="unit" id="u5">
-  <div class="unit-header">
-    <span class="unit-num">UNIT V</span>
-    <span class="unit-title">Scientific Writing &amp; Software Tools</span>
-    <span class="unit-hours">5 hrs</span>
-  </div>
-
-  <!-- 5.1 Writing a research paper -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">5.1 &nbsp; Structure of a research paper</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p>A standard research paper follows the <b>IMRaD structure</b> (Introduction, Methods, Results, and Discussion):<br><br>
-          <b>1. Title:</b> Concise, specific, contains key terms for indexing. Typically 10–15 words.<br>
-          <b>2. Abstract:</b> 150–250 words, self-contained summary covering: background, objective, methods, key results, and conclusion. No citations, no abbreviations, written in past tense.<br>
-          <b>3. Introduction:</b> Background context, review of relevant literature, identification of the research gap, objectives and hypothesis of the study. Answers: "Why did you do this?"<br>
-          <b>4. Methodology:</b> Materials, instruments, experimental design, data collection procedures, statistical methods. Must be written in sufficient detail to allow replication. Answers: "How did you do it?"<br>
-          <b>5. Results:</b> Objective presentation of data using text, tables, and figures. No interpretation — just what was found. Answers: "What did you find?"<br>
-          <b>6. Discussion:</b> Interpretation of results, comparison with existing literature, limitations of the study, implications. Answers: "What does it mean?"<br>
-          <b>7. Conclusion:</b> Summary of findings, direct answer to the research question, future scope.<br>
-          <b>8. References:</b> All cited sources in a consistent format (APA/MLA/Vancouver).</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">IMRaD — why this structure?</div>
-          <div class="concept-text">IMRaD evolved because it mirrors the scientific thinking process: you frame a question (Introduction), design a way to answer it (Methods), observe what happens (Results), and make sense of what you found (Discussion). It also allows a busy reader to read only the section they need.</div>
-          <div class="example-box">A physicist reading for methodology can jump directly to Methods. A reviewer checking statistical rigour goes to Results. A student writing a review reads only the Introduction and Discussion of 50 papers.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">Results vs Discussion — the most confused sections</div>
-          <div class="concept-text">Results section = a factual report: "The mean temperature increased by 3.2°C ± 0.4." No interpretation, no opinion. Discussion = interpretation: "The observed 3.2°C increase is consistent with the thermal runaway model proposed by [Smith, 2019], suggesting that..."</div>
-          <div class="example-box">WRONG in Results: "The drug worked well." RIGHT in Results: "The treatment group showed a 40% reduction in symptom score (p = 0.003)." The word "worked" is an interpretation — it belongs in Discussion.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>IMRaD:</b> Introduction, Methods, Results, and Discussion — standard structure</li>
-          <li><b>Abstract:</b> 150–250 words; background + objective + methods + results + conclusion</li>
-          <li><b>Abstract rules:</b> No citations, no abbreviations, no figures, past tense for methods/results</li>
-          <li><b>Introduction:</b> Background → gap → objective → hypothesis</li>
-          <li><b>Methods:</b> Detailed enough to be reproducible by others</li>
-          <li><b>Results:</b> Data only — no interpretation <span class="tip-chip">Common exam trap</span></li>
-          <li><b>Discussion:</b> Interpretation, comparison with literature, limitations</li>
-          <li><b>Conclusion:</b> Summary of findings + future scope</li>
-          <li><b>Title:</b> Concise, specific, 10–15 words, contains indexing keywords</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- 5.2 Referencing + tools -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">5.2 &nbsp; Referencing formats &amp; software tools</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p><b>Referencing formats:</b><br>
-          — <b>APA (American Psychological Association):</b> Author-date in-text citation. Used in social sciences, psychology. Format: (Author, Year). End reference: Author, A. A. (Year). <i>Title</i> (edition). Publisher.<br>
-          — <b>MLA (Modern Language Association):</b> Author-page in-text citation. Used in humanities. Format: (Author Page). End reference: Author Last, First. <i>Title</i>. Publisher, Year.<br>
-          — <b>Vancouver (numbered):</b> In-text: [1], [2]. Used in medicine and physics. References listed in order of citation.<br><br>
-          <b>Graphical software:</b><br>
-          — <b>GnuPlot:</b> Free, open-source, command-line tool. Script-driven, publication-quality output (eps, pdf, png). Best for automation and reproducibility.<br>
-          — <b>Origin (OriginLab):</b> Paid, GUI-based. Point-and-click interface. Supports curve fitting and batch analysis. Most commonly used in physics labs.<br>
-          — <b>MagicPlot:</b> Lightweight, GUI. Free student version. Good for curve fitting.<br><br>
-          <b>Presentation tools:</b><br>
-          — <b>Beamer (LaTeX):</b> Creates PDF slides. Superior for complex equations. Platform-independent, version-controllable, reproducible. Structure: \begin{frame}...\end{frame} per slide.</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">APA vs MLA — the key distinction</div>
-          <div class="concept-text">APA emphasises the year because in social sciences, recency matters — a 1990 psychology theory may have been superseded. MLA emphasises the author because in humanities, the exact words and the writer's authority matter more than when it was written.</div>
-          <div class="example-box">APA: (Kothari, 2008, p. 45) — year is prominent. MLA: (Kothari 45) — page number is prominent, year goes in Works Cited at the end.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">Why Beamer over PowerPoint for science?</div>
-          <div class="concept-text">A physics presentation with 20 equations would look terrible in PowerPoint but beautiful in Beamer. More importantly, the Beamer source file is a plain text .tex file — it can be version-controlled with Git, shared easily, and generates a PDF that looks identical on every computer, with no "fonts not embedded" surprises.</div>
-          <div class="example-box">Every CERN, IIT, and NASA presentation you have seen that uses a clean, consistent, equation-heavy PDF format is almost certainly made with Beamer.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>APA:</b> Author-date — (Kothari, 2008) — social sciences</li>
-          <li><b>MLA:</b> Author-page — (Kothari 45) — humanities</li>
-          <li><b>Vancouver:</b> Numbered [1] in order of appearance — physics, medicine</li>
-          <li><b>GnuPlot:</b> Free, command-line, script-driven, best for automation</li>
-          <li><b>Origin:</b> Paid, GUI, curve fitting, most used in physics labs <span class="tip-chip">Compare GnuPlot vs Origin</span></li>
-          <li><b>MagicPlot:</b> Free student version, GUI, lightweight</li>
-          <li><b>Beamer:</b> LaTeX presentation — PDF slides, equation-friendly, version-controllable</li>
-          <li><b>Bibliography managers:</b> Zotero, Mendeley, EndNote, JabRef</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div><!-- end unit V -->
-
-
-<!-- ════════════════════════════════
-     UNIT VI
-════════════════════════════════ -->
-<div class="unit" id="u6">
-  <div class="unit-header">
-    <span class="unit-num">UNIT VI</span>
-    <span class="unit-title">Intellectual Property Rights &amp; Research Funding</span>
-    <span class="unit-hours">4 hrs</span>
-  </div>
-
-  <!-- 6.1 IPR -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">6.1 &nbsp; Intellectual property — patent, copyright, trademark</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p><b>Intellectual Property (IP)</b> refers to creations of the mind protected by law. The three main types relevant to research are:<br><br>
-          <b>1. Patent:</b> Grants exclusive rights to an inventor over a novel invention for a period of <b>20 years</b> from the filing date. Requirements: Novelty (not previously disclosed), Non-obviousness (inventive step — not obvious to a skilled person), and Industrial applicability (capable of practical use). The inventor must fully disclose the invention (enablement). Not patentable: scientific theories, mathematical methods, natural phenomena, methods of medical treatment (Section 3, Indian Patents Act 1970).<br><br>
-          <b>2. Copyright:</b> Protects original creative expression — books, research papers, software code, musical compositions, artworks. Arises <b>automatically</b> on creation (no registration required). Duration: Life of the author + <b>60 years</b> (India). Copyright is owned by the author unless assigned to a publisher.<br><br>
-          <b>3. Trademark:</b> Protects brand identity — name, logo, symbol, slogan, or distinctive colour combination. Must be <b>registered</b> to be enforceable. Renewable indefinitely (every 10 years in India).<br><br>
-          <b>Trade secret:</b> Confidential business information protected through secrecy (no registration). No expiry, but no legal protection if the information is independently discovered or leaked.</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">Patent — the innovation trade-off</div>
-          <div class="concept-text">A patent is a social contract: the inventor discloses how the invention works (enabling others to learn and build upon it after expiry) in exchange for a 20-year monopoly. If the inventor did NOT patent it, they might keep it secret indefinitely as a trade secret — but science progresses slower. The patent system forces disclosure.</div>
-          <div class="example-box">When Pfizer's patent on Lipitor (atorvastatin) expired in 2011, generic manufacturers could legally produce the same drug at a fraction of the cost — saving patients billions of dollars globally.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">Copyright vs Patent — the crucial difference for researchers</div>
-          <div class="concept-text">Copyright protects how an idea is expressed — not the idea itself. A patent protects the idea (the invention). When you publish a paper, the words and structure are copyrighted (usually transferred to the publisher), but the scientific findings and methods within it cannot be copyrighted — they can be reproduced and built upon (though a new patentable application of them could be patented).</div>
-          <div class="example-box">Einstein's theory of relativity — the equations and ideas are not copyrightable (scientific facts). But his original 1905 paper (the specific text) is copyrighted. Anyone can use E = mc² but cannot republish his original paper without permission.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>Patent:</b> 20 years, novel + non-obvious + industrially applicable, requires disclosure</li>
-          <li><b>Patent requirements:</b> Novelty, Non-obviousness (inventive step), Industrial applicability</li>
-          <li><b>Not patentable:</b> Scientific theories, maths, natural phenomena, medical treatment methods</li>
-          <li><b>Copyright:</b> Automatic, no registration, life + 60 years (India), protects expression</li>
-          <li><b>Trademark:</b> Must register, renewable indefinitely, protects brand identity</li>
-          <li><b>Trade secret:</b> No registration, no expiry, but no protection if leaked <span class="tip-chip">4th type</span></li>
-          <li><b>Key distinction:</b> Patent = protects invention; Copyright = protects expression; Trademark = protects identity</li>
-          <li><b>Indian Patents Act:</b> 1970; Section 3 lists non-patentable subjects</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- 6.2 Funding -->
-  <div class="topic">
-    <div class="topic-head" onclick="toggleTopic(this)">
-      <span class="topic-name">6.2 &nbsp; Research funding agencies — India &amp; international</span>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="topic-body">
-      <div class="style-tabs">
-        <div class="style-tab active" onclick="switchTab(this,'exam')">Exam answer</div>
-        <div class="style-tab" onclick="switchTab(this,'concept')">Concept + example</div>
-        <div class="style-tab" onclick="switchTab(this,'points')">Point-wise</div>
-      </div>
-      <div class="pane active" data-pane="exam">
-        <div class="exam-block">
-          <div class="eq-label">Write this on your answer sheet</div>
-          <p>Research funding agencies provide financial support for scientific investigation through grants and fellowships. In India, the key agencies are:<br><br>
-          <b>1. DST-SERB (Science and Engineering Research Board):</b> Under Dept. of Science &amp; Technology. Funds basic and applied research across all science disciplines. Key schemes: <i>CRG</i> (Core Research Grant — for established researchers), <i>SRG</i> (Startup Research Grant — for new faculty ≤ 3 years), <i>MATRICS</i> (mathematical sciences), <i>J C Bose National Fellowship</i> (for outstanding scientists), <i>NPDF</i> (National Post-Doctoral Fellowship).<br><br>
-          <b>2. UGC (University Grants Commission):</b> Funds academic research in universities and colleges. Key schemes: Major Research Projects (MRP), Minor Research Projects, UGC-JRF/SRF (fellowships for PhD students via NET exam).<br><br>
-          <b>3. CSIR (Council of Scientific and Industrial Research):</b> India's largest publicly funded R&amp;D organisation. Provides extramural grants and JRF/SRF fellowships (via CSIR-NET).<br><br>
-          <b>4. BRNS (Board of Research in Nuclear Sciences):</b> Under DAE (Dept. of Atomic Energy). Funds research relevant to nuclear sciences, radiation, materials science.<br><br>
-          <b>5. DRDO (Defence Research and Development Organisation):</b> Funds research with strategic and defence applications.<br><br>
-          <b>International fellowships:</b> Fulbright (US-India), Newton-Bhabha (UK-India), Marie Curie (European Union), DST-NSF (Indo-US), DST-DFG (Indo-German).</p>
-        </div>
-      </div>
-      <div class="pane" data-pane="concept">
-        <div class="concept-block">
-          <div class="concept-label">Why do funding agencies matter for research?</div>
-          <div class="concept-text">Without external funding, most research cannot happen — equipment, salaries, travel, and publication costs require money. Funding agencies shape the direction of science by deciding what gets funded. They also enforce research integrity — most require data management plans, ethical clearances, and periodic progress reports.</div>
-          <div class="example-box">The Chandrayaan missions were funded by ISRO under DST. Without government funding, no private entity in India could have financed planetary exploration.</div>
-        </div>
-        <div class="concept-block">
-          <div class="concept-label">SERB vs UGC — key comparison</div>
-          <div class="concept-text">SERB is about research output — it funds scientists to conduct experiments and publish. UGC is about institutions — it funds universities to build research infrastructure and supports students through fellowships. A professor might receive a SERB-CRG grant to run a project AND teach students funded by UGC-JRF fellowships.</div>
-          <div class="example-box">Prof. X at IIT gets a SERB-CRG grant of ₹50 lakhs to study 2D materials, while two of her PhD students are supported by CSIR-JRF fellowships — two separate agencies, complementary roles.</div>
-        </div>
-      </div>
-      <div class="pane" data-pane="points">
-        <ul class="points">
-          <li><b>SERB:</b> Under DST; CRG, SRG, MATRICS, J C Bose Fellowship, NPDF</li>
-          <li><b>UGC:</b> Universities/colleges; MRP, Minor RP, JRF/SRF (via NET)</li>
-          <li><b>CSIR:</b> Largest public R&D; extramural grants + JRF/SRF (via CSIR-NET)</li>
-          <li><b>BRNS:</b> Under DAE — nuclear, radiation, materials science research</li>
-          <li><b>DRDO:</b> Defence-relevant research <span class="tip-chip">Name all 5</span></li>
-          <li><b>CRG:</b> For established researchers; SRG: for new faculty ≤ 3 years</li>
-          <li><b>CSIR-NET vs UGC-NET:</b> Both qualify for JRF/SRF but under different agencies</li>
-          <li><b>International:</b> Fulbright (US), Newton-Bhabha (UK), Marie Curie (EU)</li>
-          <li><b>Key difference SERB vs UGC:</b> SERB = research output; UGC = institutional development</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div><!-- end unit VI -->
-
-</div><!-- end container -->
-
-<script>
-function toggleTopic(head) {
-  const body = head.nextElementSibling;
-  const chevron = head.querySelector('.chevron');
-  const isOpen = body.classList.contains('open');
-  body.classList.toggle('open', !isOpen);
-  chevron.classList.toggle('open', !isOpen);
-}
-
-function switchTab(tab, pane) {
-  const body = tab.closest('.topic-body');
-  body.querySelectorAll('.style-tab').forEach(t => t.classList.remove('active'));
-  body.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
-  tab.classList.add('active');
-  body.querySelector(`.pane[data-pane="${pane}"]`).classList.add('active');
-}
-
-// Auto-open all topics
-document.querySelectorAll('.topic-head').forEach(h => {
-  h.nextElementSibling.classList.add('open');
-  h.querySelector('.chevron').classList.add('open');
-});
-</script>
-  
+</div>
 </body>
-  <!DOCTYPE html>
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Research Methodology — Quick Revision Flashcards</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4ef;color:#1a1916;padding:16px;min-height:100vh}
-h1{font-size:18px;font-weight:600;margin-bottom:2px;color:#1a1916}
-.subtitle{font-size:12px;color:#666;margin-bottom:1rem}
-.unit-tabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
-.utab{font-size:11px;font-weight:500;padding:5px 11px;border-radius:20px;border:1px solid #d1d5db;background:transparent;color:#6b7280;cursor:pointer;font-family:inherit}
-.utab.on{background:#dbeafe;color:#1d4ed8;border-color:transparent}
-.prog-row{display:flex;align-items:center;gap:8px;margin-bottom:12px}
-.prog-bg{flex:1;height:4px;background:#e5e7eb;border-radius:2px}
-.prog-fill{height:4px;background:#2563eb;border-radius:2px;transition:width 0.3s}
-.prog-lbl{font-size:12px;color:#6b7280;white-space:nowrap}
-.card-wrap{perspective:800px;height:210px;cursor:pointer;margin-bottom:12px}
-.card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 0.45s}
-.card-inner.flipped{transform:rotateY(180deg)}
-.card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid #e5e7eb;border-radius:12px;padding:1.25rem 1rem;display:flex;flex-direction:column;justify-content:center;background:#ffffff}
-.card-back{transform:rotateY(180deg);background:#f0fdf4;border-color:#bbf7d0}
-.card-hint{font-size:11px;color:#9ca3af;margin-bottom:8px;display:flex;align-items:center;gap:5px}
-.card-hint.ans{color:#16a34a}
-.card-q{font-size:15px;font-weight:600;color:#111827;line-height:1.5;flex:1}
-.card-a{font-size:13px;color:#1a1a1a;line-height:1.7;flex:1}
-.card-a b{font-weight:600}
-.formula{font-family:'Courier New',monospace;font-size:12px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:5px;padding:3px 8px;margin:3px 0;display:inline-block;color:#1e3a5f}
-.unit-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;margin-top:8px;align-self:flex-start}
-.nav-row{display:flex;gap:8px}
-.nav-row button{flex:1;padding:10px 6px;border:1px solid #d1d5db;border-radius:8px;background:#fff;font-size:13px;color:#1a1a1a;cursor:pointer;font-family:inherit}
-.nav-row button:hover{background:#f3f4f6}
-.nav-row button.primary{background:#2563eb;color:#fff;border-color:transparent}
-.nav-row button.primary:hover{background:#1d4ed8}
-.done-screen{display:none;text-align:center;padding:2.5rem 0}
-.done-num{font-size:52px;font-weight:700;color:#1a1a1a}
-.done-lbl{font-size:14px;color:#6b7280;margin-top:4px}
-.restart{margin-top:1.25rem;padding:10px 28px;border:1px solid #d1d5db;border-radius:8px;background:#fff;cursor:pointer;font-size:13px;font-family:inherit}
-.restart:hover{background:#f3f4f6}
-@media(prefers-color-scheme:dark){
-  body{background:#111827;color:#f9fafb}
-  h1{color:#f9fafb}
-  .subtitle{color:#9ca3af}
-  .utab{border-color:#374151;color:#9ca3af;background:transparent}
-  .utab.on{background:#1e3a5f;color:#93c5fd;border-color:transparent}
-  .prog-bg{background:#374151}
-  .card-face{background:#1f2937;border-color:#374151}
-  .card-back{background:#052e16;border-color:#166534}
-  .card-q{color:#f9fafb}
-  .card-a{color:#e5e7eb}
-  .formula{background:#1e293b;border-color:#334155;color:#bae6fd}
-  .nav-row button{background:#1f2937;border-color:#374151;color:#e5e7eb}
-  .nav-row button:hover{background:#374151}
-  .done-num{color:#f9fafb}
-  .restart{background:#1f2937;border-color:#374151;color:#e5e7eb}
-  .restart:hover{background:#374151}
-}
-</style>
-</head>
-<body>
-
-<h1>Research Methodology</h1>
-<p class="subtitle">Quick revision — 48 flashcards across all 6 units · Tap any card to flip</p>
-
-<div class="unit-tabs" id="utabs"></div>
-
-<div id="main">
-  <div class="prog-row">
-    <div class="prog-bg"><div class="prog-fill" id="pf"></div></div>
-    <span class="prog-lbl" id="plbl">1 / 48</span>
-  </div>
-  <div class="card-wrap" id="cwrap" onclick="flip()">
-    <div class="card-inner" id="cinner">
-      <div class="card-face">
-        <div class="card-hint">&#8635; tap to reveal answer</div>
-        <div class="card-q" id="cq"></div>
-        <span class="unit-badge" id="cbadge"></span>
-      </div>
-      <div class="card-face card-back">
-        <div class="card-hint ans">&#10003; model answer</div>
-        <div class="card-a" id="ca"></div>
-      </div>
-    </div>
-  </div>
-  <div class="nav-row">
-    <button onclick="prev()">&#8592; prev</button>
-    <button class="primary" onclick="next()" id="nbtn">next &#8594;</button>
-  </div>
-</div>
-
-<div class="done-screen" id="done">
-  <div class="done-num" id="dnum"></div>
-  <div class="done-lbl">cards revised — well done!</div>
-  <p style="font-size:13px;color:#6b7280;margin-top:10px;line-height:1.6">Use the unit tabs above to focus on a specific unit, or restart all cards.</p>
-  <button class="restart" onclick="restartAll()">&#8635; restart all cards</button>
-</div>
-
-<script>
-const ALL = [
-  // UNIT I
-  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
-   q:"What is the scientific method?",
-   a:"Systematic steps: <b>Observation → Hypothesis → Experiment → Analysis → Conclusion</b>. Self-correcting — knowledge is revised as new evidence appears. Formalised by Bacon (induction), Descartes (deduction), Galileo (experiment)."},
-  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
-   q:"Basic research vs applied research?",
-   a:"<b>Basic</b> = expands theory, no immediate use (e.g. dark matter study).<br><b>Applied</b> = solves real problems using existing knowledge (e.g. MRI design).<br>Key distinction: intent — 'why does this happen?' vs 'how do we fix this?'"},
-  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
-   q:"Name 4 types of bias in research.",
-   a:"<b>Selection bias</b> (non-random sample) · <b>Measurement bias</b> (faulty instrument) · <b>Observer bias</b> (expectations affect recording) · <b>Confirmation bias</b> (interpret data to fit beliefs).<br>Fix: random sampling, blind studies, calibration."},
-  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
-   q:"What is a research problem? Name its sources.",
-   a:"A specific gap or unanswered question in existing knowledge.<br>Sources: personal experience, contradictions in literature, social needs, expert suggestions, gaps in previous research."},
-  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
-   q:"What is a literature review? Types?",
-   a:"Critical, thematic synthesis of existing work. Identifies gaps, justifies methodology.<br><b>Systematic</b>: structured, pre-defined criteria, reproducible — gold standard.<br><b>Narrative</b>: author-driven, selective."},
-  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
-   q:"Name 4 open-source literature tools.",
-   a:"<b>Google Scholar, arXiv, PubMed, DOAJ</b> (also: Semantic Scholar, SSRN, Unpaywall).<br>Paid: Web of Science, Scopus, JSTOR, IEEE Xplore, ScienceDirect."},
-  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
-   q:"Name 4 reference management tools.",
-   a:"<b>Zotero</b> (free) · <b>Mendeley</b> (free) · <b>EndNote</b> (paid) · <b>JabRef</b> (free, LaTeX).<br>They store citations, auto-format bibliographies, and track reading status."},
-  {u:1,ul:"Unit I",uc:"#dbeafe",ut:"#1d4ed8",
-   q:"Primary source vs secondary source?",
-   a:"<b>Primary</b> = original research paper, raw data, thesis — first-hand knowledge.<br><b>Secondary</b> = review articles, textbooks, meta-analyses — summarise primary sources."},
-
-  // UNIT II
-  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
-   q:"5 methods of data collection — list them.",
-   a:"<b>1 Survey</b> (questionnaire, large sample) · <b>2 Interview</b> (structured/semi/unstructured) · <b>3 Observation</b> (participant/non-participant) · <b>4 Experimentation</b> (IV → DV) · <b>5 Case study</b> (single subject, in-depth)"},
-  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
-   q:"What is the Hawthorne effect?",
-   a:"People change behaviour when they know they are being observed — usually becoming more productive. Major limitation of observational research. Discovered at Hawthorne Works factory (1920s)."},
-  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
-   q:"Mean, median, mode — when to use each?",
-   a:"<b>Mean</b> = symmetric data, no outliers.<br><b>Median</b> = skewed data or outliers (robust to extreme values).<br><b>Mode</b> = categorical data.<br>If mean > median → right-skewed (e.g. income data)."},
-  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
-   q:"Standard deviation formula and meaning.",
-   a:"<span class='formula'>σ = √[ Σ(xᵢ − x̄)² / n ]</span><br>Low σ = data clustered near mean (precise). High σ = widely spread.<br><b>Precision ≠ Accuracy</b>. Accuracy = closeness to true value (improved by calibration)."},
-  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
-   q:"Z-test vs T-test — when to use each?",
-   a:"<b>Z-test</b>: n > 30, population σ known.<br><span class='formula'>Z = (x̄ − μ) / (σ/√n)</span><b>T-test</b>: n ≤ 30 or σ unknown. df = n−1.<br><span class='formula'>t = (x̄ − μ) / (s/√n)</span>3 types: one-sample, two-sample, paired."},
-  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
-   q:"Type I vs Type II error?",
-   a:"<b>Type I (α)</b>: reject true H₀ → false positive. Probability = α (0.05).<br><b>Type II (β)</b>: accept false H₀ → false negative. Probability = β.<br>Power = 1 − β.<br>Mnemonic: Type I = crying wolf; Type II = missing the wolf."},
-  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
-   q:"What is statistical power?",
-   a:"Power = <b>1 − β</b> = probability of correctly detecting a real effect when it exists.<br>Increased by: larger sample size, larger effect size, higher α.<br>Only way to reduce BOTH Type I and II errors: increase sample size n."},
-  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
-   q:"Linear regression equation and terms.",
-   a:"<span class='formula'>Y = β₀ + β₁X + ε</span>β₀ = intercept (value of Y when X = 0).<br>β₁ = slope (change in Y per 1-unit increase in X).<br>ε = residual error. R² = proportion of variance in Y explained by model."},
-  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
-   q:"Marquardt method — what is it?",
-   a:"Hybrid of <b>Gradient descent</b> (reliable, slow near minimum) + <b>Gauss-Newton</b> (fast near minimum, fails far from it).<br>Marquardt switches between them intelligently — gold standard for nonlinear least-squares curve fitting."},
-  {u:2,ul:"Unit II",uc:"#dcfce7",ut:"#15803d",
-   q:"Error propagation formula.",
-   a:"For z = x + y with independent random errors:<br><span class='formula'>Δz = √(Δx² + Δy²)</span><b>Calibration</b> reduces systematic error. <b>Averaging</b> reduces random error. Accuracy ≠ Precision."},
-
-  // UNIT III
-  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
-   q:"Open access types — Gold vs Green OA.",
-   a:"<b>Gold OA</b>: author pays APC (Article Processing Charge); free for all readers. Example: PLOS ONE.<br><b>Green OA</b>: author self-archives in a repository (arXiv, PubMed Central) — free to read there."},
-  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
-   q:"4 warning signs of a predatory journal.",
-   a:"1. Unsolicited spam email invitations.<br>2. Acceptance in 24–48 hours.<br>3. Unverifiable editorial board.<br>4. Generic vague journal name.<br>Check: Beall's List, DOAJ, COPE/OASPA membership, Think-Check-Submit."},
-  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
-   q:"Web of Science vs Scopus — key differences.",
-   a:"<b>WoS (Clarivate)</b>: more selective; source of official Journal Impact Factor (JIF).<br><b>Scopus (Elsevier)</b>: broader coverage, more non-English journals; source of CiteScore, SNIP, SJR.<br>Both are citation databases."},
-  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
-   q:"SIMBAD vs NED — what's the difference?",
-   a:"<b>SIMBAD (CDS, Strasbourg)</b>: objects <b>inside/near Milky Way</b> — stars, nebulae, clusters.<br><b>NED (NASA/IPAC)</b>: objects <b>outside Milky Way</b> — galaxies, quasars, AGN.<br>VizieR = data tables. ADS = literature search."},
-  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
-   q:"Name all 7 physics databases in the syllabus.",
-   a:"<b>ADS</b> (astrophysics lit.) · <b>NED</b> (extragalactic) · <b>SIMBAD</b> (galactic) · <b>VizieR</b> (catalogues) · <b>PubMed</b> (biophysics) · <b>INSPIRE-HEP</b> (particle physics) · <b>ICDD</b> (X-ray / condensed matter)"},
-  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
-   q:"Impact Factor — formula and 3 limitations.",
-   a:"<span class='formula'>IF = Citations in Y to (Y-1, Y-2) / Articles in (Y-1, Y-2)</span>Limitations: (1) Not comparable across fields · (2) Review articles inflate it · (3) Disadvantages new journals · (4) Manipulable via self-citation."},
-  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
-   q:"h-index, g-index, i10-index — differences?",
-   a:"<b>h-index</b>: h papers each cited ≥ h times. Balances quantity and quality.<br><b>g-index</b>: top g papers together have ≥ g² citations. Rewards blockbusters.<br><b>i10-index</b>: papers with ≥ 10 citations. Used by Google Scholar. Crude."},
-  {u:3,ul:"Unit III",uc:"#fef9c3",ut:"#854d0e",
-   q:"What is SNIP and why is it better than IF across fields?",
-   a:"SNIP = <b>Source Normalized Impact per Paper</b>. Divides citations by the citation potential of the field — corrects for fact that biology papers cite more than physics papers. Makes cross-field journal comparisons fair."},
-
-  // UNIT IV
-  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
-   q:"Erratum vs Correction vs Retraction vs Expression of Concern.",
-   a:"<b>Erratum</b>: minor author error — no change to conclusions.<br><b>Correction</b>: substantial error — may affect interpretation.<br><b>Retraction</b>: full withdrawal — fraud, fatal flaws. Tracked by Retraction Watch.<br><b>Expression of Concern</b>: interim notice during investigation."},
-  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
-   q:"Name 5 types of plagiarism.",
-   a:"1. <b>Verbatim</b> (copy-paste)<br>2. <b>Paraphrasing</b> without citation<br>3. <b>Mosaic</b> (mixing sources without attribution)<br>4. <b>Self-plagiarism</b> (reusing own work without disclosure)<br>5. <b>Idea plagiarism</b> (taking concepts without attribution)"},
-  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
-   q:"iThenticate vs Turnitin — difference?",
-   a:"<b>iThenticate</b>: used by journals and publishers to check manuscripts before/after publication.<br><b>Turnitin</b>: used by universities to check student submissions.<br>Both generate a similarity report with highlighted matches and percentage."},
-  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
-   q:"What is salami slicing?",
-   a:"Artificially splitting one coherent study into the minimum number of separate papers ('least publishable units') to inflate publication count.<br>Harms literature: meta-analyses double-count the data. Considered research misconduct."},
-  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
-   q:"What is COPE and what does it do?",
-   a:"Committee on Publication Ethics (est. 1997). Provides guidelines, flowcharts, case studies for editors handling misconduct.<br>Covers: data integrity, authorship, peer review, conflicts of interest.<br><b>Does NOT investigate</b> — advises editors only."},
-  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
-   q:"What records must a researcher maintain?",
-   a:"Raw data · Lab notebooks / observation logs · Experimental protocols · Analysis code (version-controlled in Git) · Sample records (chain of custody).<br>Minimum retention: <b>5–10 years</b> post-publication."},
-  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
-   q:"What is selective reporting / publication bias?",
-   a:"Only publishing statistically significant (positive) results while suppressing negative or null results.<br>Distorts the scientific literature — makes ineffective treatments appear effective.<br>Fix: pre-registration of studies, registered reports."},
-  {u:4,ul:"Unit IV",uc:"#fee2e2",ut:"#b91c1c",
-   q:"Environmental clearances in research.",
-   a:"Research with hazardous chemicals, radioactive materials, or biological agents requires prior environmental clearance.<br>Waste must be: segregated → labelled → safely stored → disposed via licensed agencies per Environment Protection Act (India)."},
-
-  // UNIT V
-  {u:5,ul:"Unit V",uc:"#ede9fe",ut:"#6d28d9",
-   q:"IMRaD — what does it stand for?",
-   a:"<b>I</b>ntroduction (why?) · <b>M</b>ethods (how?) · <b>R</b>esults (what did you find? — data only, no interpretation) · <b>a</b>nd · <b>D</b>iscussion (what does it mean?).<br>Standard structure for all scientific research papers."},
-  {u:5,ul:"Unit V",uc:"#ede9fe",ut:"#6d28d9",
-   q:"What must an abstract contain?",
-   a:"150–250 words. Must include: background + objective + methods + key results + conclusion.<br>Rules: no citations, no undefined abbreviations, no figures. Past tense for methods/results; present tense for conclusions."},
-  {u:5,ul:"Unit V",uc:"#ede9fe",ut:"#6d28d9",
-   q:"Results vs Discussion — what goes where?",
-   a:"<b>Results</b>: objective data only — numbers, tables, figures. No interpretation or opinion.<br><b>Discussion</b>: interpretation, comparison with literature, limitations, implications.<br>Example: '40% reduction (p=0.003)' = Results. 'The drug worked' = Discussion."},
-  {u:5,ul:"Unit V",uc:"#ede9fe",ut:"#6d28d9",
-   q:"APA vs MLA vs Vancouver referencing.",
-   a:"<b>APA</b>: author-date (Author, Year) — social sciences.<br><b>MLA</b>: author-page (Author Page) — humanities.<br><b>Vancouver</b>: numbered [1][2] in order of appearance — physics, medicine."},
-  {u:5,ul:"Unit V",uc:"#ede9fe",ut:"#6d28d9",
-   q:"GnuPlot vs Origin — compare.",
-   a:"<b>GnuPlot</b>: free, open-source, command-line, script-driven — best for automation and reproducibility.<br><b>Origin</b>: paid, GUI, point-and-click — most used in physics labs, supports curve fitting.<br><b>MagicPlot</b>: free GUI, lightweight middle-ground."},
-  {u:5,ul:"Unit V",uc:"#ede9fe",ut:"#6d28d9",
-   q:"What is Beamer and why use it over PowerPoint?",
-   a:"LaTeX package for creating PDF presentation slides. Advantages: native equation rendering (crucial for physics), consistent layout, plain-text = Git version-controllable, platform-independent PDF output.<br>Structure: \\begin{frame}...\\end{frame} per slide."},
-
-  // UNIT VI
-  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
-   q:"Patent — 3 requirements and duration.",
-   a:"Must be: <b>Novel</b> (not previously disclosed) + <b>Non-obvious</b> (inventive step) + <b>Industrially applicable</b>.<br>Duration: <b>20 years</b> from filing date. Requires full disclosure.<br>Not patentable: scientific theories, maths, natural phenomena."},
-  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
-   q:"Copyright — automatic or registered? Duration?",
-   a:"<b>Automatic</b> — arises on creation, no registration needed. Protects expression (not ideas).<br>Duration: life of author + <b>60 years</b> (India).<br>Copyright on published papers is often transferred to the publisher."},
-  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
-   q:"Trademark vs Trade secret — key differences.",
-   a:"<b>Trademark</b>: must register, protects brand identity (name/logo/slogan), renewable indefinitely.<br><b>Trade secret</b>: no registration, no expiry — but no legal protection if independently discovered or leaked."},
-  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
-   q:"Indian Patents Act — what is Section 3?",
-   a:"Section 3 of the Indian Patents Act 1970 lists what is NOT patentable:<br>Scientific theories · Mathematical methods · Methods of agriculture · Discoveries of living organisms · Methods of medical treatment."},
-  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
-   q:"SERB — full form and key funding schemes.",
-   a:"Science and Engineering Research Board (under DST).<br>Schemes: <b>CRG</b> (established researchers) · <b>SRG</b> (new faculty ≤3 yrs) · <b>MATRICS</b> (maths) · <b>J C Bose Fellowship</b> (outstanding scientists) · <b>NPDF</b> (post-docs)"},
-  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
-   q:"UGC vs SERB — key difference.",
-   a:"<b>SERB</b>: funds research output and innovation — grants for experiments and publications.<br><b>UGC</b>: funds universities and students — MRP, Minor RP, JRF/SRF fellowships (via NET exam).<br>A professor may have a SERB grant while students are on UGC-JRF."},
-  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
-   q:"BRNS and DRDO — what do they fund?",
-   a:"<b>BRNS (Board of Research in Nuclear Sciences)</b>: under DAE — nuclear sciences, radiation physics, materials science.<br><b>DRDO (Defence R&D Organisation)</b>: research with strategic and defence applications."},
-  {u:6,ul:"Unit VI",uc:"#fce7f3",ut:"#9d174d",
-   q:"Name 3 international research fellowships.",
-   a:"<b>Fulbright</b> (US-India) · <b>Newton-Bhabha</b> (UK-India) · <b>Marie Curie</b> (EU) · <b>DST-NSF</b> (Indo-US) · <b>DST-DFG</b> (Indo-German).<br>For cross-country research collaboration and researcher mobility."}
-];
-
-let cards = ALL.slice(), cur = 0, flipped = false, activeU = 0;
-
-// Build unit tabs
-const utabs = document.getElementById('utabs');
-[0,1,2,3,4,5,6].forEach(u => {
-  const b = document.createElement('button');
-  b.className = 'utab' + (u === 0 ? ' on' : '');
-  b.textContent = u === 0 ? 'All units' : 'Unit ' + ['I','II','III','IV','V','VI'][u-1];
-  b.onclick = () => setUnit(u, b);
-  utabs.appendChild(b);
-});
-
-function setUnit(u, btn) {
-  document.querySelectorAll('.utab').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  activeU = u;
-  cards = u === 0 ? ALL.slice() : ALL.filter(c => c.u === u);
-  cur = 0; flipped = false;
-  document.getElementById('done').style.display = 'none';
-  document.getElementById('main').style.display = 'block';
-  render();
-}
-
-function render() {
-  if (cur >= cards.length) { finish(); return; }
-  const c = cards[cur];
-  flipped = false;
-  document.getElementById('cinner').classList.remove('flipped');
-  document.getElementById('cq').textContent = c.q;
-  document.getElementById('ca').innerHTML = c.a;
-  const badge = document.getElementById('cbadge');
-  badge.textContent = c.ul;
-  badge.style.background = c.uc;
-  badge.style.color = c.ut;
-  const pct = Math.round((cur + 1) / cards.length * 100);
-  document.getElementById('pf').style.width = pct + '%';
-  document.getElementById('plbl').textContent = (cur + 1) + ' / ' + cards.length;
-  document.getElementById('nbtn').textContent = cur === cards.length - 1 ? 'finish' : 'next \u2192';
-}
-
-function flip() {
-  flipped = !flipped;
-  document.getElementById('cinner').classList.toggle('flipped', flipped);
-}
-
-function next() {
-  if (cur < cards.length - 1) { cur++; render(); }
-  else { finish(); }
-}
-
-function prev() {
-  if (cur > 0) { cur--; render(); }
-}
-
-function finish() {
-  document.getElementById('main').style.display = 'none';
-  const done = document.getElementById('done');
-  done.style.display = 'block';
-  document.getElementById('dnum').textContent = cards.length;
-}
-
-function restartAll() {
-  document.querySelectorAll('.utab').forEach((b, i) => b.classList.toggle('on', i === 0));
-  activeU = 0; cards = ALL.slice(); cur = 0; flipped = false;
-  document.getElementById('done').style.display = 'none';
-  document.getElementById('main').style.display = 'block';
-  render();
-}
-
-render();
-</script>
-</body>
-
 </html>
