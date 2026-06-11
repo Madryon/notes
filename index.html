@@ -1,790 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Computer Networks — Complete Exam Notes</title>
-<style>
-  :root {
-    --blue: #0C447C; --blue-bg: #E6F1FB;
-    --purple: #3C3489; --purple-bg: #EEEDFE;
-    --teal: #085041; --teal-bg: #E1F5EE;
-    --amber: #633806; --amber-bg: #FAEEDA;
-    --coral: #712B13; --coral-bg: #FAECE7;
-    --green: #27500A; --green-bg: #EAF3DE;
-    --pink: #72243E; --pink-bg: #FBEAF0;
-    --red: #791F1F; --red-bg: #FCEBEB;
-    --gray: #444441; --gray-bg: #F1EFE8;
-    --indigo: #2D3282; --indigo-bg: #EAECFE;
-    --border: #D8D5CC;
-    --bg: #FFFFFF;
-    --bg2: #F7F5F0;
-    --text: #1A1A18;
-    --text2: #6B6860;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', Arial, sans-serif; background: #F0EDE6; color: var(--text); font-size: 13px; }
-  .page-wrap { max-width: 980px; margin: 0 auto; padding: 20px; }
-
-  /* COVER */
-  .cover { background: linear-gradient(135deg, #0C447C 0%, #3C3489 50%, #085041 100%); border-radius: 12px; padding: 40px 32px; margin-bottom: 24px; color: white; text-align: center; }
-  .cover h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
-  .cover .sub { font-size: 16px; opacity: 0.85; margin-bottom: 20px; }
-  .topic-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
-  .topic-pill { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 4px 14px; font-size: 12px; }
-
-  /* UNIT HEADERS */
-  .unit-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-radius: 10px; margin-bottom: 12px; margin-top: 24px; }
-  .unit-num { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; color: white; flex-shrink: 0; }
-  .unit-title { font-size: 20px; font-weight: 600; }
-  .unit-sub { font-size: 12px; opacity: 0.7; margin-top: 2px; }
-
-  /* SECTIONS */
-  .section { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 14px; overflow: hidden; }
-  .section-header { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
-  .section-header h2 { font-size: 15px; font-weight: 600; color: var(--text); }
-  .badge { font-size: 11px; padding: 2px 9px; border-radius: 20px; font-weight: 600; white-space: nowrap; }
-  .section-body { padding: 14px 16px; }
-
-  /* CONTENT ELEMENTS */
-  h3 { font-size: 13px; font-weight: 600; margin: 12px 0 5px; color: var(--text); border-left: 3px solid var(--border); padding-left: 8px; }
-  h4 { font-size: 12px; font-weight: 600; margin: 8px 0 4px; color: var(--text2); }
-  p { font-size: 12.5px; line-height: 1.6; margin-bottom: 4px; }
-  ul, ol { padding-left: 18px; margin: 4px 0; }
-  li { font-size: 12.5px; line-height: 1.6; margin-bottom: 2px; }
-
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0; }
-  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 8px 0; }
-  .grid4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; margin: 8px 0; }
-
-  .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; }
-  .card .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .04em; font-weight: 600; color: var(--text2); margin-bottom: 3px; }
-  .card .val { font-size: 12.5px; }
-
-  .trick { background: #FAEEDA; border-left: 4px solid #EF9F27; padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; font-size: 12.5px; }
-  .trick b { color: var(--amber); }
-  .info-box { background: var(--blue-bg); border-left: 4px solid #378ADD; padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; font-size: 12.5px; }
-  .info-box b { color: var(--blue); }
-  .warn-box { background: var(--red-bg); border-left: 4px solid #E24B4A; padding: 7px 12px; margin: 6px 0; border-radius: 0 6px 6px 0; font-size: 12px; }
-  .warn-box b { color: var(--red); }
-  .ok-box { background: var(--green-bg); border-left: 4px solid #639922; padding: 7px 12px; margin: 6px 0; border-radius: 0 6px 6px 0; font-size: 12px; }
-
-  .formula { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; font-family: 'Courier New', monospace; font-size: 12px; margin: 5px 0; }
-
-  table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 8px 0; }
-  th { background: var(--bg2); font-weight: 600; padding: 6px 10px; text-align: left; border: 1px solid var(--border); color: var(--text2); font-size: 11px; }
-  td { padding: 5px 10px; border: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
-
-  .tag { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 20px; margin: 2px; font-weight: 500; }
-  .t-blue { background: var(--blue-bg); color: var(--blue); }
-  .t-green { background: var(--green-bg); color: var(--green); }
-  .t-red { background: var(--red-bg); color: var(--red); }
-  .t-amber { background: var(--amber-bg); color: var(--amber); }
-  .t-purple { background: var(--purple-bg); color: var(--purple); }
-  .t-teal { background: var(--teal-bg); color: var(--teal); }
-  .t-pink { background: var(--pink-bg); color: var(--pink); }
-  .t-coral { background: var(--coral-bg); color: var(--coral); }
-
-  .pro { color: var(--green); font-size: 12px; }
-  .con { color: var(--red); font-size: 12px; }
-  .divider { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
-
-  /* PORT PILL */
-  .port-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
-  .port { display: flex; align-items: center; gap: 6px; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; font-size: 12px; }
-  .port-num { font-family: 'Courier New', monospace; font-weight: 700; font-size: 13px; }
-
-  /* OSI LAYER ROWS */
-  .osi-row { display: flex; align-items: center; gap: 8px; margin: 3px 0; }
-  .osi-num { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
-  .osi-label { flex: 1; font-size: 12px; padding: 5px 10px; border-radius: 6px; }
-  .osi-pdu { font-size: 11px; color: var(--text2); min-width: 65px; text-align: right; font-weight: 500; }
-
-  /* TCP/HANDSHAKE */
-  .handshake { display: flex; flex-direction: column; gap: 4px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin: 8px 0; }
-  .hs-step { font-size: 12px; display: flex; align-items: center; gap: 8px; }
-  .hs-arrow { color: var(--text2); font-size: 16px; }
-
-  /* QUICK REF BOX */
-  .ref-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 12.5px; line-height: 2.0; }
-
-  /* PAGE BREAK HINTS */
-  .page-break { page-break-before: always; }
-
-  /* TOPO CARD */
-  .topo-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px; }
-  .topo-card .name { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
-
-  /* DORA */
-  .dora { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 8px 0; }
-  .dora-step { text-align: center; border-radius: 8px; padding: 10px 6px; }
-  .dora-step .letter { font-size: 22px; font-weight: 700; }
-  .dora-step .word { font-size: 11px; font-weight: 600; margin: 2px 0; }
-  .dora-step .desc { font-size: 10px; color: var(--text2); line-height: 1.4; }
-
-  /* FRAME VIZ */
-  .frame-row { display: flex; gap: 3px; flex-wrap: wrap; margin: 6px 0; align-items: stretch; }
-  .frame-cell { text-align: center; border-radius: 4px; padding: 6px 4px; font-size: 11px; font-weight: 500; border: 1px solid var(--border); }
-
-  /* FOOTER */
-  .footer { text-align: center; padding: 20px; font-size: 12px; color: var(--text2); margin-top: 10px; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atma Ram Sanatan Dharma College | University of Delhi</title>
+  <meta name="description" content="Atma Ram Sanatan Dharma College (ARSD) — A constituent college of the University of Delhi." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a8a'/%3E%3Ctext x='50' y='62' font-family='system-ui' font-size='42' font-weight='800' fill='white' text-anchor='middle'%3EARSD%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
-<div class="page-wrap">
 
-<!-- ═══════════════ COVER ═══════════════ -->
-<div class="cover">
-  <h1>Computer Networks by MODI and his frnd do-laand </h1>
-  <div class="sub">Complete Exam-Ready Notes with Memory Tricks  "ache se padh lo pass ho jaaoge"</div>
-  <div style="font-size:13px;opacity:.75">Physical Layer · Data Link Layer · Transport Layer · Application Layer</div>
-  <div class="topic-pills">
-    <span class="topic-pill">OSI & TCP/IP Models</span>
-    <span class="topic-pill">Network Topologies</span>
-    <span class="topic-pill">Error Detection & Correction</span>
-    <span class="topic-pill">ARQ Protocols</span>
-    <span class="topic-pill">TCP & UDP</span>
-    <span class="topic-pill">DNS · DHCP · HTTP · FTP · SMTP</span>
-    <span class="topic-pill">Multiplexing · Transmission Media</span>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════
-     UNIT 1 : INTRODUCTION TO NETWORKS
-     ══════════════════════════════════════════════ -->
-<div class="unit-header" style="background:var(--blue-bg);color:var(--blue)">
-  <div class="unit-num" style="background:var(--blue)">1</div>
-  <div><div class="unit-title">Introduction to Computer Networks</div>
-  <div class="unit-sub">Types · Internet · Intranet · Topologies · OSI · TCP/IP · Devices</div></div>
-</div>
-
-<!-- 1.1 Types of Networks -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--blue-bg);color:var(--blue)">1.1</span><h2>Types of Computer Networks</h2></div>
-  <div class="section-body">
-    <div class="trick"><b>🧠 Size order trick — "Please Let Me Work":</b> PAN → LAN → MAN → WAN (smallest to largest)</div>
-    <div class="grid4">
-      <div class="card"><div class="lbl">PAN</div><div class="val"><b>Personal Area Network</b></div><p style="font-size:11px;margin-top:3px">~10 m · Bluetooth, USB · Around a person</p></div>
-      <div class="card"><div class="lbl">LAN</div><div class="val"><b>Local Area Network</b></div><p style="font-size:11px;margin-top:3px">Building/Campus · Ethernet, Wi-Fi · High speed</p></div>
-      <div class="card"><div class="lbl">MAN</div><div class="val"><b>Metropolitan Area Network</b></div><p style="font-size:11px;margin-top:3px">~50 km city · Cable TV, DSL backbone</p></div>
-      <div class="card"><div class="lbl">WAN</div><div class="val"><b>Wide Area Network</b></div><p style="font-size:11px;margin-top:3px">Country/Globe · Internet, satellites, leased lines</p></div>
-    </div>
-    <h3>Internet vs Intranet vs Extranet</h3>
-    <table>
-      <tr><th>Feature</th><th>Internet</th><th>Intranet</th><th>Extranet</th></tr>
-      <tr><td>Access</td><td>Public (anyone)</td><td>Private (org only)</td><td>Semi-private (partners)</td></tr>
-      <tr><td>Users</td><td>Everyone</td><td>Employees only</td><td>Trusted external partners</td></tr>
-      <tr><td>Example</td><td>Google.com</td><td>Company HR portal</td><td>B2B vendor portal</td></tr>
-    </table>
-    <div class="trick"><b>🧠:</b> <b>Inter</b>net = everyone · <b>Intra</b>net = INside org only · <b>Extra</b>net = EXtended to partners</div>
-  </div>
-</div>
-
-<!-- 1.2 Topologies -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--purple-bg);color:var(--purple)">1.2</span><h2>Network Topologies</h2></div>
-  <div class="section-body">
-    <div class="trick"><b>🧠 Remember all 6 — "Big Stars Real Make Tree Hybrid":</b> Bus · Star · Ring · Mesh · Tree · Hybrid</div>
-    <div class="grid3">
-      <div class="topo-card"><div class="name">🚌 Bus</div><p style="font-size:12px">All devices on single backbone cable. Terminators at both ends.</p><div class="pro">✓ Cheap, simple setup</div><div class="con">✗ Single point failure</div></div>
-      <div class="topo-card"><div class="name">⭐ Star</div><p style="font-size:12px">All devices connect to central hub/switch. Most common today.</p><div class="pro">✓ Fault isolation</div><div class="con">✗ Hub failure = network down</div></div>
-      <div class="topo-card"><div class="name">💍 Ring</div><p style="font-size:12px">Devices form closed loop. Token passing used. Each node = repeater.</p><div class="pro">✓ No collision</div><div class="con">✗ One failure breaks ring</div></div>
-      <div class="topo-card"><div class="name">🕸️ Mesh</div><p style="font-size:12px">Every device connected to every other. Full mesh = n(n-1)/2 links.</p><div class="pro">✓ Most reliable</div><div class="con">✗ Expensive, complex</div></div>
-      <div class="topo-card"><div class="name">🌳 Tree</div><p style="font-size:12px">Hierarchical — Bus + Star combo. Root node at top.</p><div class="pro">✓ Scalable</div><div class="con">✗ Root failure = all down</div></div>
-      <div class="topo-card"><div class="name">🔀 Hybrid</div><p style="font-size:12px">Mix of 2+ topologies (e.g. Star+Bus). Real networks use this.</p><div class="pro">✓ Flexible</div><div class="con">✗ Complex & costly</div></div>
-    </div>
-    <div class="info-box"><b>Mesh Formula:</b> Full mesh links = n(n-1)/2 · Ports per device = n-1 · Example: 5 nodes → 5×4/2 = 10 links</div>
-  </div>
-</div>
-
-<!-- 1.3 OSI Model -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--coral-bg);color:var(--coral)">1.3</span><h2>OSI Reference Model (7 Layers)</h2></div>
-  <div class="section-body">
-    <div class="trick"><b>🧠 Top→Bottom: "All People Seem To Need Data Processing"</b><br>
-    <b>🧠 Bottom→Top: "Please Do Not Throw Sausage Pizza Away"</b></div>
-    <div style="margin:8px 0">
-      <div class="osi-row"><div class="osi-num" style="background:var(--purple-bg);color:var(--purple)">7</div><div class="osi-label" style="background:var(--purple-bg);color:var(--purple)"><b>Application</b> — HTTP, FTP, SMTP, DNS. User interface.</div><div class="osi-pdu">Data</div></div>
-      <div class="osi-row"><div class="osi-num" style="background:var(--blue-bg);color:var(--blue)">6</div><div class="osi-label" style="background:var(--blue-bg);color:var(--blue)"><b>Presentation</b> — Encryption, compression, format translation (JPEG, ASCII)</div><div class="osi-pdu">Data</div></div>
-      <div class="osi-row"><div class="osi-num" style="background:var(--teal-bg);color:var(--teal)">5</div><div class="osi-label" style="background:var(--teal-bg);color:var(--teal)"><b>Session</b> — Dialog control, synchronization (NetBIOS)</div><div class="osi-pdu">Data</div></div>
-      <div class="osi-row"><div class="osi-num" style="background:var(--green-bg);color:var(--green)">4</div><div class="osi-label" style="background:var(--green-bg);color:var(--green)"><b>Transport</b> — End-to-end delivery, TCP/UDP, port numbers</div><div class="osi-pdu">Segment</div></div>
-      <div class="osi-row"><div class="osi-num" style="background:var(--amber-bg);color:var(--amber)">3</div><div class="osi-label" style="background:var(--amber-bg);color:var(--amber)"><b>Network</b> — Logical addressing, routing (IP, ICMP, Router)</div><div class="osi-pdu">Packet</div></div>
-      <div class="osi-row"><div class="osi-num" style="background:var(--coral-bg);color:var(--coral)">2</div><div class="osi-label" style="background:var(--coral-bg);color:var(--coral)"><b>Data Link</b> — MAC address, framing, error detection (Switch, Bridge)</div><div class="osi-pdu">Frame</div></div>
-      <div class="osi-row"><div class="osi-num" style="background:var(--gray-bg);color:var(--gray)">1</div><div class="osi-label" style="background:var(--gray-bg);color:var(--gray)"><b>Physical</b> — Bits, cables, voltage, Hub, Repeater</div><div class="osi-pdu">Bits</div></div>
-    </div>
-    <table>
-      <tr><th>Feature</th><th>OSI Model</th><th>TCP/IP Model</th></tr>
-      <tr><td>Layers</td><td>7</td><td>4</td></tr>
-      <tr><td>Developed by</td><td>ISO</td><td>US Dept of Defense</td></tr>
-      <tr><td>Type</td><td>Theoretical/Reference</td><td>Practical/In use</td></tr>
-      <tr><td>TCP/IP layers</td><td>—</td><td>App · Transport · Internet · Network Access</td></tr>
-    </table>
-    <div class="trick"><b>🧠 TCP/IP 4 layers — "All Tigers Ignore Network":</b> Application · Transport · Internet · Network Access</div>
-  </div>
-</div>
-
-<!-- 1.4 Transmission Modes + Network Devices -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--blue-bg);color:var(--blue)">1.4</span><h2>Transmission Modes & Network Devices</h2></div>
-  <div class="section-body">
-    <div class="trick"><b>🧠 "Simple Hens Full":</b> Simplex · Half Duplex · Full Duplex (One-way / Take turns / Both ways simultaneously)</div>
-    <div class="grid3">
-      <div class="card" style="border-top:3px solid #378ADD"><div class="lbl">Simplex</div><b>One direction only</b><p style="font-size:11px;margin-top:3px">A→B only. TV broadcast, keyboard→CPU</p></div>
-      <div class="card" style="border-top:3px solid #1D9E75"><div class="lbl">Half Duplex</div><b>Both, not at same time</b><p style="font-size:11px;margin-top:3px">A→B or B→A (take turns). Walkie-talkie</p></div>
-      <div class="card" style="border-top:3px solid #BA7517"><div class="lbl">Full Duplex</div><b>Both simultaneously</b><p style="font-size:11px;margin-top:3px">A↔B at same time. Telephone, mobile</p></div>
-    </div>
-    <h3>Network Devices by OSI Layer</h3>
-    <table>
-      <tr><th>Device</th><th>OSI Layer</th><th>Role</th></tr>
-      <tr><td>Hub / Repeater</td><td>Layer 1 (Physical)</td><td>Hub: broadcasts to all. Repeater: regenerates signal.</td></tr>
-      <tr><td>Bridge / Switch</td><td>Layer 2 (Data Link)</td><td>Bridge: connects segments. Switch: uses MAC table, no collision.</td></tr>
-      <tr><td>Router</td><td>Layer 3 (Network)</td><td>Connects different networks using IP addressing. Determines best path.</td></tr>
-      <tr><td>Gateway</td><td>Layer 4–7</td><td>Protocol converter. Connects networks with different protocols.</td></tr>
-      <tr><td>Modem</td><td>Layer 1</td><td>Modulates/demodulates digital↔analog for telephone lines.</td></tr>
-      <tr><td>Firewall</td><td>Layer 3–7</td><td>Filters traffic based on security rules.</td></tr>
-    </table>
-    <div class="warn-box"><b>⚠️</b> Hub = broadcasts (causes collision) · Switch = smart (no collision, uses MAC table) · Router = different networks (uses IP)</div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════
-     UNIT 2 : PHYSICAL LAYER
-     ══════════════════════════════════════════════ -->
-<div class="unit-header page-break" style="background:var(--teal-bg);color:var(--teal)">
-  <div class="unit-num" style="background:var(--teal)">2</div>
-  <div><div class="unit-title">Physical Layer</div>
-  <div class="unit-sub">Signals · Data Rate · Transmission Media · Multiplexing · Satellite</div></div>
-</div>
-
-<!-- 2.1 Analog & Digital + Nyquist/Shannon -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--teal-bg);color:var(--teal)">2.1</span><h2>Signals & Maximum Data Rate</h2></div>
-  <div class="section-body">
-    <div class="grid2">
-      <div class="card" style="border-top:3px solid #378ADD"><div class="lbl">Analog Signal</div><b>Continuous (sine wave)</b><ul style="font-size:12px;margin-top:4px"><li>Infinite values, smooth curve</li><li>Parameters: Amplitude, Frequency, Phase</li><li>Example: Sound, old telephone</li></ul></div>
-      <div class="card" style="border-top:3px solid #1D9E75"><div class="lbl">Digital Signal</div><b>Discrete (square wave)</b><ul style="font-size:12px;margin-top:4px"><li>Only 0 or 1, stepping pattern</li><li>Parameters: Bit rate, Bit interval</li><li>Example: Computers, CDs</li></ul></div>
-    </div>
-    <div class="trick"><b>🧠 Analog vs Digital:</b> Dimmer switch (analog — infinite) vs Light switch (digital — ON/OFF only)</div>
-    <h3>Nyquist &amp; Shannon Theorems</h3>
-    <div class="trick"><b>🧠 "Nyquist = Noiseless, Shannon = Signal noise"</b></div>
-    <div class="grid2">
-      <div>
-        <h4>Nyquist (Noiseless Channel)</h4>
-        <div class="formula">Max Rate = 2 × B × log<sub>2</sub>(M)</div>
-        <p style="font-size:12px">B = Bandwidth (Hz), M = number of signal levels<br>Example: B=3000Hz, M=8 → 2×3000×3 = <b>18,000 bps</b></p>
-      </div>
-      <div>
-        <h4>Shannon (Noisy Channel)</h4>
-        <div class="formula">Max Rate = B × log<sub>2</sub>(1 + SNR)</div>
-        <p style="font-size:12px">SNR = Signal/Noise ratio (linear scale)<br>SNR(dB) = 10×log<sub>10</sub>(SNR)<br>Practical rate = min(Nyquist, Shannon)</p>
-      </div>
-    </div>
-    <div class="warn-box"><b>⚠️</b> Bit Rate = Baud Rate × log<sub>2</sub>(M). Bit rate ≠ Baud rate when each symbol carries multiple bits.</div>
-  </div>
-</div>
-
-<!-- 2.2 Guided Media -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--green-bg);color:var(--green)">2.2</span><h2>Guided (Wired) Transmission Media</h2></div>
-  <div class="section-body">
-    <div class="trick"><b>🧠 "Twisted Coaxial Fibre" — speed: Twisted Pair &lt; Coaxial &lt; Fiber Optic</b></div>
-    <table>
-      <tr><th>Feature</th><th>Twisted Pair</th><th>Coaxial Cable</th><th>Fiber Optic</th></tr>
-      <tr><td>Medium</td><td>Copper (2 wires twisted)</td><td>Copper (central + shield)</td><td>Glass/Plastic (light)</td></tr>
-      <tr><td>Speed</td><td>Up to 10 Gbps (Cat 6a)</td><td>Up to 10 Gbps</td><td>100+ Tbps</td></tr>
-      <tr><td>Distance</td><td>~100 m/segment</td><td>~500 m (10Base5)</td><td>100+ km (SMF)</td></tr>
-      <tr><td>Cost</td><td>Lowest</td><td>Medium</td><td>Highest</td></tr>
-      <tr><td>EMI immunity</td><td>Low</td><td>Medium</td><td>Complete (no EMI)</td></tr>
-      <tr><td>Connector</td><td>RJ-45</td><td>BNC</td><td>ST / SC / LC</td></tr>
-      <tr><td>Uses</td><td>LAN, telephone (UTP/STP)</td><td>Cable TV, broadband</td><td>WAN backbone, long-haul</td></tr>
-    </table>
-    <div class="grid2">
-      <div><h4>Twisted Pair Types</h4>
-        <p style="font-size:12px"><b>UTP</b> (Unshielded): No shield, cheap, common. Cat3=10Mbps, Cat5=100Mbps, Cat5e=1Gbps, Cat6=10Gbps</p>
-        <p style="font-size:12px"><b>STP</b> (Shielded): Metal shield around wires. Expensive. Less interference. Industrial use.</p>
-      </div>
-      <div><h4>Fiber Optic Types</h4>
-        <p style="font-size:12px"><b>SMF</b> (Single Mode): Core ~8μm, one light path, 100+km, expensive, laser source. WAN use.</p>
-        <p style="font-size:12px"><b>MMF</b> (Multi Mode): Core ~50μm, multiple paths, ~2km, cheaper, LED source. LAN use.</p>
-      </div>
-    </div>
-    <div class="trick"><b>🧠 Fiber trick — "LUST":</b> Light · Ultra-fast · Secure · Total internal reflection</div>
-  </div>
-</div>
-
-<!-- 2.3 Unguided Media + Satellite -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--amber-bg);color:var(--amber)">2.3</span><h2>Unguided (Wireless) Media &amp; Satellite</h2></div>
-  <div class="section-body">
-    <div class="trick"><b>🧠 "Radio Instantly Makes Satellites":</b> Radio Waves · Infrared · Microwaves · Satellite</div>
-    <table>
-      <tr><th>Type</th><th>Frequency</th><th>Range</th><th>Properties</th><th>Uses</th></tr>
-      <tr><td>Radio Waves</td><td>3 Hz – 1 GHz</td><td>Long</td><td>Omnidirectional, penetrates walls, govt regulated</td><td>AM/FM, Wi-Fi (2.4GHz), Bluetooth</td></tr>
-      <tr><td>Microwave</td><td>1 – 300 GHz</td><td>~50 km LoS</td><td>Unidirectional, line-of-sight, tower every 50km</td><td>Cellular, satellite TV, radar</td></tr>
-      <tr><td>Infrared</td><td>300 GHz – 400 THz</td><td>~1 m</td><td>Cannot penetrate walls, room-contained, no license</td><td>TV remote, IrDA</td></tr>
-    </table>
-    <h3>Satellite Communication — LEO / MEO / GEO</h3>
-    <div class="trick"><b>🧠 "Lazy Monkeys Geek":</b> LEO → MEO → GEO (increasing altitude)</div>
-    <table>
-      <tr><th>Type</th><th>Altitude</th><th>Delay</th><th>Coverage</th><th>Use</th></tr>
-      <tr><td>LEO (Low Earth Orbit)</td><td>200–1200 km</td><td>~1–7 ms</td><td>Small, needs 50+ sats</td><td>Starlink, Iridium, internet</td></tr>
-      <tr><td>MEO (Medium Earth Orbit)</td><td>5000–15000 km</td><td>~35–85 ms</td><td>Medium, needs ~12 sats</td><td>GPS navigation</td></tr>
-      <tr><td>GEO (Geostationary)</td><td>35,786 km</td><td>~270 ms</td><td>Large (1/3 Earth), only 3 needed</td><td>DTH TV, weather, INSAT</td></tr>
-    </table>
-    <div class="warn-box"><b>⚠️</b> GEO: Only 3 satellites cover entire Earth (except poles). Fixed antenna. 24-hour orbital period. High delay (~540ms round trip) makes real-time voice poor.</div>
-  </div>
-</div>
-
-<!-- 2.4 Multiplexing -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--coral-bg);color:var(--coral)">2.4</span><h2>Multiplexing — FDM, TDM, WDM</h2></div>
-  <div class="section-body">
-    <div class="info-box"><b>Multiplexing:</b> Combining multiple signals onto one channel. MUX at sender, DEMUX at receiver. Maximizes channel utilization.</div>
-    <div class="trick"><b>🧠 "Flowers Take Wavelengths":</b> FDM · TDM · WDM — Frequency / Time / Wavelength (light)</div>
-    <table>
-      <tr><th>Feature</th><th>FDM</th><th>TDM</th><th>WDM</th></tr>
-      <tr><td>Division method</td><td>Frequency bands</td><td>Time slots</td><td>Light wavelengths</td></tr>
-      <tr><td>Signal type</td><td>Analog</td><td>Digital</td><td>Optical (fiber only)</td></tr>
-      <tr><td>Simultaneous?</td><td>Yes</td><td>No (takes turns)</td><td>Yes</td></tr>
-      <tr><td>Guard bands?</td><td>Yes (frequency gaps)</td><td>No</td><td>Yes (wavelength gaps)</td></tr>
-      <tr><td>Example</td><td>AM/FM radio, Cable TV</td><td>T1/E1 lines, GSM</td><td>Fiber backbone, undersea cable</td></tr>
-    </table>
-    <div class="formula">T1 line = 24 channels × 64 kbps = 1.544 Mbps &nbsp;|&nbsp; E1 line = 30 channels × 64 kbps = 2.048 Mbps</div>
-    <div class="warn-box"><b>⚠️</b> WDM is used ONLY with fiber optic cables — NOT copper. DWDM (Dense WDM) packs hundreds of channels with very close spacing.</div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════
-     UNIT 3 : DATA LINK LAYER
-     ══════════════════════════════════════════════ -->
-<div class="unit-header page-break" style="background:var(--amber-bg);color:var(--amber)">
-  <div class="unit-num" style="background:var(--amber)">3</div>
-  <div><div class="unit-title">Data Link Layer</div>
-  <div class="unit-sub">Error Detection · ARQ Protocols · Multiple Access · MAC · Ethernet</div></div>
-</div>
-
-<!-- 3.1 DLL Services -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--amber-bg);color:var(--amber)">3.1</span><h2>DLL Services &amp; Frame Structure</h2></div>
-  <div class="section-body">
-    <div class="trick"><b>🧠 6 DLL services — "Friendly Elephants Fight Every Angry Monster":</b><br>Framing · Error Control · Flow Control · Error Detection · Access Control · MAC Addressing</div>
-    <div class="grid3">
-      <div class="card"><div class="lbl">Framing</div><p style="font-size:12px">Divides bitstream into frames. Adds header & trailer. Methods: character count, flag bytes, bit stuffing.</p></div>
-      <div class="card"><div class="lbl">Error Detection/Correction</div><p style="font-size:12px">Detects & corrects bit errors: Parity, CRC, Checksum, Hamming Code.</p></div>
-      <div class="card"><div class="lbl">Flow Control</div><p style="font-size:12px">Prevents fast sender overwhelming slow receiver. Stop-and-Wait, Sliding Window.</p></div>
-      <div class="card"><div class="lbl">MAC Addressing</div><p style="font-size:12px">48-bit hardware address burned into NIC. Identifies devices within LAN.</p></div>
-      <div class="card"><div class="lbl">Access Control</div><p style="font-size:12px">Determines which device controls shared channel. Prevents collision.</p></div>
-      <div class="card"><div class="lbl">Link Management</div><p style="font-size:12px">Establishes, maintains, and terminates data link connections.</p></div>
-    </div>
-    <h3>Ethernet Frame Structure</h3>
-    <div class="frame-row">
-      <div class="frame-cell" style="background:var(--purple-bg);color:var(--purple);flex:0.7">Flag<br><span style="font-size:10px">7B</span></div>
-      <div class="frame-cell" style="background:var(--purple-bg);color:var(--purple);flex:0.5">SFD<br><span style="font-size:10px">1B</span></div>
-      <div class="frame-cell" style="background:var(--blue-bg);color:var(--blue);flex:1">Dest MAC<br><span style="font-size:10px">6 bytes</span></div>
-      <div class="frame-cell" style="background:var(--teal-bg);color:var(--teal);flex:1">Src MAC<br><span style="font-size:10px">6 bytes</span></div>
-      <div class="frame-cell" style="background:var(--green-bg);color:var(--green);flex:0.7">Type<br><span style="font-size:10px">2B</span></div>
-      <div class="frame-cell" style="background:var(--amber-bg);color:var(--amber);flex:2">Data + Padding<br><span style="font-size:10px">46–1500 bytes</span></div>
-      <div class="frame-cell" style="background:var(--coral-bg);color:var(--coral);flex:0.7">FCS<br><span style="font-size:10px">4B</span></div>
-    </div>
-    <div class="formula">Min Ethernet frame = 64 bytes &nbsp;|&nbsp; Max payload (MTU) = 1500 bytes &nbsp;|&nbsp; Max frame = 1518 bytes</div>
-  </div>
-</div>
-
-<!-- 3.2 Error Detection -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--purple-bg);color:var(--purple)">3.2</span><h2>Error Detection &amp; Correction Techniques</h2></div>
-  <div class="section-body">
-    <div class="trick"><b>🧠 "Pigs Can't Hamster":</b> Parity · CRC · Checksum · Hamming Code</div>
-    <table>
-      <tr><th>Method</th><th>How it works</th><th>Detects</th><th>Corrects</th><th>Used in</th></tr>
-      <tr><td><b>Parity Check</b></td><td>Adds 1 bit so total 1s = even (or odd). 2D parity for correction.</td><td>Single-bit errors</td><td>No (2D: yes)</td><td>RAM, simple systems</td></tr>
-      <tr><td><b>Checksum</b></td><td>Divide into segments, sum all, 1's complement = checksum. Receiver: sum+checksum=all 1s.</td><td>Most errors</td><td>No</td><td>TCP, UDP, IP headers</td></tr>
-      <tr><td><b>CRC</b></td><td>XOR polynomial division. Sender appends r-bit remainder. Receiver divides; remainder=0 → no error.</td><td>Burst errors (up to r bits)</td><td>No</td><td>Ethernet, Wi-Fi, USB, ZIP</td></tr>
-      <tr><td><b>Hamming Code</b></td><td>Parity bits at positions 2^0,2^1,2^2... Syndrome = error bit position.</td><td>2-bit errors</td><td>1-bit errors</td><td>ECC RAM, memory</td></tr>
-    </table>
-    <div class="formula">Hamming condition: 2<sup>r</sup> &ge; m + r + 1 &nbsp; (m=data bits, r=parity bits needed)</div>
-    <div class="formula">CRC check bits = r (degree of generator polynomial)</div>
-    <div class="trick"><b>🧠 Hamming trick:</b> Parity bits go at positions 1, 2, 4, 8, 16... (powers of 2). Error position = sum of failed parity positions (syndrome).</div>
-  </div>
-</div>
-
-<!-- 3.3 ARQ Protocols -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--teal-bg);color:var(--teal)">3.3</span><h2>ARQ Error Recovery Protocols</h2></div>
-  <div class="section-body">
-    <div class="trick"><b>🧠 "Stop Going Selectively" (efficiency increases):</b> Stop-and-Wait · Go-Back-N · Selective Repeat</div>
-    <table>
-      <tr><th>Feature</th><th>Stop-and-Wait</th><th>Go-Back-N (GBN)</th><th>Selective Repeat (SR)</th></tr>
-      <tr><td>Sender window</td><td>1</td><td>2<sup>n</sup> − 1</td><td>2<sup>n-1</sup></td></tr>
-      <tr><td>Receiver window</td><td>1</td><td><b>1 (always!)</b></td><td>2<sup>n-1</sup></td></tr>
-      <tr><td>On error: retransmit</td><td>1 frame</td><td>Error + all after</td><td>Error frame only</td></tr>
-      <tr><td>Rx buffering</td><td>No</td><td>No</td><td>Yes (out-of-order)</td></tr>
-      <tr><td>Efficiency</td><td>Lowest — 1/(1+2a)</td><td>Medium — W/(1+2a)</td><td>Highest</td></tr>
-      <tr><td>Complexity</td><td>Simple</td><td>Medium</td><td>Most complex</td></tr>
-    </table>
-    <div class="formula">Stop-and-Wait: &eta; = 1/(1+2a) &nbsp; where a = Tp/Tf</div>
-    <div class="formula">GBN: &eta; = W/(1+2a) if W &lt; 1+2a, else &eta; = 1</div>
-    <div class="trick"><b>🧠 Window trick:</b> GBN sender = 2<sup>n</sup>−1 (one less) · SR both = 2<sup>n-1</sup> (half) · GBN receiver = ALWAYS 1</div>
-    <div class="warn-box"><b>⚠️ #1 exam trap:</b> GBN receiver window is ALWAYS 1 (discards out-of-order). SR receiver window = 2<sup>n-1</sup> (buffers out-of-order). Getting these swapped loses marks.</div>
-  </div>
-</div>
-
-<!-- 3.4 Multiple Access -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--green-bg);color:var(--green)">3.4</span><h2>Multiple Access Protocols &amp; MAC Addressing</h2></div>
-  <div class="section-body">
-    <div class="trick"><b>🧠 "Random Control Channel":</b> Random Access · Controlled Access · Channelization</div>
-    <table>
-      <tr><th>Protocol</th><th>When to sense</th><th>Collision action</th><th>Efficiency</th><th>Used in</th></tr>
-      <tr><td>Pure ALOHA</td><td>Never</td><td>Wait random time</td><td>18.4% (1/2e)</td><td>Satellite, early networks</td></tr>
-      <tr><td>Slotted ALOHA</td><td>Never (slot boundary)</td><td>Wait next slot</td><td>36.8% (1/e)</td><td>Satellite</td></tr>
-      <tr><td>CSMA</td><td>Before sending</td><td>Wait, retry</td><td>Better than ALOHA</td><td>Early Ethernet</td></tr>
-      <tr><td>CSMA/CD</td><td>Before + during (listen while talking)</td><td>Jam signal + BEB backoff</td><td>Good (wired)</td><td>Wired Ethernet 802.3</td></tr>
-      <tr><td>CSMA/CA</td><td>Before sending (RTS/CTS)</td><td>Collision avoidance</td><td>Good (wireless)</td><td>Wi-Fi 802.11</td></tr>
-    </table>
-    <div class="trick"><b>🧠 ALOHA efficiency:</b> Slotted ALOHA = 2 × Pure ALOHA (36.8% vs 18.4%)</div>
-    <div class="warn-box"><b>⚠️</b> CSMA/CD = wired (detect collision during transmission) · CSMA/CA = wireless (avoid collision before it happens). CD impossible wirelessly.</div>
-    <h3>MAC Addressing</h3>
-    <div class="grid2">
-      <div class="card">
-        <div class="lbl">MAC Address Structure</div>
-        <p style="font-size:12px;margin-top:4px"><b>48 bits = 6 bytes</b> written as hex: A4:C3:F0:85:AC:2D<br>First 3 bytes = OUI (vendor, assigned by IEEE)<br>Last 3 bytes = Device serial (assigned by vendor)<br>FF:FF:FF:FF:FF:FF = Broadcast</p>
-      </div>
-      <div class="card">
-        <div class="lbl">MAC vs IP Address</div>
-        <table style="margin:4px 0">
-          <tr><th>MAC</th><th>IP</th></tr>
-          <tr><td>Layer 2</td><td>Layer 3</td></tr>
-          <tr><td>48 bits (hex)</td><td>32/128 bits</td></tr>
-          <tr><td>Permanent (NIC)</td><td>Dynamic (DHCP)</td></tr>
-          <tr><td>Local (LAN)</td><td>Global (internet)</td></tr>
-          <tr><td>Changes per hop</td><td>Same end-to-end</td></tr>
-        </table>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span class="topbar-session">📚 Exam Session: May–June 2026</span>
+      <div class="topbar-links">
+        <a href="https://www.du.ac.in" target="_blank" rel="noopener">University of Delhi ↗</a>
+        <a href="contact.html">Contact</a>
+        <a href="#" onclick="alert('This is a demo clone. Wire this to the real portal in production.'); return false;">Student Portal</a>
       </div>
     </div>
   </div>
-</div>
 
-<!-- ══════════════════════════════════════════════
-     UNIT 4 : TRANSPORT & APPLICATION LAYER
-     ══════════════════════════════════════════════ -->
-<div class="unit-header page-break" style="background:var(--purple-bg);color:var(--purple)">
-  <div class="unit-num" style="background:var(--purple)">4</div>
-  <div><div class="unit-title">Transport &amp; Application Layer</div>
-  <div class="unit-sub">UDP · TCP · FTP · SMTP · Telnet · HTTP · DNS · DHCP · BOOTP</div></div>
-</div>
-
-<!-- 4.1 UDP -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--purple-bg);color:var(--purple)">4.1</span><h2>UDP — User Datagram Protocol</h2></div>
-  <div class="section-body">
-    <div class="trick"><b>🧠 UDP = "Uncle Doesn't Promise"</b> — no delivery guarantee, no ordering, no error recovery</div>
-    <div class="grid2">
-      <div>
-        <h4>UDP Header (8 bytes — fixed)</h4>
-        <div class="frame-row">
-          <div class="frame-cell" style="background:var(--blue-bg);color:var(--blue);flex:1">Source Port<br><span style="font-size:10px">16 bits</span></div>
-          <div class="frame-cell" style="background:var(--green-bg);color:var(--green);flex:1">Dest Port<br><span style="font-size:10px">16 bits</span></div>
-          <div class="frame-cell" style="background:var(--amber-bg);color:var(--amber);flex:1">Length<br><span style="font-size:10px">16 bits</span></div>
-          <div class="frame-cell" style="background:var(--coral-bg);color:var(--coral);flex:1">Checksum<br><span style="font-size:10px">16 bits</span></div>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">ARSD</div>
+        <div class="brand-text">
+          <span class="brand-name">Atma Ram Sanatan Dharma College</span>
+          <span class="brand-sub">University of Delhi · NAAC A++ (3.77)</span>
         </div>
-        <div class="formula">UDP header = 8 bytes (always fixed)</div>
-      </div>
-      <div>
-        <h4>Features &amp; Use Cases</h4>
-        <ul style="font-size:12px">
-          <li>No connection setup — fire and forget</li>
-          <li>No ACK, no flow control, no congestion control</li>
-          <li>Supports broadcast and multicast</li>
-          <li>Very low latency</li>
-          <li><b>Uses:</b> DNS, DHCP, VoIP, Video streaming, Online gaming, SNMP, TFTP</li>
-        </ul>
-      </div>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+      </button>
+
+      <div class="nav-overlay"></div>
+      <nav class="nav">
+        <button class="nav-close" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6l-12 12" stroke-linecap="round"/></svg>
+        </button>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="academics.html">Academics</a>
+        <a href="faculty.html">Faculty</a>
+        <a href="notices.html">Notices</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="notices">
+    <span class="notices-label">📢 Notice Board</span>
+    <div class="notices-track">
+      <span>📅 Admissions 2026 open — Apply through CSAS portal</span>
+      <span>🎓 NAAC A++ accreditation reaffirmed (Score: 3.77)</span>
+      <span>🏆 Annual Cultural Fest "Riviera" — registrations open</span>
+      <span>📝 Semester exam timetable published</span>
+      <span>💼 Placement drive: 50+ companies visiting this season</span>
+      <span>🔬 Research paper presentation — apply by June 30</span>
     </div>
   </div>
-</div>
 
-<!-- 4.2 TCP -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--teal-bg);color:var(--teal)">4.2</span><h2>TCP — Transmission Control Protocol &amp; Flow Control</h2></div>
-  <div class="section-body">
-    <div class="trick"><b>🧠 TCP = "Takes Care Precisely"</b> — reliable, ordered, error-checked delivery with flow &amp; congestion control</div>
-    <h4>TCP Header (Min 20 bytes)</h4>
-    <div class="frame-row" style="flex-wrap:wrap">
-      <div class="frame-cell" style="background:var(--blue-bg);color:var(--blue);flex:1">Src Port<br><span style="font-size:10px">16b</span></div>
-      <div class="frame-cell" style="background:var(--green-bg);color:var(--green);flex:1">Dst Port<br><span style="font-size:10px">16b</span></div>
-      <div class="frame-cell" style="background:var(--purple-bg);color:var(--purple);flex:2">Sequence Number<br><span style="font-size:10px">32 bits</span></div>
-      <div class="frame-cell" style="background:var(--indigo-bg);color:var(--indigo);flex:2">Acknowledgement Number<br><span style="font-size:10px">32 bits</span></div>
-      <div class="frame-cell" style="background:var(--coral-bg);color:var(--coral);flex:1">Flags<br><span style="font-size:10px">SYN ACK FIN...</span></div>
-      <div class="frame-cell" style="background:var(--teal-bg);color:var(--teal);flex:1">Window<br><span style="font-size:10px">16b</span></div>
-      <div class="frame-cell" style="background:var(--amber-bg);color:var(--amber);flex:1">Checksum<br><span style="font-size:10px">16b</span></div>
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="hero-eyebrow">Established 1959 · Code 003</span>
+      <h1>Excellence in Education,<br/>Rooted in Values</h1>
+      <p>A premier constituent college of the University of Delhi, nurturing scholars, leaders, and innovators for over six decades. Discover a vibrant academic community in the heart of New Delhi.</p>
+      <div class="hero-actions">
+        <a href="academics.html" class="btn btn-primary">Explore Academics →</a>
+        <a href="about.html" class="btn btn-outline">About the College</a>
+      </div>
     </div>
-    <div class="info-box"><b>TCP Flags:</b> URG · ACK · PSH · RST · SYN · FIN — "Until Amazing People Remember Sending Forms"</div>
-    <div class="grid2">
-      <div>
-        <h4>3-Way Handshake (Connection Setup)</h4>
-        <div class="handshake">
-          <div class="hs-step"><span style="background:var(--green-bg);color:var(--green);padding:2px 8px;border-radius:4px;font-size:11px">Client</span><span class="hs-arrow">→</span><b style="font-size:12px">SYN</b> (seq=x)<span class="hs-arrow">→</span><span style="background:var(--blue-bg);color:var(--blue);padding:2px 8px;border-radius:4px;font-size:11px">Server</span></div>
-          <div class="hs-step"><span style="background:var(--green-bg);color:var(--green);padding:2px 8px;border-radius:4px;font-size:11px">Client</span><span class="hs-arrow">←</span><b style="font-size:12px">SYN+ACK</b> (seq=y, ack=x+1)<span class="hs-arrow">←</span><span style="background:var(--blue-bg);color:var(--blue);padding:2px 8px;border-radius:4px;font-size:11px">Server</span></div>
-          <div class="hs-step"><span style="background:var(--green-bg);color:var(--green);padding:2px 8px;border-radius:4px;font-size:11px">Client</span><span class="hs-arrow">→</span><b style="font-size:12px">ACK</b> (ack=y+1)<span class="hs-arrow">→</span><span style="background:var(--blue-bg);color:var(--blue);padding:2px 8px;border-radius:4px;font-size:11px">Server</span></div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat" data-target="65" data-suffix="+">
+          <div class="stat-value">0</div>
+          <div class="stat-label">Years of Excellence</div>
         </div>
-        <p style="font-size:11px;color:var(--text2)">4-way termination: FIN→ACK→FIN→ACK (each direction closes independently)</p>
-      </div>
-      <div>
-        <h4>Flow &amp; Congestion Control</h4>
-        <ul style="font-size:12px">
-          <li><b>Flow control:</b> Receiver advertises rwnd (receive window). Prevents buffer overflow.</li>
-          <li><b>Congestion control:</b> Sender maintains cwnd (congestion window). Network-level.</li>
-          <li><b>Actual send = min(rwnd, cwnd)</b></li>
-          <li><b>Slow Start:</b> cwnd doubles each RTT (exponential) until ssthresh</li>
-          <li><b>Cong. Avoidance:</b> cwnd increases by 1 MSS per RTT (linear)</li>
-          <li><b>3 dup ACKs:</b> ssthresh=cwnd/2, fast retransmit</li>
-        </ul>
-      </div>
-    </div>
-    <h4>TCP vs UDP — Final Comparison</h4>
-    <table>
-      <tr><th>Feature</th><th>TCP</th><th>UDP</th></tr>
-      <tr><td>Connection</td><td>Connection-oriented</td><td>Connectionless</td></tr>
-      <tr><td>Header size</td><td>20–60 bytes</td><td>8 bytes (fixed)</td></tr>
-      <tr><td>Reliability, Ordering</td><td>Yes (ACK + seq numbers)</td><td>No</td></tr>
-      <tr><td>Flow / Congestion control</td><td>Yes</td><td>No</td></tr>
-      <tr><td>Broadcast / Multicast</td><td>No</td><td>Yes</td></tr>
-      <tr><td>Protocols</td><td>HTTP, FTP, SMTP, SSH, Telnet</td><td>DNS, DHCP, VoIP, SNMP</td></tr>
-    </table>
-  </div>
-</div>
-
-<!-- 4.3 Application Protocols -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--amber-bg);color:var(--amber)">4.3</span><h2>FTP, SMTP, Telnet, HTTP &amp; URL</h2></div>
-  <div class="section-body">
-    <div class="grid2">
-      <!-- FTP -->
-      <div class="card" style="border-top:3px solid #378ADD">
-        <div class="lbl">FTP — File Transfer Protocol (RFC 959)</div>
-        <ul style="font-size:12px;margin-top:4px">
-          <li><b>Port 21:</b> Control connection (persistent) — commands</li>
-          <li><b>Port 20:</b> Data connection (opens per file) — file data</li>
-          <li>Uses TCP. Two separate connections.</li>
-          <li><b>Active mode:</b> Server connects to client (port 20)</li>
-          <li><b>Passive mode:</b> Client connects to server (random port) — firewall-friendly</li>
-          <li>Sends credentials in plaintext — not secure!</li>
-          <li>FTPS = FTP + SSL · SFTP = SSH-based · TFTP = UDP, no auth</li>
-        </ul>
-        <div class="trick" style="margin-top:6px"><b>🧠 "21 Controls, 20 Delivers"</b></div>
-      </div>
-      <!-- SMTP -->
-      <div class="card" style="border-top:3px solid #1D9E75">
-        <div class="lbl">SMTP — Simple Mail Transfer Protocol</div>
-        <ul style="font-size:12px;margin-top:4px">
-          <li><b>Port 25</b> (server-to-server), Port 587 (client-to-server)</li>
-          <li>Used only for <b>SENDING</b> emails. Uses TCP.</li>
-          <li>Push protocol — sender pushes to mail server</li>
-          <li>Commands: HELO, MAIL FROM, RCPT TO, DATA, QUIT</li>
-          <li>Response codes: 220=Ready, 250=OK, 550=User unknown</li>
-          <li><b>MIME:</b> extends SMTP for binary/multimedia attachments</li>
-        </ul>
-        <div style="font-size:12px;margin-top:6px">Email flow: Client <b>→SMTP→</b> Sender Server <b>→SMTP→</b> Receiver Server <b>→POP3/IMAP→</b> Receiver</div>
-        <div class="trick" style="margin-top:4px"><b>🧠 "SMTP = Send Mail To People" · POP3=110 (download) · IMAP=143 (access)</b></div>
-      </div>
-      <!-- Telnet -->
-      <div class="card" style="border-top:3px solid #BA7517">
-        <div class="lbl">Telnet — Remote Login Protocol</div>
-        <ul style="font-size:12px;margin-top:4px">
-          <li><b>Port 23.</b> Uses TCP. Application layer.</li>
-          <li>Allows remote terminal access to another machine</li>
-          <li>Uses <b>NVT</b> (Network Virtual Terminal) for character encoding</li>
-          <li>Option negotiation: WILL / WONT / DO / DONT</li>
-          <li><b>Insecure:</b> transmits everything (inc. passwords) as plaintext</li>
-          <li>Replaced by <b>SSH (port 22)</b> for secure remote access</li>
-        </ul>
-        <div class="trick" style="margin-top:4px"><b>🧠 Telnet = "Type Everywhere, Login Network" — plain text = insecure</b></div>
-      </div>
-      <!-- HTTP -->
-      <div class="card" style="border-top:3px solid #D4537E">
-        <div class="lbl">HTTP — HyperText Transfer Protocol</div>
-        <ul style="font-size:12px;margin-top:4px">
-          <li><b>Port 80</b> (HTTP) / <b>Port 443</b> (HTTPS). Uses TCP.</li>
-          <li>Stateless — each request is independent</li>
-          <li>Methods: GET (retrieve) · POST (send data) · PUT (update) · DELETE · HEAD</li>
-          <li>Response codes: 2xx=OK · 3xx=Redirect · 4xx=Client error · 5xx=Server error</li>
-          <li>HTTP/1.0 = non-persistent · HTTP/1.1 = persistent (default) · HTTP/2 = multiplexed</li>
-          <li>Cookies/sessions used to add state on top of HTTP</li>
-        </ul>
-        <div class="trick" style="margin-top:4px"><b>🧠 HTTP codes:</b> "I Successfully Redirected, Client got Server error" → 1·2·3·4·5xx</div>
-      </div>
-    </div>
-    <h3>URL — Uniform Resource Locator</h3>
-    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-family:'Courier New',monospace;font-size:12px;margin:8px 0">
-      <span style="color:var(--blue);font-weight:700">https</span><span style="color:var(--gray)">://</span><span style="color:var(--green);font-weight:700">www.example.com</span><span style="color:var(--gray)">:</span><span style="color:var(--coral);font-weight:700">443</span><span style="color:var(--amber);font-weight:700">/path/page.html</span><span style="color:var(--gray)">?</span><span style="color:var(--purple);font-weight:700">key=value</span><span style="color:var(--gray)">#</span><span style="color:var(--pink);font-weight:700">section</span>
-    </div>
-    <div class="grid3">
-      <div class="card"><div class="lbl" style="color:var(--blue)">Protocol/Scheme</div><p style="font-size:12px">https — how to access the resource</p></div>
-      <div class="card"><div class="lbl" style="color:var(--green)">Host / Domain</div><p style="font-size:12px">www.example.com — where to find it</p></div>
-      <div class="card"><div class="lbl" style="color:var(--coral)">Port</div><p style="font-size:12px">443 — optional (default: 80/443)</p></div>
-      <div class="card"><div class="lbl" style="color:var(--amber)">Path</div><p style="font-size:12px">/path/page.html — specific resource</p></div>
-      <div class="card"><div class="lbl" style="color:var(--purple)">Query String</div><p style="font-size:12px">?key=value — parameters</p></div>
-      <div class="card"><div class="lbl" style="color:var(--pink)">Fragment</div><p style="font-size:12px">#section — anchor within page</p></div>
-    </div>
-  </div>
-</div>
-
-<!-- 4.4 DNS & DHCP -->
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--indigo-bg);color:var(--indigo)">4.4</span><h2>DNS &amp; DHCP / BOOTP</h2></div>
-  <div class="section-body">
-    <div class="grid2">
-      <div>
-        <h4>DNS — Domain Name System (Port 53)</h4>
-        <div class="trick"><b>🧠 DNS = "Domain Name to IP System"</b> — phonebook of the internet. UDP for queries, TCP for zone transfers.</div>
-        <h4 style="margin-top:8px">DNS Resolution Steps:</h4>
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:12px;line-height:1.9;margin-top:4px">
-          1. Browser checks <b>local cache</b><br>
-          2. Query to <b>Local Resolver</b> (ISP)<br>
-          3. Resolver queries <b>Root Name Server</b><br>
-          4. Root returns <b>TLD Name Server</b> address<br>
-          5. TLD returns <b>Authoritative Server</b> address<br>
-          6. Authoritative returns <b>final IP address</b><br>
-          7. Resolver caches &amp; returns IP to browser
+        <div class="stat" data-target="12000" data-suffix="+">
+          <div class="stat-value">0</div>
+          <div class="stat-label">Students Enrolled</div>
         </div>
-        <div class="trick" style="margin-top:6px"><b>🧠 "Brave Rascals Run To Answer":</b> Browser cache → Resolver → Root → TLD → Authoritative</div>
-        <h4 style="margin-top:8px">DNS Record Types:</h4>
-        <table>
-          <tr><th>Record</th><th>Purpose</th></tr>
-          <tr><td>A</td><td>Domain → IPv4 address</td></tr>
-          <tr><td>AAAA</td><td>Domain → IPv6 address</td></tr>
-          <tr><td>MX</td><td>Mail Exchange server</td></tr>
-          <tr><td>CNAME</td><td>Alias → canonical name</td></tr>
-          <tr><td>PTR</td><td>IP → Domain (reverse lookup)</td></tr>
-          <tr><td>NS</td><td>Name Server record</td></tr>
-        </table>
-      </div>
-      <div>
-        <h4>DHCP — Dynamic Host Configuration Protocol (Ports 67/68 UDP)</h4>
-        <div class="trick"><b>🧠 DHCP = "Dynamic Host Configures Please"</b> — auto-assigns IP, mask, gateway, DNS to joining devices</div>
-        <h4 style="margin-top:8px">DORA Process:</h4>
-        <div class="dora">
-          <div class="dora-step" style="background:var(--purple-bg)"><div class="letter" style="color:var(--purple)">D</div><div class="word" style="color:var(--purple)">Discover</div><div class="desc">Client broadcasts to find DHCP server (src=0.0.0.0)</div></div>
-          <div class="dora-step" style="background:var(--green-bg)"><div class="letter" style="color:var(--green)">O</div><div class="word" style="color:var(--green)">Offer</div><div class="desc">Server offers IP address with lease time</div></div>
-          <div class="dora-step" style="background:var(--amber-bg)"><div class="letter" style="color:var(--amber)">R</div><div class="word" style="color:var(--amber)">Request</div><div class="desc">Client accepts offered IP (broadcast)</div></div>
-          <div class="dora-step" style="background:var(--blue-bg)"><div class="letter" style="color:var(--blue)">A</div><div class="word" style="color:var(--blue)">Acknowledge</div><div class="desc">Server confirms IP assignment with full config</div></div>
+        <div class="stat" data-target="250">
+          <div class="stat-value">0</div>
+          <div class="stat-label">Faculty Members</div>
         </div>
-        <p style="font-size:12px;margin-top:6px">DHCP provides: IP address · Subnet mask · Default gateway · DNS server · Lease duration</p>
-        <h4 style="margin-top:10px">BOOTP vs DHCP:</h4>
-        <table>
-          <tr><th>Feature</th><th>BOOTP</th><th>DHCP</th></tr>
-          <tr><td>IP Assignment</td><td>Static (manual table)</td><td>Dynamic + static</td></tr>
-          <tr><td>Lease time</td><td>No (permanent)</td><td>Yes (timed)</td></tr>
-          <tr><td>Configuration</td><td>Limited</td><td>Full (DNS, GW etc.)</td></tr>
-          <tr><td>Ports</td><td>67/68 UDP</td><td>67/68 UDP (same!)</td></tr>
-          <tr><td>Relation</td><td>Predecessor</td><td>Successor to BOOTP</td></tr>
-        </table>
-        <div class="trick" style="margin-top:6px"><b>🧠 BOOTP = "Boot Only One Time Parameters" (static, old) · DHCP = Dynamic, modern evolution</b></div>
+        <div class="stat" data-target="20" data-suffix="+">
+          <div class="stat-value">0</div>
+          <div class="stat-label">Departments</div>
+        </div>
+        <div class="stat" data-target="95" data-suffix="%">
+          <div class="stat-value">0</div>
+          <div class="stat-label">Placement Rate</div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- ══════════════════════════════════════════════
-     MASTER QUICK REVISION
-     ══════════════════════════════════════════════ -->
-<div class="unit-header page-break" style="background:var(--gray-bg);color:var(--gray)">
-  <div class="unit-num" style="background:var(--gray)">★</div>
-  <div><div class="unit-title">Master Quick Revision</div>
-  <div class="unit-sub">All port numbers · All formulas · All memory tricks · All exam traps</div></div>
-</div>
-
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--gray-bg);color:var(--gray)">R1</span><h2>All Port Numbers Cheatsheet</h2></div>
-  <div class="section-body">
-    <div class="port-row">
-      <div class="port"><span class="port-num t-blue" style="padding:2px 7px;border-radius:4px">20/21</span> FTP (Data/Control)</div>
-      <div class="port"><span class="port-num t-teal" style="padding:2px 7px;border-radius:4px">22</span> SSH (Secure Shell)</div>
-      <div class="port"><span class="port-num t-amber" style="padding:2px 7px;border-radius:4px">23</span> Telnet</div>
-      <div class="port"><span class="port-num t-red" style="padding:2px 7px;border-radius:4px">25</span> SMTP</div>
-      <div class="port"><span class="port-num t-purple" style="padding:2px 7px;border-radius:4px">53</span> DNS (UDP/TCP)</div>
-      <div class="port"><span class="port-num t-coral" style="padding:2px 7px;border-radius:4px">67/68</span> DHCP/BOOTP</div>
-      <div class="port"><span class="port-num t-green" style="padding:2px 7px;border-radius:4px">80</span> HTTP</div>
-      <div class="port"><span class="port-num t-pink" style="padding:2px 7px;border-radius:4px">110</span> POP3</div>
-      <div class="port"><span class="port-num t-indigo" style="padding:2px 7px;border-radius:4px">143</span> IMAP</div>
-      <div class="port"><span class="port-num t-blue" style="padding:2px 7px;border-radius:4px">443</span> HTTPS</div>
-    </div>
-    <div class="trick"><b>🧠 Port trick — "Friendly Telnet Sends Data Pretty Happily":</b> FTP=21 · Telnet=23 · SMTP=25 · DNS=53 · POP3=110 · HTTP=80</div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--gray-bg);color:var(--gray)">R2</span><h2>All Critical Formulas</h2></div>
-  <div class="section-body">
-    <div class="grid2">
-      <div>
-        <div class="formula">Nyquist (noiseless): Max Rate = 2 × B × log<sub>2</sub>(M)</div>
-        <div class="formula">Shannon (noisy): Max Rate = B × log<sub>2</sub>(1 + SNR)</div>
-        <div class="formula">Period: T = 1/f &nbsp;|&nbsp; Wavelength: &lambda; = c/f (c=3&times;10<sup>8</sup>)</div>
-        <div class="formula">Mesh links = n(n-1)/2 &nbsp;|&nbsp; Ports per device = n-1</div>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Quick Access</h2>
+        <p class="section-subtitle">Everything you need, one click away</p>
       </div>
-      <div>
-        <div class="formula">Hamming: 2<sup>r</sup> &ge; m + r + 1</div>
-        <div class="formula">Stop-and-Wait: &eta; = 1/(1+2a) &nbsp; a = Tp/Tf</div>
-        <div class="formula">GBN window = 2<sup>n</sup>&minus;1 &nbsp;|&nbsp; SR window = 2<sup>n-1</sup></div>
-        <div class="formula">ALOHA: Pure=18.4%(1/2e) · Slotted=36.8%(1/e)</div>
+
+      <div class="quick-links">
+        <a href="#" class="quick-link" onclick="alert('Demo portal — wire to your real backend.'); return false;">
+          <div class="quick-link-icon">🎓</div>
+          <div>
+            <div>Student Portal</div>
+            <small style="color: var(--text-muted); font-weight: 400;">Login to your account</small>
+          </div>
+        </a>
+        <a href="notices.html" class="quick-link">
+          <div class="quick-link-icon">📋</div>
+          <div>
+            <div>Notice Board</div>
+            <small style="color: var(--text-muted); font-weight: 400;">Latest announcements</small>
+          </div>
+        </a>
+        <a href="academics.html" class="quick-link">
+          <div class="quick-link-icon">📚</div>
+          <div>
+            <div>Departments</div>
+            <small style="color: var(--text-muted); font-weight: 400;">Explore all programs</small>
+          </div>
+        </a>
       </div>
     </div>
-    <div class="formula">Ethernet: min frame=64 bytes · MTU=1500 bytes · T1=1.544Mbps · E1=2.048Mbps</div>
-  </div>
-</div>
+  </section>
 
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--amber-bg);color:var(--amber)">R3</span><h2>All Memory Tricks at a Glance</h2></div>
-  <div class="section-body">
-    <div class="ref-box">
-      <div>🔵 <b>Network size:</b> "Please Let Me Work" → PAN, LAN, MAN, WAN</div>
-      <div>🟣 <b>Topologies:</b> "Big Stars Real Make Tree Hybrid" → Bus, Star, Ring, Mesh, Tree, Hybrid</div>
-      <div>🟠 <b>OSI (top→bottom):</b> "All People Seem To Need Data Processing"</div>
-      <div>🟠 <b>OSI (bottom→top):</b> "Please Do Not Throw Sausage Pizza Away"</div>
-      <div>🟢 <b>TCP/IP layers:</b> "All Tigers Ignore Network" → App, Transport, Internet, Network Access</div>
-      <div>🔵 <b>Transmission modes:</b> "Simple Hens Full" → Simplex, Half Duplex, Full Duplex</div>
-      <div>⚡ <b>Physical layer PDU names:</b> Bit→Frame→Packet→Segment→Data (bottom to top)</div>
-      <div>🔴 <b>Error techniques:</b> "Pigs Can't Hamster" → Parity, CRC, Checksum, Hamming</div>
-      <div>🟤 <b>ARQ protocols:</b> "Stop Going Selectively" → Stop-and-Wait, Go-Back-N, Selective Repeat</div>
-      <div>🟡 <b>Multiple access:</b> "Random Control Channel" → Random, Controlled, Channelization</div>
-      <div>💡 <b>ALOHA:</b> Slotted = exactly 2× Pure (36.8% vs 18.4%)</div>
-      <div>🟣 <b>Signals:</b> "Nyquist=Noiseless, Shannon=Signal noise"</div>
-      <div>🌐 <b>Wireless media:</b> "Radio Instantly Makes Satellites" → Radio, Infrared, Microwave, Satellite</div>
-      <div>🛰️ <b>Satellite orbits:</b> "Lazy Monkeys Geek" → LEO, MEO, GEO</div>
-      <div>📡 <b>Multiplexing:</b> "Flowers Take Wavelengths" → FDM, TDM, WDM</div>
-      <div>📧 <b>SMTP:</b> "Send Mail To People" | POP3=download | IMAP=access</div>
-      <div>🌍 <b>DNS resolution:</b> "Brave Rascals Run To Answer" → Browser→Resolver→Root→TLD→Auth</div>
-      <div>🖥️ <b>DHCP process:</b> "Devices Often Request Addresses" → DORA</div>
-      <div>📂 <b>FTP ports:</b> "21 Controls, 20 Delivers"</div>
-      <div>🔐 <b>UDP vs TCP:</b> UDP="Uncle Doesn't Promise" · TCP="Takes Care Precisely"</div>
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Latest Notices</h2>
+        <p class="section-subtitle">Stay updated with what's happening on campus</p>
+      </div>
+
+      <div class="notice-list">
+        <div class="notice-item">
+          <div class="notice-date">
+            <div class="day">11</div>
+            <div class="month">Jun 2026</div>
+          </div>
+          <div class="notice-content">
+            <h3><a href="notices.html">Admissions 2026 — Open for all UG/PG programs</a></h3>
+            <p>Apply through the Common Seat Allocation System (CSAS) portal. Last date: 30 June 2026.</p>
+            <span class="notice-tag urgent">Important</span>
+          </div>
+        </div>
+
+        <div class="notice-item">
+          <div class="notice-date">
+            <div class="day">08</div>
+            <div class="month">Jun 2026</div>
+          </div>
+          <div class="notice-content">
+            <h3><a href="notices.html">Semester Exam Timetable Published</a></h3>
+            <p>End-semester examination schedule for May–June 2026 session is now available.</p>
+            <span class="notice-tag new">New</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: 2rem;">
+        <a href="notices.html" class="btn btn-ghost">View All Notices →</a>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<div class="section">
-  <div class="section-header"><span class="badge" style="background:var(--red-bg);color:var(--red)">R4</span><h2>⚠️ Top Exam Traps — Must Read Before Exam</h2></div>
-  <div class="section-body">
-    <div class="warn-box"><b>1. TCP header min = 20 bytes · UDP header = exactly 8 bytes (fixed, always)</b></div>
-    <div class="warn-box"><b>2. GBN receiver window is ALWAYS 1.</b> SR receiver window = 2<sup>n-1</sup>. Getting these swapped = guaranteed mark loss.</div>
-    <div class="warn-box"><b>3. CSMA/CD = wired Ethernet (collision detected DURING transmission). CSMA/CA = wireless Wi-Fi (collision AVOIDED before).</b></div>
-    <div class="warn-box"><b>4. SMTP = SENDING email only. POP3/IMAP = receiving/accessing email. Very commonly confused.</b></div>
-    <div class="warn-box"><b>5. DNS uses UDP port 53 for queries but TCP port 53 for zone transfers. NOT purely UDP.</b></div>
-    <div class="warn-box"><b>6. Ethernet minimum frame = 64 bytes. If data &lt; 46 bytes → PADDING is added to reach minimum.</b></div>
-    <div class="warn-box"><b>7. FTP uses TWO TCP connections: port 21 (control, persistent) and port 20 (data, opens per file).</b></div>
-    <div class="warn-box"><b>8. Telnet = insecure (plain text, port 23). SSH = secure (encrypted, port 22). Always distinguish these.</b></div>
-    <div class="warn-box"><b>9. DHCP is successor to BOOTP. Both use UDP ports 67/68. DHCP added dynamic IP + lease concept.</b></div>
-    <div class="warn-box"><b>10. WWW ≠ Internet. Internet = physical infrastructure. WWW = one service/application running ON the internet.</b></div>
-    <div class="warn-box"><b>11. WDM is ONLY for fiber optic cables — NEVER copper. DWDM = Dense WDM (closer wavelength spacing).</b></div>
-    <div class="warn-box"><b>12. Walkie-talkie = Half Duplex (NOT simplex). Mobile phone call = Full Duplex.</b></div>
-  </div>
-</div>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Campus Spotlights</h2>
+        <p class="section-subtitle">Meet the faces behind the code</p>
+      </div>
 
-<div class="footer">
-  Computer Networks — Complete Exam Notes &nbsp;|&nbsp; All 4 Units Covered &nbsp;|&nbsp; Good Luck! 🎯
-</div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">🏋️</div>
+          <h3>Lead Developer</h3>
+          <p>When not optimizing this codebase or updating the UI, you can find our lead dev hitting the gym Monday through Saturday, pushing hard for that next level of physical conditioning.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎮</div>
+          <h3>Niranjan</h3>
+          <p>The resident gaming expert. If he isn't sleeping through the day, he's definitely grinding out a new high score or carrying the team in his favorite game.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>ARSD College</h4>
+          <p>Atma Ram Sanatan Dharma College<br/>University of Delhi<br/>Dhaula Kuan, New Delhi — 110021</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="faculty.html">Faculty</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-inner">
+          <span>© <span data-year>2026</span> Atma Ram Sanatan Dharma College. All rights reserved.</span>
+          <span>A demo clone built for learning.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
